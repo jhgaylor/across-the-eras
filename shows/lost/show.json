@@ -1,0 +1,21 @@
+{
+  "slug": "lost",
+  "title": "LOST",
+  "subtitle": "Across the Eras",
+  "blurb": "All 121 hours of the Island, episode by episode — every flashback, flash-forward, flash-sideways and time skip, whose hour it is, and exactly when the Island took someone.",
+  "emoji": "🏝️",
+  "tvmazeId": 123,
+  "axis": "episode",
+  "accent": "#f28c28",
+  "accentText": "#1a1206",
+  "heroGradient": "#241a0e",
+  "heroFont": {
+    "google": "Cormorant+Garamond:wght@600;700",
+    "family": "\"Cormorant Garamond\", Georgia, serif"
+  },
+  "regularsNote": "Lost's series regulars rotate constantly — Jack, Kate, Locke, Sawyer, Hurley, Sayid, Sun, Jin, Claire, Charlie, Desmond, Ben, Juliet and the rest aren't listed per episode by TVmaze, so use the chart rows and the spotlight tags for them. The dropdown below is guest cast, which on this show means most of the Others, the freighter crew and every parent in every flashback.",
+  "credits": "Episode data via TVmaze.",
+  "chartHint": "121 columns — scroll sideways. Click any bar to filter episodes, a season header to filter by season, an episode number to open it. Shift-click to combine.",
+  "episodeCount": 121,
+  "seasons": 6
+}

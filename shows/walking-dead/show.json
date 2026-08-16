@@ -1,0 +1,21 @@
+{
+  "slug": "walking-dead",
+  "title": "THE WALKING DEAD",
+  "subtitle": "Across the Eras",
+  "blurb": "Twelve years and 177 episodes, from the hospital bed in Atlanta to the Commonwealth. Pick a showrunner, a home base, a survivor, a big bad, an arc or a vibe — and find the episodes worth rewatching.",
+  "emoji": "🧟",
+  "tvmazeId": 73,
+  "axis": "season",
+  "accent": "#8fae3f",
+  "accentText": "#131a08",
+  "heroGradient": "#161c10",
+  "heroFont": {
+    "google": "Rye",
+    "family": "Rye, Georgia, serif"
+  },
+  "regularsNote": "Rick, Daryl, Carol, Michonne, Glenn, Maggie, Carl, Negan and the rest of the survivors are series regulars and aren't listed per-episode — this dropdown is guest cast only, so it's where you'll find Merle, the Governor, Milton, Dawn Lerner, Deanna, Jesus, Dwight, Simon, Jadis, Alpha, Beta, Jerry, Dianne, Elijah, Pamela Milton and every one-episode face.",
+  "credits": "AMC main series only (2010–2022) — no Fear, World Beyond, Dead City, Daryl Dixon, The Ones Who Live or Tales. Episode data via TVmaze (show 73); chart hand-built for this project.",
+  "chartHint": "Click any bar to filter episodes by that era, character, place or arc. Click a season number to filter by season. Shift-click to combine.",
+  "episodeCount": 177,
+  "seasons": 11
+}

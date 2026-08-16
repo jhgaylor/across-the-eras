@@ -1,0 +1,157 @@
+// Curated episode vibes for The Walking Dead (AMC, 2010–2022). Keys are "S.E" using TVmaze's numbering
+// in episodes.json — no specials, 177 episodes across 11 seasons.
+// Season premieres/finales are auto-tagged in app.js — not repeated here. TWD's own structural quirk,
+// the mid-season split, IS tagged: episode 8 of a 16-episode season is the mid-season finale and
+// episode 9 the mid-season premiere (season 2 splits 7/6; season 11 runs in three 8-episode parts).
+window.TAG_DEFS = {
+  fanfav:   {label:"Fan favorite", desc:"The ones that top every best-of list — “Clear”, “The Grove”, “No Way Out”, “What Comes After”"},
+  heavy:    {label:"Gut-punch", desc:"The episodes that hurt. Goodbyes, betrayals and the ones you need a minute after"},
+  death:    {label:"Major death", desc:"A series regular or major recurring character dies"},
+  setpiece: {label:"Walker set-piece", desc:"Herds, hordes and the big practical-effects showcases"},
+  war:      {label:"Wartime", desc:"All Out War, the Whisperer War, the siege of the Commonwealth — episodes where a war is being fought"},
+  villain:  {label:"Big-bad showcase", desc:"An episode built around the Governor, Negan, Alpha, the Reapers or the Commonwealth"},
+  newcomm:  {label:"New community", desc:"First look at a place — Woodbury, Terminus, Grady, Alexandria, the Hilltop, the Kingdom, the Commonwealth"},
+  bottle:   {label:"Bottle episode", desc:"Small cast, one location, character work — the show's best trick and sometimes its most divisive"},
+  flashback:{label:"Flashback-heavy", desc:"A big chunk set before now, or inside someone's head"},
+  timejump: {label:"Time jump", desc:"The story skips forward — the six-year jump, the coda"},
+  slow:     {label:"Slow burn", desc:"Table-setting. Honest label for the talky, low-momentum hours — some of them pay off later"},
+  midfin:   {label:"Mid-season finale", desc:"The last episode before the winter break"},
+  midprem:  {label:"Mid-season premiere", desc:"The back half of the season starts here"},
+  rick:     {label:"Rick spotlight", desc:""},
+  daryl:    {label:"Daryl spotlight", desc:""},
+  carol:    {label:"Carol spotlight", desc:""},
+  michonne: {label:"Michonne spotlight", desc:""},
+  glenn:    {label:"Glenn spotlight", desc:""},
+  maggie:   {label:"Maggie spotlight", desc:""},
+  negan:    {label:"Negan spotlight", desc:""},
+  carl:     {label:"Carl spotlight", desc:""},
+};
+
+window.EP_TAGS = {
+  // Season 1 — Atlanta & the CDC
+  "1.1":["rick","fanfav","setpiece"], "1.2":["rick","glenn","setpiece","fanfav"],
+  "1.3":["carol","daryl","slow"], "1.4":["setpiece","heavy","death"],
+  "1.5":["heavy","death","daryl"], "1.6":["fanfav","heavy","death","bottle"],
+
+  // Season 2 — Hershel's farm
+  "2.1":["setpiece","rick","fanfav"], "2.2":["carl","newcomm"],
+  "2.3":["heavy","death"], "2.4":["daryl","glenn","maggie"],
+  "2.5":["daryl","fanfav","flashback"], "2.6":["glenn","maggie","slow"],
+  "2.7":["midfin","fanfav","heavy","death","setpiece","carol"],
+  "2.8":["midprem","rick","slow"], "2.9":["rick","slow"],
+  "2.10":["rick","fanfav","bottle"], "2.11":["heavy","death","carl"],
+  "2.12":["heavy","death","rick","fanfav"], "2.13":["setpiece","fanfav","heavy","michonne"],
+
+  // Season 3 — the prison & Woodbury
+  "3.1":["setpiece","rick","newcomm"], "3.2":["rick","setpiece"],
+  "3.3":["michonne","villain","newcomm"], "3.4":["heavy","death","fanfav","carl","rick"],
+  "3.5":["rick","heavy","daryl"], "3.6":["michonne","glenn","maggie"],
+  "3.7":["glenn","maggie","michonne","villain"], "3.8":["midfin","villain","michonne","setpiece","heavy"],
+  "3.9":["midprem","rick","daryl"], "3.10":["heavy","death","daryl","setpiece"],
+  "3.11":["slow","villain"], "3.12":["bottle","fanfav","rick","michonne","carl","heavy"],
+  "3.13":["bottle","rick","villain"], "3.14":["villain","setpiece"],
+  "3.15":["heavy","death","daryl","fanfav"], "3.16":["heavy","death","villain"],
+
+  // Season 4 — the fall of the prison, the road, Terminus
+  "4.1":["slow","rick","carol"], "4.2":["setpiece","carol"],
+  "4.3":["carol","daryl"], "4.4":["carol","rick","heavy","fanfav"],
+  "4.5":["heavy","setpiece","glenn","maggie"], "4.6":["villain","flashback","bottle"],
+  "4.7":["villain","bottle"], "4.8":["midfin","fanfav","heavy","death","setpiece","war","villain","rick"],
+  "4.9":["midprem","rick","carl","bottle","michonne","flashback","fanfav"],
+  "4.10":["maggie"], "4.11":["michonne","carl"],
+  "4.12":["daryl","bottle","fanfav"], "4.13":["daryl","maggie"],
+  "4.14":["carol","bottle","fanfav","heavy","death"], "4.15":["glenn","maggie"],
+  "4.16":["fanfav","rick","carl","michonne","flashback","newcomm"],
+
+  // Season 5 — Terminus, Grady, and finding Alexandria
+  "5.1":["fanfav","setpiece","carol","rick","war"], "5.2":["slow","newcomm"],
+  "5.3":["heavy","death","fanfav","rick"], "5.4":["newcomm","bottle"],
+  "5.5":["flashback","heavy","bottle"], "5.6":["carol","daryl","bottle","fanfav"],
+  "5.7":["slow"], "5.8":["midfin","heavy","death","fanfav","daryl"],
+  "5.9":["midprem","heavy","death","fanfav","flashback"],
+  "5.10":["heavy","setpiece","maggie","daryl","fanfav"], "5.11":["michonne","newcomm"],
+  "5.12":["newcomm","rick","carl","michonne"], "5.13":["carol","rick","daryl","fanfav"],
+  "5.14":["heavy","death","glenn","setpiece"], "5.15":["rick","carol"],
+  "5.16":["fanfav","rick","setpiece","villain","heavy","death"],
+
+  // Season 6 — the quarry herd, the Wolves, and Negan
+  "6.1":["setpiece","rick","flashback"], "6.2":["fanfav","carol","setpiece","heavy","death"],
+  "6.3":["heavy","glenn","fanfav","setpiece"], "6.4":["bottle","flashback","slow"],
+  "6.5":["slow","maggie"], "6.6":["daryl","bottle","slow"],
+  "6.7":["glenn","slow"], "6.8":["midfin","setpiece","heavy","death"],
+  "6.9":["midprem","fanfav","setpiece","heavy","death","rick","carl"],
+  "6.10":["michonne","rick","daryl","fanfav"], "6.11":["newcomm","maggie","glenn"],
+  "6.12":["heavy","war","glenn","carol","fanfav"], "6.13":["carol","maggie","bottle","fanfav"],
+  "6.14":["heavy","death","daryl"], "6.15":["carol","rick"],
+  "6.16":["villain","negan","heavy"],
+
+  // Season 7 — under Negan's boot
+  "7.1":["heavy","death","negan","fanfav","glenn","rick","villain"],
+  "7.2":["newcomm","carol","slow"], "7.3":["daryl","negan","bottle","heavy"],
+  "7.4":["negan","rick","michonne","villain"], "7.5":["maggie","slow"],
+  "7.6":["slow","newcomm"], "7.7":["negan","carl","slow"],
+  "7.8":["midfin","heavy","death","negan","rick","fanfav"],
+  "7.9":["midprem","rick","setpiece","war"], "7.10":["newcomm","daryl","michonne","rick"],
+  "7.11":["negan","bottle","slow"], "7.12":["michonne"],
+  "7.13":["heavy","death","carol","bottle"], "7.14":["maggie","daryl"],
+  "7.15":["maggie","negan","michonne"],
+  "7.16":["war","setpiece","heavy","death","fanfav","negan","carol","maggie"],
+
+  // Season 8 — All Out War
+  "8.1":["war","setpiece","rick","negan","carl"], "8.2":["war","slow"],
+  "8.3":["war","slow"], "8.4":["heavy","death","war","fanfav","carol"],
+  "8.5":["negan","bottle","war"], "8.6":["slow","war","maggie"],
+  "8.7":["war","negan","slow"], "8.8":["midfin","war","carl","negan","setpiece"],
+  "8.9":["midprem","heavy","death","fanfav","carl","rick","michonne"],
+  "8.10":["michonne","negan","war"], "8.11":["daryl","maggie","slow","war"],
+  "8.12":["negan","rick","maggie","war"], "8.13":["war","setpiece","maggie"],
+  "8.14":["negan","war"], "8.15":["negan","war","heavy","death"],
+  "8.16":["war","fanfav","rick","negan","heavy","maggie"],
+
+  // Season 9 — the time jump, Rick's exit, the Whisperers
+  "9.1":["timejump","rick","maggie","daryl","setpiece"], "9.2":["rick","maggie","heavy","death"],
+  "9.3":["rick","daryl","maggie"], "9.4":["rick","daryl","michonne","maggie"],
+  "9.5":["heavy","fanfav","rick","michonne","flashback","timejump","setpiece"],
+  "9.6":["timejump","michonne","carol","newcomm"], "9.7":["michonne","daryl","carol","slow"],
+  "9.8":["midfin","villain","heavy","death","fanfav","setpiece","daryl"],
+  "9.9":["midprem","villain","michonne","negan"], "9.10":["villain","flashback","heavy","bottle"],
+  "9.11":["carol","daryl","villain"], "9.12":["villain","negan","slow"],
+  "9.13":["daryl","carol","setpiece"], "9.14":["michonne","flashback","heavy","fanfav"],
+  "9.15":["heavy","death","fanfav","villain","carol","michonne"],
+  "9.16":["setpiece","carol","daryl","negan","michonne"],
+
+  // Season 10 — the Whisperer War, plus the six bonus episodes
+  "10.1":["villain","setpiece","michonne","carol"], "10.2":["villain","flashback","bottle"],
+  "10.3":["carol","michonne","setpiece"], "10.4":["negan","daryl","slow"],
+  "10.5":["negan","daryl","slow"], "10.6":["carol","negan","villain","fanfav","bottle"],
+  "10.7":["heavy","death","villain","michonne"],
+  "10.8":["midfin","villain","michonne","setpiece"],
+  "10.9":["midprem","carol","daryl","setpiece"],
+  "10.10":["setpiece","negan","carol","villain","fanfav"],
+  "10.11":["war","setpiece","carol","daryl","fanfav"],
+  "10.12":["war","heavy","death","negan","fanfav","villain"],
+  "10.13":["michonne","flashback","heavy","fanfav"],
+  "10.14":["negan","carol","bottle","heavy","fanfav"], "10.15":["carol","villain","slow"],
+  "10.16":["setpiece","fanfav","heavy","death","war","carol","maggie"],
+  "10.17":["maggie","daryl","bottle","flashback"], "10.18":["daryl","flashback","bottle","carol"],
+  "10.19":["bottle","fanfav"], "10.20":["bottle","flashback"],
+  "10.21":["carol","daryl","bottle","slow"],
+  "10.22":["negan","flashback","bottle","fanfav","heavy"],
+
+  // Season 11 — the Reapers and the Commonwealth, in three parts
+  "11.1":["setpiece","maggie","negan","daryl"], "11.2":["setpiece","maggie","negan"],
+  "11.3":["villain","daryl","maggie","setpiece"], "11.4":["daryl","villain"],
+  "11.5":["slow","carol","maggie"], "11.6":["setpiece","heavy","fanfav"],
+  "11.7":["negan","maggie","daryl"], "11.8":["midfin","setpiece","war","heavy"],
+  "11.9":["midprem","war","heavy","maggie","daryl","fanfav"],
+  "11.10":["newcomm","carol","daryl"], "11.11":["slow","villain"],
+  "11.12":["maggie","villain","slow"], "11.13":["villain","maggie","negan"],
+  "11.14":["villain","negan","maggie"], "11.15":["villain","carol","slow"],
+  "11.16":["midfin","heavy","death","daryl","carol","negan","maggie"],
+  "11.17":["midprem","setpiece","villain","negan","heavy","death"],
+  "11.18":["villain","negan","maggie","carol"], "11.19":["setpiece","fanfav","maggie","negan"],
+  "11.20":["daryl","carol","villain"], "11.21":["villain","negan","flashback"],
+  "11.22":["negan","maggie","villain"],
+  "11.23":["war","setpiece","heavy","death","fanfav","carol"],
+  "11.24":["heavy","death","fanfav","setpiece","timejump","rick","michonne","maggie","negan","daryl","carol"],
+};

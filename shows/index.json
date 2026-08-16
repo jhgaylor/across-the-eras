@@ -1,5 +1,29 @@
 [
   {
+    "slug": "angel",
+    "title": "ANGEL",
+    "subtitle": "Across the Eras",
+    "emoji": "🌆",
+    "blurb": "Pick a season, a Big Bad, a member of the team, a romance, an LA haunt or a vibe — and find the episodes to rewatch. Five years of noir, apocalypse and one vampire trying to earn a soul back.",
+    "episodeCount": 110,
+    "seasons": 5,
+    "accent": "#8b1e3f",
+    "accentText": "#ffffff",
+    "axis": "season"
+  },
+  {
+    "slug": "battlestar-galactica",
+    "title": "BATTLESTAR GALACTICA",
+    "subtitle": "Across the Eras",
+    "emoji": "🚀",
+    "blurb": "The 2003 Miniseries and all four seasons of the Ronald D. Moore reimagining, laid out episode by episode — the run from the Cylons, the Pegasus, New Caprica, the trial, the Final Five, and the road to Earth.",
+    "episodeCount": 74,
+    "seasons": 4,
+    "accent": "#d81f26",
+    "accentText": "#ffffff",
+    "axis": "episode"
+  },
+  {
     "slug": "buffy",
     "title": "BUFFY THE VAMPIRE SLAYER",
     "subtitle": "Across the Eras",
@@ -33,6 +57,30 @@
     "seasons": 16,
     "accent": "#3aa0ff",
     "accentText": "#ffffff",
+    "axis": "season"
+  },
+  {
+    "slug": "lost",
+    "title": "LOST",
+    "subtitle": "Across the Eras",
+    "emoji": "🏝️",
+    "blurb": "All 121 hours of the Island, episode by episode — every flashback, flash-forward, flash-sideways and time skip, whose hour it is, and exactly when the Island took someone.",
+    "episodeCount": 121,
+    "seasons": 6,
+    "accent": "#f28c28",
+    "accentText": "#1a1206",
+    "axis": "episode"
+  },
+  {
+    "slug": "ncis",
+    "title": "NCIS",
+    "subtitle": "Across the Eras",
+    "emoji": "⚓",
+    "blurb": "Twenty-three seasons of the Major Case Response Team. Pick a showrunner era, a roster, a big bad, an arc or a vibe — and find the episodes worth rewatching.",
+    "episodeCount": 507,
+    "seasons": 23,
+    "accent": "#c9a227",
+    "accentText": "#000000",
     "axis": "season"
   },
   {
@@ -70,6 +118,30 @@
     "accent": "#d98e04",
     "accentText": "#000000",
     "axis": "episode"
+  },
+  {
+    "slug": "twin-peaks",
+    "title": "TWIN PEAKS",
+    "subtitle": "Across the Eras",
+    "emoji": "☕",
+    "blurb": "All 48 hours — the ABC run of 1990–91 and Showtime's 2017 Return — laid out episode by episode: the Laura Palmer case, the Lodge, the town, and who's playing the Roadhouse.",
+    "episodeCount": 48,
+    "seasons": 3,
+    "accent": "#b3001b",
+    "accentText": "#ffffff",
+    "axis": "episode"
+  },
+  {
+    "slug": "walking-dead",
+    "title": "THE WALKING DEAD",
+    "subtitle": "Across the Eras",
+    "emoji": "🧟",
+    "blurb": "Twelve years and 177 episodes, from the hospital bed in Atlanta to the Commonwealth. Pick a showrunner, a home base, a survivor, a big bad, an arc or a vibe — and find the episodes worth rewatching.",
+    "episodeCount": 177,
+    "seasons": 11,
+    "accent": "#8fae3f",
+    "accentText": "#131a08",
+    "axis": "season"
   },
   {
     "slug": "west-wing",

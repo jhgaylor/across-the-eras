@@ -1,0 +1,18 @@
+{
+  "slug": "battlestar-galactica",
+  "title": "BATTLESTAR GALACTICA",
+  "subtitle": "Across the Eras",
+  "blurb": "The 2003 Miniseries and all four seasons of the Ronald D. Moore reimagining, laid out episode by episode — the run from the Cylons, the Pegasus, New Caprica, the trial, the Final Five, and the road to Earth.",
+  "emoji": "🚀",
+  "tvmazeId": [166, 85808],
+  "axis": "episode",
+  "accent": "#d81f26",
+  "accentText": "#ffffff",
+  "heroGradient": "#241012",
+  "heroFont": { "google": "Orbitron:wght@600;800", "family": "Orbitron, \"Arial Narrow\", sans-serif" },
+  "regularsNote": "Adama, Roslin, Starbuck, Apollo, Baltar, Number Six and Sharon are TVmaze series regulars, so they don't appear in this dropdown — use the chart rows and the spotlight tags for them. Almost everyone else on Galactica (Tigh, Tyrol, Helo, Gaeta, Dee, Cally, Cottle, Zarek, Racetrack, Hot Dog) is filed as guest cast and is listed here.",
+  "credits": "Episode data via TVmaze.",
+  "chartHint": "Click any bar to filter episodes. Click a season header to filter by season, an episode number to open it. Shift-click to combine.",
+  "episodeCount": 74,
+  "seasons": 4
+}

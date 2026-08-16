@@ -1,0 +1,21 @@
+{
+  "slug": "twin-peaks",
+  "title": "TWIN PEAKS",
+  "subtitle": "Across the Eras",
+  "blurb": "All 48 hours — the ABC run of 1990–91 and Showtime's 2017 Return — laid out episode by episode: the Laura Palmer case, the Lodge, the town, and who's playing the Roadhouse.",
+  "emoji": "☕",
+  "tvmazeId": 156,
+  "axis": "episode",
+  "accent": "#b3001b",
+  "accentText": "#ffffff",
+  "heroGradient": "#2a0a10",
+  "heroFont": {
+    "google": "Zilla+Slab:wght@600;700",
+    "family": "\"Zilla Slab\", Georgia, serif"
+  },
+  "regularsNote": "Cooper, the Palmers, the Hornes, the sheriff's station and the rest of the S1–2 regulars aren't listed per-episode — use the chart rows and the spotlight tags for them. Guest cast is fullest for The Return, where most of the returning townspeople are credited as guests.",
+  "chartHint": "Click any bar to filter episodes. Click a season header to filter by season, an episode number to open it. Shift-click to combine.",
+  "credits": "Episode data via TVmaze. Fire Walk With Me (1992) is a film, not an episode — it lives in the 25-year gap between column 30 and column 31.",
+  "episodeCount": 48,
+  "seasons": 3
+}

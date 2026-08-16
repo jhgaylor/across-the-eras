@@ -1,0 +1,21 @@
+{
+  "slug": "ncis",
+  "title": "NCIS",
+  "subtitle": "Across the Eras",
+  "blurb": "Twenty-three seasons of the Major Case Response Team. Pick a showrunner era, a roster, a big bad, an arc or a vibe — and find the episodes worth rewatching.",
+  "emoji": "⚓",
+  "tvmazeId": 60,
+  "axis": "season",
+  "accent": "#c9a227",
+  "accentText": "#000000",
+  "heroGradient": "#141d2b",
+  "heroFont": {
+    "google": "Black+Ops+One",
+    "family": "\"Black Ops One\", Impact, sans-serif"
+  },
+  "regularsNote": "The MCRT regulars (Gibbs, Tony, Kate, Ziva, McGee, Abby, Ducky, Palmer, Bishop, Torres, Sloane, Kasie, Knight, Parker, Vance…) aren't listed per-episode — use the roster rows on the chart for them.",
+  "chartHint": "Click any bar to filter episodes by that era. Click a season number to filter by season. Shift-click to combine.",
+  "credits": "Episode data via TVmaze.",
+  "episodeCount": 507,
+  "seasons": 23
+}

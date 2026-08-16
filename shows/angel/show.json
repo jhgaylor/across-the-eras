@@ -1,0 +1,21 @@
+{
+  "slug": "angel",
+  "title": "ANGEL",
+  "subtitle": "Across the Eras",
+  "blurb": "Pick a season, a Big Bad, a member of the team, a romance, an LA haunt or a vibe — and find the episodes to rewatch. Five years of noir, apocalypse and one vampire trying to earn a soul back.",
+  "emoji": "🌆",
+  "tvmazeId": 428,
+  "axis": "season",
+  "accent": "#8b1e3f",
+  "accentText": "#ffffff",
+  "heroGradient": "#1a0d13",
+  "heroFont": {
+    "google": "Cinzel:wght@600;800",
+    "family": "Cinzel, \"Cinzel Decorative\", serif"
+  },
+  "regularsNote": "The series regulars — Angel, Cordelia, Doyle, Wesley, Gunn, Fred/Illyria, Lorne, Connor and Spike — mostly aren't listed per-episode; use the Angel Investigations rows on the chart for them. Everyone else is here: Lilah, Lindsey, Darla, Drusilla, Kate Lockley, Holtz, Justine, Sahjhan, Jasmine, Harmony, Eve, Marcus Hamilton, Groo, Skip, and about 660 more.",
+  "credits": "Episode data via TVmaze.",
+  "chartHint": "Click any bar to filter episodes by that era. Click a season number to filter by season. Shift-click to combine.",
+  "episodeCount": 110,
+  "seasons": 5
+}
