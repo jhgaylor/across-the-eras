@@ -17,7 +17,17 @@
   .doc pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;line-height:1.5}
   .doc pre code{background:none;border:0;padding:0}
   .url{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0}
-  .url code{font-size:16px;color:var(--teal);background:none;border:0;padding:0}
+  .url code{font-size:16px;color:var(--teal);background:none;border:0;padding:0;word-break:break-all}
+  .copy{margin-left:auto;display:inline-flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:13px;color:#cfd6dd;transition:.15s;white-space:nowrap}
+  .copy:hover{border-color:var(--teal);color:var(--teal)}
+  .copy.done{border-color:var(--teal);color:var(--teal)}
+  .copy svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .prompt{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 150px 16px 16px;margin:14px 0}
+  @media (max-width:600px){.prompt{padding-right:16px;padding-top:48px}}
+  .prompt .copy{position:absolute;top:10px;right:10px}
+  .prompt pre{margin:0;padding:0;background:none;border:0;white-space:pre-wrap;font-family:inherit;font-size:14.5px;color:#e8e6e1;line-height:1.55}
+  pre.cp{position:relative}
+  pre.cp .copy{position:absolute;top:8px;right:8px}
   .steps{counter-reset:s;list-style:none;padding:0;margin:0}
   .steps li{counter-increment:s;position:relative;padding-left:40px;margin:10px 0}
   .steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;background:var(--teal);color:var(--accent-text);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px}
@@ -56,7 +66,7 @@
 <h2>What this is, in one paragraph</h2>
 <p>Under the hood, this website is a big pile of hand-curated facts about a handful of TV shows: who was showrunning when, which Big Bad each season had, which episodes are gut-punches, which guest star showed up where. The <b>MCP endpoint</b> lets an AI assistant read those same facts and run those same filters. So instead of clicking "Season 5 → Glory → Gut-punch", you can just ask <i>"which Buffy episodes from the Glory season are the sad ones?"</i> and get an answer — with a link that opens the site with those exact filters applied.</p>
 
-<div class="url"><span class="muted">The address to give your assistant:</span><code id="ep">https://eras.inevitable.fyi/mcp</code></div>
+<div class="url"><span class="muted">The address to give your assistant:</span><code id="ep">https://eras.inevitable.fyi/mcp</code><button class="copy" data-copy="https://eras.inevitable.fyi/mcp" aria-label="Copy MCP address"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button></div>
 
 <p class="tip">MCP stands for <i>Model Context Protocol</i> — an open standard that lets an assistant use tools on a website, a bit like a plug-in. You don't need to know more than that. It's read-only: the assistant can look things up, it can't change anything here.</p>
 
@@ -70,7 +80,18 @@
 <div class="ask">"Which shows do you have? Show me the era chart for The Wire."</div>
 <p>The assistant will usually reply with a short list and a link like <code>https://eras.inevitable.fyi/buffy/#s=5&amp;t=heavy</code>. Click it and the site opens with those filters already on, so you can keep exploring by hand.</p>
 
-<h2>Connect it (about a minute)</h2>
+<h2>Fastest way: let the assistant set itself up</h2>
+<p>Most assistants can add a connector if you just tell them to. Copy this and paste it into a new chat:</p>
+<div class="prompt"><button class="copy" data-copy-target="setupPrompt" aria-label="Copy setup prompt"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy prompt</button><pre id="setupPrompt">Please connect to the "Across the Eras" MCP server so you can look up TV rewatch guides for me.
+
+Server URL: https://eras.inevitable.fyi/mcp
+Type: remote MCP server, Streamable HTTP transport
+Authentication: none (leave OAuth / client ID / secret blank)
+
+If you can add it yourself, do that. If it has to be done in settings, tell me exactly where to click and what to paste. Once it's connected, call list_shows and tell me which shows are available.</pre></div>
+<p class="tip">Whether the assistant can do this on its own depends on the app: Claude Code and most coding tools can; claude.ai and ChatGPT will walk you through the settings screen. Either way it saves you hunting for the right menu.</p>
+
+<h2>Connect it by hand (about a minute)</h2>
 
 <details open>
 <summary>Claude (claude.ai and the Claude desktop app)</summary>
@@ -95,12 +116,13 @@
 <details>
 <summary>Cursor, Windsurf, VS Code, Claude Code and other developer tools</summary>
 <p>Add this to the tool's MCP config (the file is usually called <code>mcp.json</code> or lives under a "MCP servers" setting):</p>
-<pre><code>{
+<pre class="cp"><button class="copy" data-copy-target="cfgJson" aria-label="Copy config"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button><code id="cfgJson">{
   "mcpServers": {
     "across-the-eras": { "url": "https://eras.inevitable.fyi/mcp" }
   }
 }</code></pre>
-<p>Or, in Claude Code: <code>claude mcp add --transport http across-the-eras https://eras.inevitable.fyi/mcp</code></p>
+<p>Or, in Claude Code:</p>
+<pre class="cp"><button class="copy" data-copy-target="ccCmd" aria-label="Copy command"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button><code id="ccCmd">claude mcp add --transport http across-the-eras https://eras.inevitable.fyi/mcp</code></pre>
 </details>
 
 <details>
@@ -141,6 +163,20 @@
 </ul>
 
 </main>
+<script>
+(function(){
+  const ICON_OK='<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
+  document.querySelectorAll(".copy").forEach(b=>{
+    const orig=b.innerHTML;
+    b.addEventListener("click",async()=>{
+      const t=b.dataset.copy ?? document.getElementById(b.dataset.copyTarget)?.textContent ?? "";
+      try{ await navigator.clipboard.writeText(t); }catch{ const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
+      b.classList.add("done"); b.innerHTML=ICON_OK+" Copied";
+      setTimeout(()=>{ b.classList.remove("done"); b.innerHTML=orig; },1600);
+    });
+  });
+})();
+</script>
 <footer class="foot">Fan-made rewatch tools. Not affiliated with any network or studio. Episode metadata &amp; images © TVmaze contributors.</footer>
 </body>
 </html>
