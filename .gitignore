@@ -1,0 +1,5 @@
+shows/*/fetch_cast.log
+shows/*/tvmaze_raw.json
+shows/*/guestcast_raw.json
+.DS_Store
+_t.html

@@ -1,0 +1,21 @@
+{
+  "slug": "the-wire",
+  "title": "THE WIRE",
+  "subtitle": "Across the Eras",
+  "blurb": "All 60 episodes of Baltimore, episode by episode — the towers, the port, Hamsterdam, the schools and the paper, plus who's running the corners and who's chasing them.",
+  "emoji": "📟",
+  "tvmazeId": 179,
+  "axis": "episode",
+  "accent": "#d98e04",
+  "accentText": "#000000",
+  "heroGradient": "#241a10",
+  "heroFont": {
+    "google": "Oswald:wght@500;700",
+    "family": "Oswald, \"Arial Narrow\", sans-serif"
+  },
+  "regularsNote": "The Wire's cast rotates by season, so TVmaze's series regulars (McNulty, Bunk, Kima, Freamon, Daniels, Avon, Stringer, Omar, Bubbles, Carver, Herc, Marlo and the rest) aren't listed per episode — use the chart rows and the spotlight tags for them. The dropdown below is guest cast, which on this show means most of Baltimore.",
+  "credits": "Episode data via TVmaze.",
+  "chartHint": "Click any bar to filter episodes. Click a season header to filter by season, an episode number to open it. Shift-click to combine.",
+  "episodeCount": 60,
+  "seasons": 5
+}

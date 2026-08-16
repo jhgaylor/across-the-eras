@@ -1,0 +1,21 @@
+{
+  "slug": "buffy",
+  "title": "BUFFY THE VAMPIRE SLAYER",
+  "subtitle": "Across the Eras",
+  "blurb": "Pick a season, a Big Bad, a Scooby, a romance, a Sunnydale haunt or a vibe — and find the episodes to rewatch. Seven seasons on the Hellmouth, from the library to the crater.",
+  "emoji": "🧛",
+  "tvmazeId": 427,
+  "axis": "season",
+  "accent": "#d7263d",
+  "accentText": "#ffffff",
+  "heroGradient": "#241016",
+  "heroFont": {
+    "google": "Cinzel+Decorative:wght@700;900",
+    "family": "\"Cinzel Decorative\", Cinzel, serif"
+  },
+  "regularsNote": "The twelve series regulars — Buffy, Willow, Xander, Giles, Cordelia, Angel, Oz, Spike, Anya, Riley, Tara and Dawn — mostly aren't listed per-episode; use the Scooby Gang rows on the chart for them. Everyone else is here: Faith, Joyce, Drusilla, Darla, the Master, the Mayor, Glory, Adam, Ethan Rayne, Jonathan, Warren, Andrew, Harmony, Kendra, Wesley, Snyder, Clem and about 780 more.",
+  "credits": "Episode data via TVmaze.",
+  "chartHint": "Click any bar to filter episodes by that era. Click a season number to filter by season. Shift-click to combine.",
+  "episodeCount": 144,
+  "seasons": 7
+}

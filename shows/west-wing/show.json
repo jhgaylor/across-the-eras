@@ -1,0 +1,18 @@
+{
+  "slug": "west-wing",
+  "title": "THE WEST WING",
+  "subtitle": "Across the Eras",
+  "blurb": "Seven seasons in the Bartlet White House, charted season by season: the Sorkin walk-and-talk years and the Wells campaign years, every seat on the senior staff, and the arcs that ran from Rosslyn to the Santos transition.",
+  "emoji": "🏛️",
+  "tvmazeId": 523,
+  "axis": "season",
+  "accent": "#1f4e9c",
+  "accentText": "#ffffff",
+  "heroGradient": "#101c2e",
+  "heroFont": { "google": "Libre Baskerville:wght@400;700", "family": "'Libre Baskerville', Georgia, serif" },
+  "regularsNote": "Series regulars — Bartlet, Leo, C.J., Toby, Josh, Sam, Donna, Charlie, Will, Kate, Annabeth, Santos and Vinick — aren't listed here; this dropdown covers the guest and recurring cast, which is where the Bartlet universe really lives.",
+  "chartHint": "Seven seasons across. Click any bar to filter the episode list; mid-season handoffs are drawn at season granularity with the exact episode in the label.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 155,
+  "seasons": 7
+}

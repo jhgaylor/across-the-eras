@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: across-the-eras
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: across-the-eras
+  template:
+    metadata:
+      labels:
+        app: across-the-eras
+    spec:
+      containers:
+        - name: web
+          # Pinned to an immutable sha tag by .github/workflows/build.yml on
+          # every push to main; Flux picks up the manifest change and rolls.
+          image: ghcr.io/jhgaylor/across-the-eras:sha-0000000000000000000000000000000000000000
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              memory: 64Mi

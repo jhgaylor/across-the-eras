@@ -1,0 +1,21 @@
+{
+  "slug": "criminal-minds",
+  "title": "CRIMINAL MINDS",
+  "subtitle": "Across the Eras",
+  "blurb": "Pick an era, a BAU roster, a serial-arc UnSub, a recurring character or a vibe — and find the episodes to rewatch. Covers the original run and Evolution.",
+  "emoji": "🧠",
+  "tvmazeId": 81,
+  "axis": "season",
+  "accent": "#e5484d",
+  "accentText": "#ffffff",
+  "heroGradient": "#2b1518",
+  "heroFont": {
+    "google": "Special+Elite",
+    "family": "\"Special Elite\", Courier, monospace"
+  },
+  "regularsNote": "The BAU regulars (Hotch, Reid, Morgan, Garcia, JJ, Prentiss, Rossi, Gideon, Elle, Alvez, Tara, Simmons…) aren't listed per-episode — use the roster rows on the chart for them.",
+  "credits": "Episode data via TVmaze.",
+  "chartHint": "Click any bar to filter episodes by that era. Click a season number to filter by season. Shift-click to combine.",
+  "episodeCount": 364,
+  "seasons": 19
+}

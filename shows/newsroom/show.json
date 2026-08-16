@@ -1,0 +1,21 @@
+{
+  "slug": "newsroom",
+  "title": "THE NEWSROOM",
+  "subtitle": "Across the Eras",
+  "blurb": "All 25 episodes of Sorkin's ACN, laid out episode by episode — the real news each hour covered, the arcs, the antagonists, who's around.",
+  "emoji": "📰",
+  "tvmazeId": 151,
+  "axis": "episode",
+  "accent": "#4f7ff0",
+  "accentText": "#ffffff",
+  "heroGradient": "#15203a",
+  "heroFont": {
+    "google": "Playfair+Display:wght@700;900",
+    "family": "\"Playfair Display\", Georgia, serif"
+  },
+  "regularsNote": "The News Night regulars (Will, Mac, Charlie, Jim, Maggie, Don, Sloan, Neal) aren't listed per-episode — use the spotlight vibes for them.",
+  "credits": "Episode data via TVmaze.",
+  "chartHint": "Click any bar to filter episodes. Click a season header to filter by season, an episode number to open it. Shift-click to combine.",
+  "episodeCount": 25,
+  "seasons": 3
+}

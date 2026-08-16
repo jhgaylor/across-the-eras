@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "buffy",
+    "title": "BUFFY THE VAMPIRE SLAYER",
+    "subtitle": "Across the Eras",
+    "emoji": "🧛",
+    "blurb": "Pick a season, a Big Bad, a Scooby, a romance, a Sunnydale haunt or a vibe — and find the episodes to rewatch. Seven seasons on the Hellmouth, from the library to the crater.",
+    "episodeCount": 144,
+    "seasons": 7,
+    "accent": "#d7263d",
+    "accentText": "#ffffff",
+    "axis": "season"
+  },
+  {
+    "slug": "criminal-minds",
+    "title": "CRIMINAL MINDS",
+    "subtitle": "Across the Eras",
+    "emoji": "🧠",
+    "blurb": "Pick an era, a BAU roster, a serial-arc UnSub, a recurring character or a vibe — and find the episodes to rewatch. Covers the original run and Evolution.",
+    "episodeCount": 364,
+    "seasons": 19,
+    "accent": "#e5484d",
+    "accentText": "#ffffff",
+    "axis": "season"
+  },
+  {
+    "slug": "doctor-who",
+    "title": "DOCTOR WHO",
+    "subtitle": "Across the Eras",
+    "emoji": "🚪",
+    "blurb": "Twenty years of the revived series, from Rose to the Rani. Pick a Doctor, a companion, a showrunner, a big bad, an arc or a vibe — and find the episodes to rewatch.",
+    "episodeCount": 196,
+    "seasons": 16,
+    "accent": "#3aa0ff",
+    "accentText": "#ffffff",
+    "axis": "season"
+  },
+  {
+    "slug": "newsroom",
+    "title": "THE NEWSROOM",
+    "subtitle": "Across the Eras",
+    "emoji": "📰",
+    "blurb": "All 25 episodes of Sorkin's ACN, laid out episode by episode — the real news each hour covered, the arcs, the antagonists, who's around.",
+    "episodeCount": 25,
+    "seasons": 3,
+    "accent": "#4f7ff0",
+    "accentText": "#ffffff",
+    "axis": "episode"
+  },
+  {
+    "slug": "supernatural",
+    "title": "SUPERNATURAL",
+    "subtitle": "Across the Eras",
+    "emoji": "🚗",
+    "blurb": "Pick an era, an arc, a big bad, a location, a guest character or a vibe — and find the episodes to rewatch.",
+    "episodeCount": 327,
+    "seasons": 15,
+    "accent": "#5fe0e6",
+    "accentText": "#062327",
+    "axis": "season"
+  },
+  {
+    "slug": "the-wire",
+    "title": "THE WIRE",
+    "subtitle": "Across the Eras",
+    "emoji": "📟",
+    "blurb": "All 60 episodes of Baltimore, episode by episode — the towers, the port, Hamsterdam, the schools and the paper, plus who's running the corners and who's chasing them.",
+    "episodeCount": 60,
+    "seasons": 5,
+    "accent": "#d98e04",
+    "accentText": "#000000",
+    "axis": "episode"
+  },
+  {
+    "slug": "west-wing",
+    "title": "THE WEST WING",
+    "subtitle": "Across the Eras",
+    "emoji": "🏛️",
+    "blurb": "Seven seasons in the Bartlet White House, charted season by season: the Sorkin walk-and-talk years and the Wells campaign years, every seat on the senior staff, and the arcs that ran from Rosslyn to the Santos transition.",
+    "episodeCount": 155,
+    "seasons": 7,
+    "accent": "#1f4e9c",
+    "accentText": "#ffffff",
+    "axis": "season"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "slug": "supernatural",
+  "title": "SUPERNATURAL",
+  "subtitle": "Across the Eras",
+  "blurb": "Pick an era, an arc, a big bad, a location, a guest character or a vibe — and find the episodes to rewatch.",
+  "emoji": "🚗",
+  "tvmazeId": 19,
+  "axis": "season",
+  "accent": "#5fe0e6",
+  "accentText": "#062327",
+  "heroGradient": "#1c2a30",
+  "heroFont": {
+    "google": "Cinzel:wght@600;800",
+    "family": "Cinzel, serif"
+  },
+  "regularsNote": "Sam, Dean, Castiel, Crowley, Jack, Lucifer, Ruby & Bela are series regulars and aren't listed per-episode.",
+  "credits": "Chart adapted from FTWinchester's \"Supernatural Across the Eras\". Episode data via TVmaze.",
+  "chartHint": "Click any bar to filter episodes by that era. Click a season number to filter by season. Shift-click to combine.",
+  "episodeCount": 327,
+  "seasons": 15
+}

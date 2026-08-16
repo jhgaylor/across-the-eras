@@ -1,0 +1,11 @@
+.git
+k8s
+.github
+scripts
+shows/*/NOTES.md
+shows/*/guestcast_raw.json
+shows/*/tvmaze_raw.json
+shows/*/fetch_cast.log
+shows/*/*.py
+README.md
+CONTRACT.md

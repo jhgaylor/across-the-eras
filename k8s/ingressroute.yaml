@@ -1,0 +1,38 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: across-the-eras
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: "Host(`eras.inevitable.fyi`)"
+      kind: Rule
+      services:
+        - name: across-the-eras
+          port: 80
+  tls:
+    secretName: across-the-eras-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: across-the-eras-http
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: "Host(`eras.inevitable.fyi`)"
+      kind: Rule
+      middlewares:
+        - name: redirect-https
+          namespace: default
+      services:
+        - name: across-the-eras
+          port: 80

@@ -1,0 +1,21 @@
+{
+  "slug": "doctor-who",
+  "title": "DOCTOR WHO",
+  "subtitle": "Across the Eras",
+  "blurb": "Twenty years of the revived series, from Rose to the Rani. Pick a Doctor, a companion, a showrunner, a big bad, an arc or a vibe — and find the episodes to rewatch.",
+  "emoji": "🚪",
+  "tvmazeId": [210, 72724],
+  "axis": "season",
+  "accent": "#3aa0ff",
+  "accentText": "#ffffff",
+  "heroGradient": "#0a1a33",
+  "heroFont": {
+    "google": "Bebas+Neue",
+    "family": "\"Bebas Neue\", Impact, sans-serif"
+  },
+  "regularsNote": "The Doctor and the current TARDIS team are series regulars and aren't listed per-episode — this dropdown is guest cast only, so it's the place to find Jackie, Wilf, Kate Stewart, Osgood, Davros, the Master, the Paternoster Gang and every one-story guest.",
+  "credits": "Revived series only (2005– ). Episode data via TVmaze (shows 210 and 72724); chart hand-built for this project.",
+  "chartHint": "Click any bar to filter episodes by that era. Click a season number to filter by season. Shift-click to combine.",
+  "episodeCount": 196,
+  "seasons": 16
+}

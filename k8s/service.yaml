@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: across-the-eras
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  type: ClusterIP
+  selector:
+    app: across-the-eras
+  ports:
+    - port: 80
+      targetPort: 8080
