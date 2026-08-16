@@ -36,6 +36,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Check shows/index.json is current
         run: python3 scripts/build-index.py && git diff --exit-code -- shows/index.json
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - name: Validate show packages + test filter engine and MCP server
+        run: python3 scripts/validate-shows.py && cd mcp && npm ci && npm test
       - name: Build and push
         uses: docker/build-push-action@v6
         with:

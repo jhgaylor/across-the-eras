@@ -2,18 +2,14 @@
 const $ = s => document.querySelector(s);
 let SEASONS = [], UNITS = [];
 const AXIS = () => window.CHART_AXIS || "season";           // "season" | "episode"
-const unitOf = e => AXIS()==="episode" ? e.idx : e.s;       // which chart column an episode lives in
+const unitOf = e => ATE.unitOf(e, AXIS());                  // which chart column an episode lives in
 let CATS = [];                                              // resolved after the show package loads
-let SHOW = null, SLUG = "";                                  // current show.json + slug
-const state = {
-  seasons:new Set(), tags:new Set(), eras:[], char:"", q:"", minRating:0, sort:"air",
-  hideWatched:false, onlyWatched:false,
-};
-let EPS=[], CAST={}, CHAR_COUNT={};
+let SHOW = null, SLUG = "", MODEL = null;                    // current show.json + slug + ATE.prepare() output
+const state = ATE.emptyState();                              // filter state — shape defined in filter.js
+let EPS=[], CHAR_COUNT={}, BARS=[];
 const watched = new Set();
 const wkey = () => `ate_watched_${SLUG}`;
 const saveWatched = () => localStorage.setItem(wkey(), JSON.stringify([...watched]));
-const code = e => `S${String(e.s).padStart(2,"0")}E${String(e.e).padStart(2,"0")}`;
 const track = (ev,props)=>{ try{ window.posthog && posthog.capture(ev,props); }catch{} };
 const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
@@ -78,49 +74,27 @@ function renderLanding(index){
 
 // ---------- data ----------
 async function load(){
-  EPS = await (await fetch(`/shows/${SLUG}/episodes.json`)).json();
-  const maxS=Math.max(...EPS.map(e=>e.s)); SEASONS=Array.from({length:maxS},(_,i)=>i+1);
-  EPS.forEach((e,i)=>{ e.idx=i+1; });
-  UNITS = AXIS()==="episode"
-    ? EPS.map(e=>({n:e.idx,label:`${e.s}×${String(e.e).padStart(2,"0")}`,season:e.s,ep:e,title:`S${e.s}E${String(e.e).padStart(2,"0")} · ${e.title}`}))
-    : SEASONS.map(s=>({n:s,label:String(s),season:s,title:`Season ${s} (${(SEASON_META[s]||{}).years||"?"})`}));
+  const episodes = await (await fetch(`/shows/${SLUG}/episodes.json`)).json();
+  let cast={}; try { cast = await (await fetch(`/shows/${SLUG}/cast.json`)).json(); } catch {}
+  MODEL = ATE.prepare({episodes, cast, epTags:window.EP_TAGS, tagDefs:window.TAG_DEFS, eraCats:CATS, eras:window.ERAS, seasonMeta:window.SEASON_META, axis:AXIS()});
+  ({eps:EPS, seasons:SEASONS, units:UNITS, charCount:CHAR_COUNT, bars:BARS} = MODEL);
   document.documentElement.style.setProperty("--ncols",UNITS.length);
   document.documentElement.classList.toggle("axis-episode",AXIS()==="episode");
-  try { CAST = (await (await fetch(`/shows/${SLUG}/cast.json`)).json()); } catch { CAST = {}; }
-  const perSeason = {};
-  EPS.forEach(e=>{ perSeason[e.s]=Math.max(perSeason[e.s]||0,e.e); });
-  EPS.forEach(e=>{
-    e.code = code(e);
-    e.tags = new Set(window.EP_TAGS[`${e.s}.${e.e}`]||[]);
-    if(e.e===1) e.tags.add("premiere");
-    if(e.e===perSeason[e.s]) e.tags.add("finale");
-    e.guests = (CAST[e.id]||[]);
-    e.guests.forEach(([c])=>{ CHAR_COUNT[c]=(CHAR_COUNT[c]||0)+1; });
-    e.hay = `${e.code} ${e.title} ${e.summary} ${e.guests.map(g=>g.join(" ")).join(" ")}`.toLowerCase();
-  });
-  window.TAG_DEFS.premiere={label:"Season premiere"};
-  window.TAG_DEFS.finale={label:"Season finale"};
-  buildChart(); buildFilters(); readHash(); render();
+  buildChart(); buildFilters(); const ep=readHash(); render();
+  if(ep){ const e=EPS.find(x=>x.code===ep.toUpperCase()); if(e) openModal(e); }
 }
 // ---------- URL state ----------
+// Format lives in filter.js (ATE.stateToHash / hashToState) so the MCP server can mint the same links.
 function writeHash(){
-  const p=new URLSearchParams();
-  if(state.seasons.size)p.set("s",[...state.seasons].join(","));
-  if(state.tags.size)p.set("t",[...state.tags].join(","));
-  if(state.eras.length)p.set("e",JSON.stringify(state.eras.map(e=>[e.cat,e.name])));
-  if(state.char)p.set("c",state.char); if(state.q)p.set("q",state.q);
-  if(state.minRating)p.set("r",state.minRating); if(state.sort!=="air")p.set("o",state.sort);
-  const h=p.toString(); history.replaceState(null,"",location.pathname+(h?"#"+h:""));
+  const h=ATE.stateToHash(state); history.replaceState(null,"",location.pathname+(h?"#"+h:""));
 }
-function readHash(){
-  const p=new URLSearchParams(location.hash.slice(1)); if(![...p.keys()].length)return;
-  (p.get("s")||"").split(",").filter(Boolean).forEach(x=>state.seasons.add(+x));
-  (p.get("t")||"").split(",").filter(Boolean).forEach(x=>{if(TAG_DEFS[x])state.tags.add(x);});
-  try{ (JSON.parse(p.get("e")||"[]")).forEach(([cat,name])=>{ const all=[]; UNITS.forEach(u=>all.push(...unitContext(u.n))); const f=all.find(x=>x.cat===cat&&x.name===name); if(f&&!state.eras.some(x=>eraKey(x)===eraKey(f))) state.eras.push(f); }); }catch{}
-  state.char=p.get("c")||""; $("#charSelect").value=state.char;
-  state.q=(p.get("q")||"").toLowerCase(); $("#search").value=state.q; $("#searchMobile").value=state.q;
-  state.minRating=+(p.get("r")||0); $("#minRating").value=state.minRating; $("#minRatingOut").textContent=state.minRating?state.minRating.toFixed(1)+"+":"any";
-  state.sort=p.get("o")||"air"; $("#sort").value=state.sort;
+function readHash(){ // returns the `ep` code to open, if any
+  const {state:st, ep, empty}=ATE.hashToState(location.hash,{tagDefs:TAG_DEFS,bars:BARS}); if(empty)return "";
+  Object.assign(state, st);
+  $("#charSelect").value=state.char; $("#search").value=state.q; $("#searchMobile").value=state.q;
+  $("#minRating").value=state.minRating; $("#minRatingOut").textContent=state.minRating?state.minRating.toFixed(1)+"+":"any";
+  $("#sort").value=state.sort;
+  return ep;
 }
 
 // ---------- chart ----------
@@ -138,8 +112,7 @@ function buildChart(){
   }
   CATS.forEach(([key,label])=>{
     add("grp","");
-    const rows = Array.isArray(ERAS[key][0][0]) ? ERAS[key] : [ERAS[key]];
-    rows.forEach((row,ri)=>{
+    ATE.rowsOf(ERAS[key]).forEach((row,ri)=>{
       add(ri===0?"rowlbl":"rowlbl sub", ri===0?label:"");
       let col=1;
       row.slice().sort((a,b)=>a[1]-b[1]).forEach(b=>{
@@ -158,7 +131,7 @@ function buildChart(){
   $("#toggleChart").onclick=()=>{el.classList.toggle("collapsed");track("chart_toggled",{collapsed:el.classList.contains("collapsed")});$("#toggleChart").textContent=el.classList.contains("collapsed")?"Expand chart":"Collapse chart";};
   $("#clearEra").onclick=()=>{state.eras=[];render();};
 }
-function eraKey(e){return `${e.cat}|${e.name}|${e.s1}|${e.s2}`;}
+const eraKey=ATE.eraKey;
 function toggleEra(era,additive){
   const i=state.eras.findIndex(x=>eraKey(x)===eraKey(era));
   if(i<0) track("era_selected",{category:era.cat,era:era.name,season_start:era.s1,season_end:era.s2,additive});
@@ -192,8 +165,7 @@ function buildFilters(){
   const tc=$("#tagChips");
   Object.entries(TAG_DEFS).forEach(([k,v])=>{const c=document.createElement("button");c.className="chip";c.textContent=v.label;c.title=v.desc||"";c.dataset.t=k;c.onclick=()=>{if(!state.tags.has(k))track("vibe_selected",{vibe:k,label:v.label});state.tags.has(k)?state.tags.delete(k):state.tags.add(k);render();};tc.appendChild(c);});
   const cs=$("#charSelect");
-  const GENERIC=/^(unsub|reporter|clerk|medical examiner|dispatcher|police chief|fbi agent|swat|lawyer|judge|prosecutor|attorney|technician|forensic tech|officer|police officer #\d|demon|demons|sheriff|coroner|nurse|bartender|vampire|vampires|unknown|waitress|waiter|doctor|cop|police officer|deputy|angel|angels|reaper|man|woman|girl|boy|guy|bystander|security guard|paramedic|hunter|priest|reporter|receptionist|clerk|detective|teacher|mother|father|husband|wife|kid|jogger|driver|customer|orderly|agent|soldier|witch|ghost|shapeshifter|werewolf|djinn|zombie|leviathan|crossroads demon|hostess|maid|butler|announcer|voice|narrator|young sam|young dean|dean winchester|sam winchester)$/i;
-  Object.entries(CHAR_COUNT).filter(([c,n])=>n>=2&&!GENERIC.test(c)&&!/^#\d|#\d+$/.test(c)).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))
+  ATE.characterList(CHAR_COUNT)
     .forEach(([c,n])=>{const o=document.createElement("option");o.value=c;o.textContent=`${c} (${n})`;cs.appendChild(o);});
   cs.onchange=()=>{state.char=cs.value;if(cs.value)track("character_selected",{character:cs.value});render();};
   let t,ts; $("#search").oninput=e=>{clearTimeout(t);t=setTimeout(()=>{state.q=e.target.value.trim().toLowerCase();render();},120);clearTimeout(ts);ts=setTimeout(()=>{if(state.q)track("searched",{query:state.q,results:filtered().length});},1200);};
@@ -216,37 +188,11 @@ function buildFilters(){
 }
 
 // ---------- filtering ----------
-function eraUnits(){ // union of chart columns across selected eras (null = no era filter)
-  if(!state.eras.length) return null;
-  const s=new Set(); state.eras.forEach(e=>{for(let i=e.s1;i<=e.s2;i++)s.add(i);}); return s;
-}
-function filtered(){
-  const es=eraUnits();
-  let list=EPS.filter(e=>{
-    if(es && !es.has(unitOf(e))) return false;
-    if(state.seasons.size && !state.seasons.has(e.s)) return false;
-    for(const t of state.tags) if(!e.tags.has(t)) return false;
-    if(state.char && !e.guests.some(([c])=>c===state.char)) return false;
-    if(state.minRating && !(e.rating>=state.minRating)) return false;
-    if(state.hideWatched && watched.has(e.id)) return false;
-    if(state.onlyWatched && !watched.has(e.id)) return false;
-    if(state.q && !e.hay.includes(state.q)) return false;
-    return true;
-  });
-  if(state.sort==="rating") list=list.slice().sort((a,b)=>(b.rating||0)-(a.rating||0)||a.s-b.s||a.e-b.e);
-  else if(state.sort==="airdesc") list=list.slice().reverse();
-  return list;
-}
+// The actual matching lives in filter.js so the MCP server returns exactly what the UI shows.
+const filtered = () => ATE.filter(EPS, state, {axis:AXIS(), watched});
 
 // ---------- render ----------
-function unitContext(u){ // all bars active in chart column u
-  const out=[];
-  CATS.forEach(([key,label])=>{
-    const rows = Array.isArray(ERAS[key][0][0]) ? ERAS[key] : [ERAS[key]];
-    rows.forEach(row=>row.forEach(([name,s1,s2,bg,fg])=>{ if(u>=s1&&u<=s2) out.push({name,s1,s2,bg,fg,cat:label}); }));
-  });
-  return out;
-}
+const unitContext = u => ATE.unitContext(BARS, u); // all bars active in chart column u
 function accentColor(e){const first=ERAS[CATS[0][0]]; const bars=Array.isArray(first[0][0])?first[0]:first; const u=unitOf(e); const b=bars.find(b=>u>=b[1]&&u<=b[2]);return b?b[3]:"#444";}
 
 function render(){
@@ -316,7 +262,7 @@ function openModal(e){
       <div class="section" style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="btn" id="mWatch">${watched.has(e.id)?"✓ Watched — unmark":"Mark as watched"}</button>
         <button class="btn" id="mNext">Next episode →</button>
-        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=${encodeURIComponent("Supernatural "+e.code+" "+e.title)}">Search the web ↗</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=${encodeURIComponent(SHOW.title+" "+e.code+" "+e.title)}">Search the web ↗</a>
       </div>
       <div class="section"><h4>${AXIS()==="episode"?"Where this sits on the chart":"What's going on this season"}</h4><div class="muted tiny" style="margin:0 0 6px">Click any bar to filter to that era.</div>${ctxHtml}</div>
       ${cast}

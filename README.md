@@ -13,6 +13,9 @@ Successor to the single-show sites [moose-and-squirrel](https://github.com/jhgay
 ## Layout
 ```
 index.html, app.js, styles.css     the shell: landing page at /, explorer at /<slug>/
+filter.js                          the filter engine (matching + share-URL format), shared by app.js AND mcp/
+mcp/server.js, load.js, test.js    MCP server (Streamable HTTP at /mcp) exposing the same filters as tools
+docs/index.html                    /docs/ — plain-language "use it from your AI assistant" page
 shows/<slug>/show.json             branding + metadata          ┐
 shows/<slug>/episodes.json         TVmaze episodes              │ one self-contained
 shows/<slug>/cast.json             TVmaze guest cast            │ package per show
@@ -30,8 +33,21 @@ python3 scripts/dev-server.py 8770     # SPA fallback so /<slug>/ works; then op
 Read [CONTRACT.md](CONTRACT.md). In short: create `shows/<slug>/` with the five files above (copy the scripts and
 formats from an existing show), run `python3 scripts/build-index.py`, commit. CI fails if `shows/index.json` is stale.
 
+## MCP
+`https://eras.inevitable.fyi/mcp` — MCP Streamable HTTP, stateless, no auth. Tools: `list_shows`, `get_show`,
+`find_episodes`, `get_episode`, `search_characters`, `surprise_me`, `next_episode`, `share_link`; resources
+`eras://shows[/<slug>/{chart,tags,episodes}]`. It loads the same `shows/` files the site serves and runs the same
+`filter.js`, so tool results and the UI always agree, and every result carries a `#…` share URL the site understands
+(incl. `ep=S05E16` to open an episode card). Human docs at `/docs/`. Tool calls are tracked in the same PostHog
+project as `mcp_*` events with `surface: mcp`.
+```
+cd mcp && npm ci && npm test        # filter.js semantics + end-to-end MCP client run, no network needed
+PORT=8081 node mcp/server.js        # local server; SITE_ORIGIN / SHOWS_DIR / POSTHOG_KEY env override
+```
+
 ## Deploy
-`ghcr.io/jhgaylor/across-the-eras` (nginx :8080, `/healthz`, `try_files … /index.html`), built by
+`ghcr.io/jhgaylor/across-the-eras` (node:24-alpine + nginx: nginx on :8080 serves the site and proxies `/mcp` to the
+node MCP server on :8081 in the same container — see `entrypoint.sh`; `/healthz`, `try_files … /index.html`), built by
 `.github/workflows/build.yml` on push to `main`, which pins the new `sha-*` tag into `k8s/deployment.yaml`;
 home-cloud's Flux reconciles `k8s/` to `eras.inevitable.fyi`.
 

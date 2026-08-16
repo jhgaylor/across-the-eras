@@ -1,0 +1,17 @@
+{
+  "name": "across-the-eras-mcp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "MCP server for eras.inevitable.fyi — the rewatch explorer's curated data + filter engine as tools",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^3.25.0"
+  }
+}

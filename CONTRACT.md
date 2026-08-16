@@ -1,8 +1,9 @@
 # across-the-eras — show package contract
 
 One repo, many shows. Every show lives in `shows/<slug>/` and is fully self-contained. The shared engine
-(`index.html`, `app.js`, `styles.css`) loads a show's package at runtime; nothing about a show is hard-coded
-in the engine.
+(`index.html`, `app.js`, `filter.js`, `styles.css`) loads a show's package at runtime; nothing about a show is
+hard-coded in the engine. `filter.js` (matching + URL format) is also loaded by the MCP server in `mcp/`, which reads
+the same package files from disk — so anything that works on the site works as a tool, with no extra work per show.
 
 Reference implementations (read these first, they are the format):
 - `/Users/jake/dev/jhgaylor/moose-and-squirrel/` — Supernatural, **season axis**, 15 seasons

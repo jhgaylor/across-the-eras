@@ -9,3 +9,5 @@ shows/*/fetch_cast.log
 shows/*/*.py
 README.md
 CONTRACT.md
+mcp/node_modules
+mcp/test.js
