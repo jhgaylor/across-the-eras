@@ -19,7 +19,7 @@ spec:
         - name: web
           # Pinned to an immutable sha tag by .github/workflows/build.yml on
           # every push to main; Flux picks up the manifest change and rolls.
-          image: ghcr.io/jhgaylor/across-the-eras:sha-357c0f3f8d57458481ab57cce5213ff3d2305a61
+          image: ghcr.io/jhgaylor/across-the-eras:sha-aca22efaac0bc7c2d3a33d3d31988eb32d97d82e
           ports:
             - containerPort: 8080
           readinessProbe:
