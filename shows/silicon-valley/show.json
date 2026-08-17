@@ -1,0 +1,18 @@
+{
+  "slug": "silicon-valley",
+  "title": "SILICON VALLEY",
+  "subtitle": "Across the Eras",
+  "blurb": "Six seasons of Pied Piper: a compression algorithm that wins TechCrunch Disrupt, survives a Hooli lawsuit, a CEO merry-go-round and a decentralized-internet pivot, and ends up nearly breaking encryption for the entire planet. Every founder, funder, and Hooli exec who came and went, charted season by season.",
+  "emoji": "💻",
+  "tvmazeId": 143,
+  "axis": "season",
+  "accent": "#3ddc84",
+  "accentText": "#04140c",
+  "heroGradient": "#0d1310",
+  "heroFont": { "google": "Space Mono:wght@400;700", "family": "'Space Mono', monospace" },
+  "regularsNote": "Series regulars — Richard, Erlich (through S4), Dinesh, Gilfoyle, Jared, Big Head, Monica and Gavin — aren't listed here; use the roster and Hooli rows on the chart for them. Jian-Yang, Russ Hanneman and Jack Barker were promoted from recurring to regular partway through the show, so their early episodes still turn up in this guest-character dropdown alongside Laurie Bream, Peter Gregory and about 350 more.",
+  "chartHint": "Six seasons across. Click any bar to filter the episode list; mid-season handoffs (CEOs especially) are drawn at season granularity with the exact episode noted in the label.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 53,
+  "seasons": 6
+}
