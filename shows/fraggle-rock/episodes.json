@@ -1,0 +1,782 @@
+[
+  {
+    "id": 333504,
+    "s": 1,
+    "e": 1,
+    "title": "Beginnings",
+    "air": "1983-01-10",
+    "summary": "When the scatterbrained but prepetually enthusiastic inventor Doc moves into an old workshop with his faithful dog Sprocket, we discover that he is not alone and there are a race of strange creatures known as Fraggles living in a cave that connects to the workshop through vents. Meanwhile, Gobo's Uncle Traveling Matt is about to start his great adventure into outer space.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/136/341639.jpg"
+  },
+  {
+    "id": 333505,
+    "s": 1,
+    "e": 2,
+    "title": "Wembley and the Gorgs",
+    "air": "1983-01-17",
+    "summary": ""
+  },
+  {
+    "id": 333506,
+    "s": 1,
+    "e": 3,
+    "title": "Let the Water Run",
+    "air": "1983-01-24",
+    "summary": "Doc's effort to improve the plumbing in his workshop makes waves throughout the World of the Fraggles, Red has a one Fraggle swimming extravaganza.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/115/288856.jpg"
+  },
+  {
+    "id": 333507,
+    "s": 1,
+    "e": 4,
+    "title": "You Can't Do That Without a Hat",
+    "air": "1983-01-31",
+    "summary": ""
+  },
+  {
+    "id": 333508,
+    "s": 1,
+    "e": 5,
+    "title": "The Thirty-Minute Work Week",
+    "air": "1983-02-07",
+    "summary": "Wishy-washy Wembley's indecisiveness gets him into a world of trouble when it comes time to choose the job he is going to do.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/115/289596.jpg"
+  },
+  {
+    "id": 333509,
+    "s": 1,
+    "e": 6,
+    "title": "The Preachification of Convincing John",
+    "air": "1983-02-14",
+    "summary": "Mokey tries to stand up for the Doozers who's elaborate constructions are regularly torn apart and eaten by the Fraggles.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/115/289701.jpg"
+  },
+  {
+    "id": 333510,
+    "s": 1,
+    "e": 7,
+    "title": "I Want to Be You",
+    "air": "1983-02-21",
+    "summary": ""
+  },
+  {
+    "id": 333511,
+    "s": 1,
+    "e": 8,
+    "title": "The Terrible Tunnel",
+    "air": "1983-02-28",
+    "summary": ""
+  },
+  {
+    "id": 333512,
+    "s": 1,
+    "e": 9,
+    "title": "The Lost Treasure of the Fraggles",
+    "air": "1983-03-07",
+    "summary": "Wembley and Red discover a old treasure map and go in search of the Ancient Treasure of the Fraggles. Meanwhile, Sprocket goes roller skating.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/120/302178.jpg"
+  },
+  {
+    "id": 333513,
+    "s": 1,
+    "e": 10,
+    "title": "Don't Cry Over Spilt Milk",
+    "air": "1983-03-14",
+    "summary": ""
+  },
+  {
+    "id": 333514,
+    "s": 1,
+    "e": 11,
+    "title": "Catch the Tail by the Tiger",
+    "air": "1983-03-21",
+    "summary": ""
+  },
+  {
+    "id": 333515,
+    "s": 1,
+    "e": 12,
+    "title": "The Finger of Light",
+    "air": "1983-03-28",
+    "summary": "The Oldest Fraggle introduces his fellow Fraggles to the dangerous ritual of choosing a ruling Fraggle. Uncle Matt meets the string people in his travels.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/122/305722.jpg"
+  },
+  {
+    "id": 333516,
+    "s": 1,
+    "e": 13,
+    "title": "We Love You, Wembley",
+    "air": "1983-04-04",
+    "summary": "Doc finds a old chandelier and builds a combination alarm, smoke detector and lighting unit, Wembley becomes infatuated with a new friend."
+  },
+  {
+    "id": 333517,
+    "s": 1,
+    "e": 14,
+    "title": "The Challenge",
+    "air": "1983-04-11",
+    "summary": ""
+  },
+  {
+    "id": 333518,
+    "s": 1,
+    "e": 15,
+    "title": "I Don't Care",
+    "air": "1983-04-18",
+    "summary": ""
+  },
+  {
+    "id": 333519,
+    "s": 1,
+    "e": 16,
+    "title": "Capture the Moon",
+    "air": "1983-04-25",
+    "summary": ""
+  },
+  {
+    "id": 333520,
+    "s": 1,
+    "e": 17,
+    "title": "Marooned",
+    "air": "1983-05-02",
+    "summary": ""
+  },
+  {
+    "id": 333521,
+    "s": 1,
+    "e": 18,
+    "title": "The Minstrels",
+    "air": "1983-05-09",
+    "summary": ""
+  },
+  {
+    "id": 333522,
+    "s": 1,
+    "e": 19,
+    "title": "The Great Radish Famine",
+    "air": "1983-05-16",
+    "summary": ""
+  },
+  {
+    "id": 333523,
+    "s": 1,
+    "e": 20,
+    "title": "The Garden Plot",
+    "air": "1983-05-23",
+    "summary": ""
+  },
+  {
+    "id": 333524,
+    "s": 1,
+    "e": 21,
+    "title": "Gobo's Discovery",
+    "air": "1983-05-30",
+    "summary": ""
+  },
+  {
+    "id": 333525,
+    "s": 1,
+    "e": 22,
+    "title": "Mokey's Funeral",
+    "air": "1983-06-06",
+    "summary": ""
+  },
+  {
+    "id": 333526,
+    "s": 1,
+    "e": 23,
+    "title": "The Beast of Bluerock",
+    "air": "1983-06-13",
+    "summary": ""
+  },
+  {
+    "id": 333527,
+    "s": 1,
+    "e": 24,
+    "title": "New Trash Heap in Town",
+    "air": "1983-07-04",
+    "summary": "Doc invents a diet drink, the Fraggles have a strange dream that convinces them that Mokey is their new prophet; causing Mokey to become the new Trash Heap that dispenses wisdom.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/122/305743.jpg"
+  },
+  {
+    "id": 333528,
+    "s": 2,
+    "e": 1,
+    "title": "Wembley's Egg",
+    "air": "1984-01-02",
+    "summary": "When a giant egg falls into Fraggle Pond, Wembley takes it upon himself to take care of the baby 'tree creature'. Doc works to improve his memory while forgetting something very important.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/122/306599.jpg"
+  },
+  {
+    "id": 333529,
+    "s": 2,
+    "e": 2,
+    "title": "Boober Rock",
+    "air": "1984-01-09",
+    "summary": ""
+  },
+  {
+    "id": 333530,
+    "s": 2,
+    "e": 3,
+    "title": "The Trash Heap Dosen't Live Here Anymore",
+    "air": "1984-01-16",
+    "summary": ""
+  },
+  {
+    "id": 333531,
+    "s": 2,
+    "e": 4,
+    "title": "Red's Sea Monster",
+    "air": "1984-01-23",
+    "summary": ""
+  },
+  {
+    "id": 333532,
+    "s": 2,
+    "e": 5,
+    "title": "Uncle Matt Comes Home",
+    "air": "1984-01-30",
+    "summary": ""
+  },
+  {
+    "id": 333533,
+    "s": 2,
+    "e": 6,
+    "title": "Boober's Dream",
+    "air": "1984-02-06",
+    "summary": ""
+  },
+  {
+    "id": 333534,
+    "s": 2,
+    "e": 7,
+    "title": "Mokey and the Minstrels",
+    "air": "1984-02-13",
+    "summary": ""
+  },
+  {
+    "id": 333535,
+    "s": 2,
+    "e": 8,
+    "title": "All Work and All Play",
+    "air": "1984-02-20",
+    "summary": ""
+  },
+  {
+    "id": 333536,
+    "s": 2,
+    "e": 9,
+    "title": "Sir Hubris and the Gorgs",
+    "air": "1984-02-27",
+    "summary": ""
+  },
+  {
+    "id": 333537,
+    "s": 2,
+    "e": 10,
+    "title": "A Friend in Need",
+    "air": "1984-03-05",
+    "summary": "Sprocket becomes stuck in a hole so Gobel tries to help him out by taking butter from the Gorgs.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/133/334334.jpg"
+  },
+  {
+    "id": 333538,
+    "s": 2,
+    "e": 11,
+    "title": "The Wizard of Fraggle Rock",
+    "air": "1984-03-12",
+    "summary": ""
+  },
+  {
+    "id": 333539,
+    "s": 2,
+    "e": 12,
+    "title": "The Doozer Contest",
+    "air": "1984-03-19",
+    "summary": ""
+  },
+  {
+    "id": 333540,
+    "s": 2,
+    "e": 13,
+    "title": "Red's Club",
+    "air": "1984-03-26",
+    "summary": ""
+  },
+  {
+    "id": 333541,
+    "s": 2,
+    "e": 14,
+    "title": "The Secret of Convincing John",
+    "air": "1984-04-02",
+    "summary": ""
+  },
+  {
+    "id": 333542,
+    "s": 2,
+    "e": 15,
+    "title": "Manny's Land of Carpets",
+    "air": "1984-04-09",
+    "summary": ""
+  },
+  {
+    "id": 333543,
+    "s": 2,
+    "e": 16,
+    "title": "Junior Sells the Farm",
+    "air": "1984-04-16",
+    "summary": "Junior Gorg must work with the Fraggles after he is tricked into giving the Gorg castle to the conniving Wander McMooch."
+  },
+  {
+    "id": 333544,
+    "s": 2,
+    "e": 17,
+    "title": "Fraggle Wars",
+    "air": "1984-04-23",
+    "summary": ""
+  },
+  {
+    "id": 333545,
+    "s": 2,
+    "e": 18,
+    "title": "The Day the Music Died",
+    "air": "1984-04-30",
+    "summary": ""
+  },
+  {
+    "id": 333546,
+    "s": 2,
+    "e": 19,
+    "title": "Doomsday Soup",
+    "air": "1984-05-07",
+    "summary": ""
+  },
+  {
+    "id": 333547,
+    "s": 2,
+    "e": 20,
+    "title": "A Cave of One's Own",
+    "air": "1984-05-14",
+    "summary": ""
+  },
+  {
+    "id": 333548,
+    "s": 2,
+    "e": 21,
+    "title": "Wembley and the Great Race",
+    "air": "1984-05-21",
+    "summary": ""
+  },
+  {
+    "id": 333549,
+    "s": 2,
+    "e": 22,
+    "title": "Doozer Is as Doozer Does",
+    "air": "1984-05-28",
+    "summary": ""
+  },
+  {
+    "id": 333550,
+    "s": 2,
+    "e": 23,
+    "title": "Boober's Quiet Day",
+    "air": "1984-06-04",
+    "summary": ""
+  },
+  {
+    "id": 333551,
+    "s": 2,
+    "e": 24,
+    "title": "The Invasion of the Toe Ticklers",
+    "air": "1984-06-11",
+    "summary": ""
+  },
+  {
+    "id": 333552,
+    "s": 3,
+    "e": 1,
+    "title": "The Bells of Fraggle Rock",
+    "air": "1984-12-24",
+    "summary": "As Doc and Sprocket anticipate a traditional, human style Christmas, the Fraggles look forward to their own special holiday.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/140/352424.jpg"
+  },
+  {
+    "id": 333553,
+    "s": 3,
+    "e": 2,
+    "title": "Red-Handed and Invisible Thief",
+    "air": "1985-01-07",
+    "summary": ""
+  },
+  {
+    "id": 333554,
+    "s": 3,
+    "e": 3,
+    "title": "Boober and the Glob",
+    "air": "1985-01-14",
+    "summary": ""
+  },
+  {
+    "id": 333555,
+    "s": 3,
+    "e": 4,
+    "title": "The Grapes of Generosity",
+    "air": "1985-01-21",
+    "summary": ""
+  },
+  {
+    "id": 333556,
+    "s": 3,
+    "e": 5,
+    "title": "Blanket of Snow, Blanket of Woe",
+    "air": "1985-01-28",
+    "summary": ""
+  },
+  {
+    "id": 333557,
+    "s": 3,
+    "e": 6,
+    "title": "Pebble Pox Blues",
+    "air": "1985-02-04",
+    "summary": ""
+  },
+  {
+    "id": 333558,
+    "s": 3,
+    "e": 7,
+    "title": "Home Is Where the Trash Is",
+    "air": "1985-02-11",
+    "summary": ""
+  },
+  {
+    "id": 333560,
+    "s": 3,
+    "e": 8,
+    "title": "Believe It or Not",
+    "air": "1985-02-18",
+    "summary": ""
+  },
+  {
+    "id": 333561,
+    "s": 3,
+    "e": 9,
+    "title": "Wembley and the Mean Genie",
+    "air": "1985-02-25",
+    "summary": ""
+  },
+  {
+    "id": 333562,
+    "s": 3,
+    "e": 10,
+    "title": "The Secret Society of Poohbahs",
+    "air": "1985-03-04",
+    "summary": ""
+  },
+  {
+    "id": 333563,
+    "s": 3,
+    "e": 11,
+    "title": "The Beanbarrow, the Burden, and the Bright Bouquet",
+    "air": "1985-03-11",
+    "summary": ""
+  },
+  {
+    "id": 333564,
+    "s": 3,
+    "e": 12,
+    "title": "Gobo's School for Explorers",
+    "air": "1985-03-18",
+    "summary": ""
+  },
+  {
+    "id": 333565,
+    "s": 3,
+    "e": 13,
+    "title": "Scared Silly",
+    "air": "1985-03-25",
+    "summary": "Boober takes it upon himself to test Wembley's baloobius - that is, the fringe on a Fraggles tail that stands up when a Fraggle is scared.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/146/366780.jpg"
+  },
+  {
+    "id": 333566,
+    "s": 3,
+    "e": 14,
+    "title": "The Great Radish Caper",
+    "air": "1985-04-01",
+    "summary": ""
+  },
+  {
+    "id": 333567,
+    "s": 3,
+    "e": 15,
+    "title": "Born to Wander",
+    "air": "1985-04-08",
+    "summary": ""
+  },
+  {
+    "id": 333568,
+    "s": 3,
+    "e": 16,
+    "title": "The Battle of Leaking Roof",
+    "air": "1985-04-15",
+    "summary": ""
+  },
+  {
+    "id": 333569,
+    "s": 3,
+    "e": 17,
+    "title": "Playing Till It Hurts",
+    "air": "1985-04-22",
+    "summary": ""
+  },
+  {
+    "id": 333570,
+    "s": 3,
+    "e": 18,
+    "title": "Bored Stiff",
+    "air": "1985-04-29",
+    "summary": ""
+  },
+  {
+    "id": 333571,
+    "s": 3,
+    "e": 19,
+    "title": "The Cavern of Lost Dreams",
+    "air": "1985-05-06",
+    "summary": ""
+  },
+  {
+    "id": 333572,
+    "s": 3,
+    "e": 20,
+    "title": "The Incredible Shrinking Mokey",
+    "air": "1985-05-13",
+    "summary": ""
+  },
+  {
+    "id": 333573,
+    "s": 3,
+    "e": 21,
+    "title": "A Dark and Stormy Night",
+    "air": "1985-05-20",
+    "summary": ""
+  },
+  {
+    "id": 333574,
+    "s": 3,
+    "e": 22,
+    "title": "Gunge the Great and Glorious",
+    "air": "1985-05-27",
+    "summary": ""
+  },
+  {
+    "id": 333575,
+    "s": 4,
+    "e": 1,
+    "title": "Sprocket's Big Adventure",
+    "air": "1986-01-06",
+    "summary": ""
+  },
+  {
+    "id": 333576,
+    "s": 4,
+    "e": 2,
+    "title": "Wembley's Wonderful Whoopie Water",
+    "air": "1986-01-13",
+    "summary": ""
+  },
+  {
+    "id": 333577,
+    "s": 4,
+    "e": 3,
+    "title": "Sidebottom Blues",
+    "air": "1986-01-20",
+    "summary": ""
+  },
+  {
+    "id": 333578,
+    "s": 4,
+    "e": 4,
+    "title": "Uncle Matt's Discovery",
+    "air": "1986-01-27",
+    "summary": ""
+  },
+  {
+    "id": 333579,
+    "s": 4,
+    "e": 5,
+    "title": "Junior Faces the Music",
+    "air": "1986-02-03",
+    "summary": ""
+  },
+  {
+    "id": 333580,
+    "s": 4,
+    "e": 6,
+    "title": "A Tune for Two",
+    "air": "1986-02-10",
+    "summary": ""
+  },
+  {
+    "id": 333581,
+    "s": 4,
+    "e": 7,
+    "title": "The Perfect Blue Rollie",
+    "air": "1986-02-17",
+    "summary": ""
+  },
+  {
+    "id": 333582,
+    "s": 4,
+    "e": 8,
+    "title": "A Brush with Jealousy",
+    "air": "1986-02-24",
+    "summary": ""
+  },
+  {
+    "id": 333583,
+    "s": 4,
+    "e": 9,
+    "title": "Wembley's Flight",
+    "air": "1986-03-03",
+    "summary": ""
+  },
+  {
+    "id": 333584,
+    "s": 4,
+    "e": 10,
+    "title": "Red's Blue Dragon",
+    "air": "1986-03-10",
+    "summary": ""
+  },
+  {
+    "id": 333585,
+    "s": 4,
+    "e": 11,
+    "title": "Wonder Mountain",
+    "air": "1986-03-17",
+    "summary": "Mokey plans a solo getaway to Wonder Mountain and Red secretly follows her getting in all kinds of trouble. Meanwhile, Sprocket is off on his own adventure causing Doc to worry.",
+    "img": "https://static.tvmaze.com/uploads/images/medium_landscape/141/354452.jpg"
+  },
+  {
+    "id": 333586,
+    "s": 4,
+    "e": 12,
+    "title": "Space Frog Follies",
+    "air": "1986-03-24",
+    "summary": ""
+  },
+  {
+    "id": 333587,
+    "s": 4,
+    "e": 13,
+    "title": "Boober Gorg",
+    "air": "1986-03-31",
+    "summary": ""
+  },
+  {
+    "id": 333588,
+    "s": 5,
+    "e": 1,
+    "title": "Mirror, Mirror",
+    "air": "1987-01-05",
+    "summary": ""
+  },
+  {
+    "id": 333589,
+    "s": 5,
+    "e": 2,
+    "title": "The Riddle of Rhyming Rock",
+    "air": "1987-01-12",
+    "summary": ""
+  },
+  {
+    "id": 333590,
+    "s": 5,
+    "e": 3,
+    "title": "The Voice Inside",
+    "air": "1987-01-19",
+    "summary": ""
+  },
+  {
+    "id": 333591,
+    "s": 5,
+    "e": 4,
+    "title": "The Trial of Cotterpin Doozer",
+    "air": "1987-01-26",
+    "summary": ""
+  },
+  {
+    "id": 333592,
+    "s": 5,
+    "e": 5,
+    "title": "The River of Life",
+    "air": "1987-02-02",
+    "summary": ""
+  },
+  {
+    "id": 333593,
+    "s": 5,
+    "e": 6,
+    "title": "Beyond the Pond",
+    "air": "1987-02-09",
+    "summary": ""
+  },
+  {
+    "id": 333594,
+    "s": 5,
+    "e": 7,
+    "title": "Gone But Not Forgotten",
+    "air": "1987-02-16",
+    "summary": ""
+  },
+  {
+    "id": 333595,
+    "s": 5,
+    "e": 8,
+    "title": "Mokey, Then and Now",
+    "air": "1987-02-23",
+    "summary": ""
+  },
+  {
+    "id": 333596,
+    "s": 5,
+    "e": 9,
+    "title": "Ring Around the Rock",
+    "air": "1987-03-02",
+    "summary": ""
+  },
+  {
+    "id": 333597,
+    "s": 5,
+    "e": 10,
+    "title": "Inspector Red",
+    "air": "1987-03-09",
+    "summary": ""
+  },
+  {
+    "id": 333598,
+    "s": 5,
+    "e": 11,
+    "title": "The Gorg Who Would Be King",
+    "air": "1987-03-16",
+    "summary": ""
+  },
+  {
+    "id": 333599,
+    "s": 5,
+    "e": 12,
+    "title": "The Honk of Honks",
+    "air": "1987-03-23",
+    "summary": ""
+  },
+  {
+    "id": 333600,
+    "s": 5,
+    "e": 13,
+    "title": "Change of Address",
+    "air": "1987-03-30",
+    "summary": ""
+  }
+]

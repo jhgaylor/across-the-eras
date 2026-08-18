@@ -1,0 +1,18 @@
+{
+  "slug": "fraggle-rock",
+  "title": "FRAGGLE ROCK",
+  "subtitle": "Across the Eras",
+  "blurb": "Deep in a cave live the Fraggles, who sing and dance and never stop wondering what it's all about; down in the walls the industrious Doozers build (and get eaten); up in the garden the towering Gorgs guard their radishes; and in a workshop somewhere, tinkering inventor Doc and his dog Sprocket never quite realize they share the house with all of them. Jim Henson's 1983 ensemble built one small, interconnected world where every creature's problem is everyone else's problem too.",
+  "emoji": "🪨",
+  "tvmazeId": 5488,
+  "axis": "season",
+  "accent": "#ff7a3d",
+  "accentText": "#2b0f02",
+  "heroGradient": "#241208",
+  "heroFont": { "google": "Baloo 2:wght@500;700;800", "family": "'Baloo 2', sans-serif" },
+  "regularsNote": "Series regulars — the Fraggle Five (Gobo, Mokey, Wembley, Boober, Red), Doc, Sprocket, Uncle Traveling Matt, the Gorgs (Pa, Ma, Junior), Cotterpin Doozer, Convincing John and Marjory the Trash Heap — are all played by the core Henson puppeteer troupe and aren't listed here; use the roster, Gorg, Doozer and Trash Heap rows on the chart for them. TVmaze's per-episode guest-cast data is empty for all 96 episodes — this is a puppet show performed almost entirely by the same handful of puppeteers, so there's no dropdown of one-off guest characters the way live-action shows have.",
+  "chartHint": "Five seasons across. This is a low-serialization, mostly standalone show — the chart tracks recurring formats and the ensemble's world (roster, Gorgs, Doozers, Trash Heap, Traveling Matt) rather than a season-long plot.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 96,
+  "seasons": 5
+}

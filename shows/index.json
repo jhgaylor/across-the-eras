@@ -60,6 +60,18 @@
     "axis": "season"
   },
   {
+    "slug": "fraggle-rock",
+    "title": "FRAGGLE ROCK",
+    "subtitle": "Across the Eras",
+    "emoji": "🪨",
+    "blurb": "Deep in a cave live the Fraggles, who sing and dance and never stop wondering what it's all about; down in the walls the industrious Doozers build (and get eaten); up in the garden the towering Gorgs guard their radishes; and in a workshop somewhere, tinkering inventor Doc and his dog Sprocket never quite realize they share the house with all of them. Jim Henson's 1983 ensemble built one small, interconnected world where every creature's problem is everyone else's problem too.",
+    "episodeCount": 96,
+    "seasons": 5,
+    "accent": "#ff7a3d",
+    "accentText": "#2b0f02",
+    "axis": "season"
+  },
+  {
     "slug": "lost",
     "title": "LOST",
     "subtitle": "Across the Eras",
