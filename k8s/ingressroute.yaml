@@ -9,6 +9,47 @@ spec:
   entryPoints:
     - websecure
   routes:
+    - match: "Host(`skipto.tv`)"
+      kind: Rule
+      services:
+        - name: across-the-eras
+          port: 80
+  tls:
+    secretName: skipto-tv-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: across-the-eras-http
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: "Host(`skipto.tv`)"
+      kind: Rule
+      middlewares:
+        - name: redirect-https
+          namespace: default
+      services:
+        - name: across-the-eras
+          port: 80
+---
+# Keep the old hostname alive during the domain migration. It can become a
+# redirect after clients and search indexes have moved to skipto.tv.
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: across-the-eras-legacy-domain
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  entryPoints:
+    - websecure
+  routes:
     - match: "Host(`eras.inevitable.fyi`)"
       kind: Rule
       services:
@@ -20,7 +61,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: across-the-eras-http
+  name: across-the-eras-legacy-domain-http
   namespace: across-the-eras
   labels:
     app: across-the-eras
