@@ -1,0 +1,87 @@
+# Hostnames of the per-show apps this site replaced. Each one keeps working as
+# a permanent redirect into its show folder here, so old bookmarks and search
+# results land somewhere useful instead of on a dead name.
+#
+# The redirect is deliberately blanket rather than path-preserving: the retired
+# apps were single-page sites with their own query/hash vocabulary, so there is
+# nothing on the far side that an old deep link would map onto.
+#
+# `priority` outranks the retired app's own IngressRoute, which matches the
+# identical Host() rule and therefore ties on Traefik's default (rule-length)
+# priority. Without it the winner during the cutover is whichever router
+# Traefik happened to register — with it, the redirect wins the moment it
+# reconciles and the old app can be pruned afterwards at leisure.
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-supernatural
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  redirectRegex:
+    regex: "^https?://supernatural\\.inevitable\\.fyi/.*"
+    replacement: "https://eras.inevitable.fyi/supernatural/"
+    permanent: true
+---
+# Separate from across-the-eras-tls on purpose. Retiring the next show's
+# hostname adds a dnsName here and reissues this cert, leaving the one that
+# serves the live site untouched.
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: legacy-hosts-tls
+  namespace: across-the-eras
+spec:
+  secretName: legacy-hosts-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  dnsNames:
+    - supernatural.inevitable.fyi
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: legacy-hosts
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: "Host(`supernatural.inevitable.fyi`)"
+      kind: Rule
+      priority: 100
+      middlewares:
+        - name: redirect-supernatural
+      # Never reached — the middleware answers with a 301 — but Traefik
+      # rejects a route with no service.
+      services:
+        - name: across-the-eras
+          port: 80
+  tls:
+    secretName: legacy-hosts-tls
+---
+# Plain HTTP goes straight to the final https:// destination rather than
+# hopping through redirect-https first.
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: legacy-hosts-http
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: "Host(`supernatural.inevitable.fyi`)"
+      kind: Rule
+      priority: 100
+      middlewares:
+        - name: redirect-supernatural
+      services:
+        - name: across-the-eras
+          port: 80
