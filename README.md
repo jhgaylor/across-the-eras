@@ -1,4 +1,4 @@
-# across-the-eras 📺
+# skipto.tv 📺
 
 Rewatch guides for the shows you keep going back to — one app, many shows. Live at https://skipto.tv
 
@@ -37,8 +37,8 @@ formats from an existing show), run `python3 scripts/build-index.py`, commit. CI
 ## MCP
 `https://skipto.tv/mcp` — MCP Streamable HTTP, stateless, no user auth. Tools: `list_shows`, `get_show`,
 `find_episodes`, `get_episode`, `search_characters`, `surprise_me`, `next_episode`, `share_link`,
-`get_submission_guide`, `submit_show`; resources
-`eras://shows[/<slug>/{chart,tags,episodes}]`. It loads the same `shows/` files the site serves and runs the same
+`get_submission_guide`, `submit_show`; resources `skipto://shows[/<slug>/{chart,tags,episodes}]`. It loads the same
+`shows/` files the site serves and runs the same
 `filter.js`, so tool results and the UI always agree, and every result carries a `#…` share URL the site understands
 (incl. `ep=S05E16` to open an episode card). Human docs at `/docs/`. `submit_show` accepts only declarative JSON,
 generates the repository files on the server, and opens a GitHub PR for review; see [SUBMISSIONS.md](SUBMISSIONS.md).
@@ -52,10 +52,10 @@ PORT=8081 node mcp/server.js        # local server; SITE_ORIGIN / SHOWS_DIR / PO
 `ghcr.io/jhgaylor/across-the-eras` (node:24-alpine + nginx: nginx on :8080 serves the site and proxies `/mcp` to the
 node MCP server on :8081 in the same container — see `entrypoint.sh`; `/healthz`, `try_files … /index.html`), built by
 `.github/workflows/build.yml` on push to `main`, which pins the new `sha-*` tag into `k8s/deployment.yaml`;
-home-cloud's Flux reconciles `k8s/` to `skipto.tv` (the old hostname remains available during migration).
+home-cloud's Flux reconciles `k8s/` to `skipto.tv`. The legacy operational names remain in place to avoid a disruptive infrastructure migration.
 
 ## Analytics
-One PostHog project (`eras.inevitable.fyi (all shows)`, US). Every event carries a `show` super-property
+One PostHog project (US). Every event carries a `show` super-property
 (`landing` on the picker). Autocapture is off; explicit events: `show_selected`, `era_selected`, `season_selected`,
 `vibe_selected`, `character_selected`, `searched`, `sort_changed`, `filters_reset`, `surprise_me`, `episode_opened`,
 `watched_toggled`, `chart_toggled`, `filters_drawer_opened`.

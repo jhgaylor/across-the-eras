@@ -1,4 +1,4 @@
-// Angel Across the Eras — chart data. 5 seasons, 110 episodes, all on The WB (1999–2004).
+// Angel on skipto.tv — chart data. 5 seasons, 110 episodes, all on The WB (1999–2004).
 // Sibling package to shows/buffy — shared characters keep the same colors across both charts.
 // Each entry: [label, startSeason, endSeason, bg, fg?]
 const WINE="#8b1e3f", DWINE="#5a1029", CRIM="#c0202c", BLOOD="#7a0f18", ROSE="#d98a9d",

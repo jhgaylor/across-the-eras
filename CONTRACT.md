@@ -1,4 +1,4 @@
-# across-the-eras — show package contract
+# skipto.tv — show package contract
 
 One repo, many shows. Every show lives in `shows/<slug>/` and is fully self-contained. The shared engine
 (`index.html`, `app.js`, `filter.js`, `styles.css`) loads a show's package at runtime; nothing about a show is
@@ -20,7 +20,7 @@ Reference implementations (read these first, they are the format):
 {
   "slug": "doctor-who",
   "title": "DOCTOR WHO",                     // hero line 1 (rendered as-is; usually ALL CAPS)
-  "subtitle": "Across the Eras",             // hero line 2
+  "subtitle": "skipto.tv",                   // hero line 2
   "blurb": "One or two sentences for the hero. Plain text, no HTML.",
   "emoji": "🚪",                             // used on the show-picker card
   "tvmazeId": 210,                           // for provenance; may be an array if stitched from several TVmaze shows

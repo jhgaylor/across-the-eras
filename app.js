@@ -21,7 +21,7 @@ async function boot(){
   let index=[]; try{ index = await (await fetch("/shows/index.json")).json(); }catch{}
   if(!SLUG){ renderLanding(index); return; }
   let show=null; try{ const r=await fetch(`/shows/${SLUG}/show.json`); if(r.ok) show=await r.json(); }catch{}
-  if(!show){ $("#notfound").hidden=false; document.title="Not found — Across the Eras"; track("show_not_found",{slug:SLUG}); return; }
+  if(!show){ $("#notfound").hidden=false; document.title="Not found — skipto.tv"; track("show_not_found",{slug:SLUG}); return; }
   SHOW=show; applyTheme(show); fillShowChrome(show,index);
   try{ window.posthog && posthog.register({show:SLUG}); }catch{}
   await loadScript(`/shows/${SLUG}/eras.js`); await loadScript(`/shows/${SLUG}/tags.js`);
@@ -44,8 +44,10 @@ function applyTheme(show){
   if(m){ const [_,a,b,c]=m; r.setProperty("--accent-glow",`rgba(${parseInt(a,16)},${parseInt(b,16)},${parseInt(c,16)},.35)`); r.setProperty("--accent-glow-strong",`rgba(${parseInt(a,16)},${parseInt(b,16)},${parseInt(c,16)},.6)`); }
 }
 function fillShowChrome(show,index){
-  document.title=`${show.title.replace(/\b\w+/g,w=>w[0]+w.slice(1).toLowerCase())} Across the Eras — Episode Explorer`;
-  $("#heroTitle").textContent=show.title; $("#heroSubtitle").textContent=show.subtitle||"Across the Eras";
+  document.title=`${show.title.replace(/\b\w+/g,w=>w[0]+w.slice(1).toLowerCase())} — skipto.tv episode guide`;
+  const canonical=document.querySelector('link[rel="canonical"]'); if(canonical) canonical.href=`https://skipto.tv/${SLUG}/`;
+  const description=document.querySelector('meta[name="description"]'); if(description&&show.blurb) description.content=show.blurb;
+  $("#heroTitle").textContent=show.title; $("#heroSubtitle").textContent=show.subtitle||"skipto.tv";
   $("#heroBlurb").textContent=show.blurb||""; $("#heroCredits").textContent=show.credits||""; $("#heroCredits").hidden=!show.credits;
   if(show.chartHint) $("#chartHint").textContent=show.chartHint;
   $("#regularsNote").textContent=show.regularsNote||""; $("#regularsNote").hidden=!show.regularsNote;

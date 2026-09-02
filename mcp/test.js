@@ -121,6 +121,7 @@ const { StreamableHTTPClientTransport } = require("@modelcontextprotocol/sdk/cli
   const port = httpServer.address().port;
   const client = new Client({ name: "test", version: "0" });
   await client.connect(new StreamableHTTPClientTransport(new URL(`http://127.0.0.1:${port}/mcp`)));
+  assert.equal(client.getServerVersion().name, "skipto-tv");
   const tools = (await client.listTools()).tools.map(t => t.name).sort();
   assert.deepEqual(tools, ["find_episodes", "get_episode", "get_show", "get_submission_guide", "list_shows", "next_episode", "search_characters", "share_link", "submit_show", "surprise_me"]);
   const call = async (name, args) => { const r = await client.callTool({ name, arguments: args }); assert.ok(!r.isError, `${name} errored: ${JSON.stringify(r.content)}`); return r.structuredContent; };
@@ -135,10 +136,10 @@ const { StreamableHTTPClientTransport } = require("@modelcontextprotocol/sdk/cli
   const sc = await call("search_characters", { slug: "buffy", query: "faith" }); assert.ok(sc.characters[0].name.includes("Faith") && sc.characters[0].codes.length);
   const sm = await call("surprise_me", { slug: "buffy", seasons: [3] }); assert.equal(sm.episode.season, 3);
   const nx = await call("next_episode", { slug: "buffy", watched: ["S01E01", "1x02", model.byCode.get("S01E03").id] }); assert.equal(nx.next[0].code, "S01E04");
-  const sl = await call("share_link", { slug: "buffy", seasons: [2], episode: "S02E17" }); assert.ok(sl.url.includes("s=2") && sl.url.includes("ep=S02E17"));
+  const sl = await call("share_link", { slug: "buffy", seasons: [2], episode: "S02E17" }); assert.ok(sl.url.startsWith("https://skipto.tv/buffy/") && sl.url.includes("s=2") && sl.url.includes("ep=S02E17"));
   const guide = await call("get_submission_guide", {}); assert.equal(guide.acceptsSubmissions, false); assert.ok(guide.workflow.length);
   const err = await client.callTool({ name: "get_show", arguments: { slug: "nope" } }); assert.ok(err.isError);
-  const res = await client.readResource({ uri: "eras://shows/buffy/chart" }); assert.ok(JSON.parse(res.contents[0].text).chart.length);
+  const res = await client.readResource({ uri: "skipto://shows/buffy/chart" }); assert.ok(JSON.parse(res.contents[0].text).chart.length);
   await client.close(); httpServer.close();
   console.log("✓ mcp server (10 tools, resources, errors)");
 })().catch(e => { console.error("✗", e); process.exit(1); });

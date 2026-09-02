@@ -1,4 +1,4 @@
-// Doctor Who Across the Eras — chart data. Revived series only (2005–present).
+// Doctor Who on skipto.tv — chart data. Revived series only (2005–present).
 // Season axis. Seasons 1–13 = TVmaze show 210 (2005 revival). Seasons 14–16 are stitched on from
 // TVmaze show 72724 ("Doctor Who" 2023): 14 = the 2023 60th-anniversary specials, 15 = the 2024
 // "Season 1" (with The Church on Ruby Road as 15×00), 16 = the 2025 "Season 2" (with Joy to the

@@ -140,13 +140,13 @@ const text = obj => ({ content: [{ type: "text", text: JSON.stringify(obj, null,
 const track = (event, props) => {
   if (!POSTHOG_KEY) return;
   fetch(`${POSTHOG_HOST}/capture/`, { method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ api_key: POSTHOG_KEY, event, distinct_id: "mcp-anon", properties: { surface: "mcp", $lib: "ate-mcp", version: VERSION, ...props } }) }).catch(() => { });
+    body: JSON.stringify({ api_key: POSTHOG_KEY, event, distinct_id: "mcp-anon", properties: { surface: "mcp", $lib: "skipto-mcp", version: VERSION, ...props } }) }).catch(() => { });
 };
 
 // ---------- MCP server ----------
 function buildServer() {
-  const server = new McpServer({ name: "across-the-eras", version: VERSION }, {
-    instructions: `Across the Eras (${SITE}) is a rewatch explorer for long-running TV shows. Each show has an "era chart" —
+  const server = new McpServer({ name: "skipto-tv", version: VERSION }, {
+    instructions: `skipto.tv (${SITE}) is a rewatch explorer for long-running TV shows. Each show has an "era chart" —
 hand-curated bars for showrunners, cast rosters, big bads, arcs, locations, real-world periods — sitting on top of every episode,
 plus curated "vibes" (tags), TVmaze guest cast, ratings and summaries. Every filter here is exactly what a human can click on the site.
 Workflow: list_shows → get_show (learn the exact era/vibe/character vocabulary) → find_episodes / surprise_me / next_episode.
@@ -157,7 +157,7 @@ get the user's confirmation, then call submit_show. A successful submission open
 
   server.registerTool("list_shows", {
     title: "List shows",
-    description: "All shows on Across the Eras with slug, title, blurb, season/episode counts. Start here.",
+    description: "All shows on skipto.tv with slug, title, blurb, season/episode counts. Start here.",
     inputSchema: {},
   }, async () => {
     track("mcp_list_shows");
@@ -298,13 +298,13 @@ get the user's confirmation, then call submit_show. A successful submission open
   });
 
   // Resources: whole-package reads for clients that want to reason in-context.
-  server.registerResource("shows", "eras://shows", { title: "Show index", description: "All shows on Across the Eras", mimeType: "application/json" },
+  server.registerResource("shows", "skipto://shows", { title: "Show index", description: "All shows on skipto.tv", mimeType: "application/json" },
     async uri => ({ contents: [{ uri: uri.href, mimeType: "application/json", text: JSON.stringify(DATA.index) }] }));
-  server.registerResource("chart", new ResourceTemplate("eras://shows/{slug}/chart", { list: undefined }), { title: "Era chart", description: "A show's full era chart + season metadata", mimeType: "application/json" },
+  server.registerResource("chart", new ResourceTemplate("skipto://shows/{slug}/chart", { list: undefined }), { title: "Era chart", description: "A show's full era chart + season metadata", mimeType: "application/json" },
     async (uri, { slug }) => { const { model } = showOrThrow(slug); return { contents: [{ uri: uri.href, mimeType: "application/json", text: JSON.stringify({ axis: model.axis, seasons: model.seasonMeta, chart: chartFor(model) }) }] }; });
-  server.registerResource("tags", new ResourceTemplate("eras://shows/{slug}/tags", { list: undefined }), { title: "Vibes / tags", description: "A show's tag definitions and per-episode tags", mimeType: "application/json" },
+  server.registerResource("tags", new ResourceTemplate("skipto://shows/{slug}/tags", { list: undefined }), { title: "Vibes / tags", description: "A show's tag definitions and per-episode tags", mimeType: "application/json" },
     async (uri, { slug }) => { const entry = showOrThrow(slug); const byEp = {}; entry.model.eps.forEach(e => { byEp[e.code] = [...e.tags]; }); return { contents: [{ uri: uri.href, mimeType: "application/json", text: JSON.stringify({ tags: entry.model.tagDefs, episodes: byEp }) }] }; });
-  server.registerResource("episodes", new ResourceTemplate("eras://shows/{slug}/episodes", { list: undefined }), { title: "Episodes", description: "A show's episode list (code, title, air date, rating, summary, tags)", mimeType: "application/json" },
+  server.registerResource("episodes", new ResourceTemplate("skipto://shows/{slug}/episodes", { list: undefined }), { title: "Episodes", description: "A show's episode list (code, title, air date, rating, summary, tags)", mimeType: "application/json" },
     async (uri, { slug }) => { const entry = showOrThrow(slug); return { contents: [{ uri: uri.href, mimeType: "application/json", text: JSON.stringify(entry.model.eps.map(e => epSummary(entry, e))) }] }; });
 
   return server;
@@ -332,7 +332,7 @@ const httpServer = http.createServer(async (req, res) => {
     // A plain browser GET (no SSE accept) gets a friendly pointer instead of a protocol error.
     if (req.method === "GET" && !(req.headers.accept || "").includes("text/event-stream")) {
       res.writeHead(200, { "Content-Type": "application/json" });
-      return res.end(JSON.stringify({ name: "across-the-eras", version: VERSION, transport: "streamable-http", endpoint: `${SITE}/mcp`, docs: `${SITE}/docs/`, shows: DATA.shows.size, showSubmissions: submissionsEnabled() }, null, 2));
+      return res.end(JSON.stringify({ name: "skipto-tv", version: VERSION, transport: "streamable-http", endpoint: `${SITE}/mcp`, docs: `${SITE}/docs/`, shows: DATA.shows.size, showSubmissions: submissionsEnabled() }, null, 2));
     }
     try {
       let body;
@@ -353,6 +353,6 @@ const httpServer = http.createServer(async (req, res) => {
 });
 
 if (require.main === module) {
-  httpServer.listen(PORT, () => console.log(`[mcp] across-the-eras MCP listening on :${PORT}/mcp (site ${SITE})`));
+  httpServer.listen(PORT, () => console.log(`[mcp] skipto.tv MCP listening on :${PORT}/mcp (site ${SITE})`));
 }
 module.exports = { buildServer, httpServer, DATA };

@@ -1,4 +1,4 @@
-// Buffy the Vampire Slayer Across the Eras — chart data. 7 seasons, 144 episodes.
+// Buffy the Vampire Slayer on skipto.tv — chart data. 7 seasons, 144 episodes.
 // Seasons 1–5 aired on The WB; seasons 6–7 on UPN.
 // Each entry: [label, startSeason, endSeason, bg, fg?]
 const RED="#c0202c", DRED="#7a0f18", BLOOD="#8b0000", ROSE="#e2707a",
