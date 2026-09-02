@@ -2,10 +2,8 @@
 # a permanent redirect into its show folder here, so old bookmarks and search
 # results land somewhere useful instead of on a dead name.
 #
-# Targets are skipto.tv, the canonical domain, not eras.inevitable.fyi. Both
-# hostnames serve this app, but pointing at the canonical one means these
-# redirects do not become a second hop if eras.inevitable.fyi is itself ever
-# turned into a redirect.
+# Targets are skipto.tv, the canonical domain. The former eras.inevitable.fyi
+# hostname redirects there as well, so old show links never gain a second hop.
 #
 # The redirect is deliberately blanket rather than path-preserving: the retired
 # apps were single-page sites with their own query/hash vocabulary, so there is

@@ -1,4 +1,4 @@
-// NCIS Across the Eras — chart data. Season axis, seasons 1–23 (CBS, 2003–2026).
+// NCIS on skipto.tv — chart data. Season axis, seasons 1–23 (CBS, 2003–2026).
 // Each bar: [label, startSeason, endSeason, bg, fg?]. Bars within a row must not overlap.
 // Mid-season handoffs are drawn at season granularity with the exact episode noted in the label.
 const NAVY="#1b3a6b", BLUE="#4a7ab8", LBLUE="#a8c6e8", GOLD="#c9a227", LGOLD="#e8d18a",

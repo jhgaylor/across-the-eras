@@ -1,4 +1,4 @@
-// Criminal Minds Across the Eras — chart data. Seasons 1–15 = CBS run, 16–19 = Criminal Minds: Evolution.
+// Criminal Minds on skipto.tv — chart data. Seasons 1–15 = CBS run, 16–19 = Criminal Minds: Evolution.
 // Each entry: [label, startSeason, endSeason, bg, fg?]
 const NAVY="#1f3a5f", BLUE="#8fb3e0", LBLUE="#cfe0f5", RED="#c62828", DRED="#7f0000", ORANGE="#f2994a",
       GOLD="#f2c94c", GREEN="#4f8a3f", LGREEN="#a8d08d", PURPLE="#6a3d9a", LPURP="#c9b3e6", GRAY="#7f7f7f",

@@ -1,4 +1,4 @@
-# across-the-eras — show package contract
+# skipto.tv — show package contract
 
 One repo, many shows. Every show lives in `shows/<slug>/` and is fully self-contained. The shared engine
 (`index.html`, `app.js`, `filter.js`, `styles.css`) loads a show's package at runtime; nothing about a show is
@@ -17,7 +17,7 @@ Reference implementations (read these first, they are the format):
 {
   "slug": "doctor-who",
   "title": "DOCTOR WHO",                     // hero line 1 (rendered as-is; usually ALL CAPS)
-  "subtitle": "Across the Eras",             // hero line 2
+  "subtitle": "skipto.tv",                   // hero line 2
   "blurb": "One or two sentences for the hero. Plain text, no HTML.",
   "emoji": "🚪",                             // used on the show-picker card
   "tvmazeId": 210,                           // for provenance; may be an array if stitched from several TVmaze shows
@@ -88,7 +88,7 @@ episodes can just get the show's "classic standalone" tag.
 - PostHog: one project (token `phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP`, US), `posthog.register({show: slug})`
   after load, same explicit events as the reference repos, autocapture off.
 - Docker (nginx, port 8080, `/healthz`), `.github/workflows/build.yml` (multi-arch, GHCR
-  `ghcr.io/jhgaylor/across-the-eras`, sha-pin into `k8s/deployment.yaml`), `k8s/` for `eras.inevitable.fyi`
+  `ghcr.io/jhgaylor/across-the-eras`, sha-pin into `k8s/deployment.yaml`), `k8s/` for `skipto.tv`
   in namespace `across-the-eras` — copy the shape from greater-fool exactly (the placeholder image sha in the
   first commit must be `sha-0000000000000000000000000000000000000000`).
 - Imports the three existing shows into `shows/supernatural`, `shows/criminal-minds`, `shows/newsroom` (copy their
