@@ -7,7 +7,8 @@
 <meta name="description" content="Interactive TV rewatch guides. Explore every episode by era, story arc, character, vibe and rating, then skip to the one you want.">
 <link rel="canonical" href="https://skipto.tv/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
 posthog.init('phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP', {api_host: 'https://us.i.posthog.com', defaults: '2025-05-24', person_profiles: 'identified_only', autocapture: false});
@@ -20,19 +21,28 @@ posthog.init('phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP', {api_host: 'htt
 <div id="landing" hidden>
   <header class="hero landing-hero">
     <div class="hero-inner">
-      <h1><span class="t1 landing-title">SKIPTO.TV</span></h1>
-      <p class="tagline">Rewatch guides for the shows you keep going back to.</p>
-      <p class="sub">Every show gets an interactive era chart — showrunners, arcs, big bads, rosters — sitting on top of every episode. Click anything to find what to watch next.</p>
+      <p class="brand-kicker">The rewatch index</p>
+      <h1 class="landing-title" aria-label="skipto.tv"><span>skipto</span><b>.tv</b></h1>
+      <p class="tagline">You know the show.<br>You just need the episode.</p>
+      <p class="sub">A hand-built field guide to the stories, characters and eras worth going back for.</p>
+      <a class="hero-cta" href="#showsGrid">Browse the archive</a>
     </div>
   </header>
+  <div class="archive-intro">
+    <p class="archive-index">Archive 01—15</p>
+    <div>
+      <h2>Find your way back in.</h2>
+      <p>Choose a series, then trace its seasons, creative eras, characters and story arcs down to the exact hour.</p>
+    </div>
+  </div>
   <main class="shows-grid" id="showsGrid"></main>
-  <footer class="foot">Fan-made rewatch tools. Not affiliated with any network or studio. Episode metadata &amp; images © TVmaze contributors. <a href="/docs/">Use it from your AI assistant →</a></footer>
+  <footer class="foot">Fan-made rewatch tools. Not affiliated with any network or studio. Episode metadata &amp; images © TVmaze contributors. <a href="/docs/">Use it from your AI assistant</a></footer>
 </div>
 
 <!-- ============ SHOW EXPLORER ============ -->
 <div id="explorer" hidden>
 <nav class="topnav">
-  <a href="/" class="topnav-home" id="navHome">← All shows</a>
+  <a href="/" class="topnav-home" id="navHome">All shows</a>
   <span class="topnav-sep">/</span>
   <span class="topnav-current" id="navCurrent"></span>
   <label class="topnav-switch"><span class="muted">Switch:</span> <select id="showSwitch"></select></label>
@@ -49,7 +59,7 @@ posthog.init('phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP', {api_host: 'htt
   <div class="chart-toolbar">
     <div class="legend-hint" id="chartHint">Click any bar to filter episodes by that era. Click a season number to filter by season. Shift-click to combine.</div>
     <div class="chart-actions">
-      <button id="clearEra" class="btn ghost" hidden>✕ clear era filter</button>
+      <button id="clearEra" class="btn ghost" hidden>Clear era filter</button>
       <button id="toggleChart" class="btn ghost">Collapse chart</button>
     </div>
   </div>
@@ -95,7 +105,7 @@ posthog.init('phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP', {api_host: 'htt
       <label class="row"><span>Sort</span>
         <select id="sort">
           <option value="air">Air order</option>
-          <option value="rating">Rating (high → low)</option>
+          <option value="rating">Rating (highest first)</option>
           <option value="airdesc">Newest first</option>
         </select>
       </label>
@@ -108,7 +118,7 @@ posthog.init('phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP', {api_host: 'htt
       <div class="muted tiny" id="watchedCount"></div>
     </div>
 
-    <button id="surprise" class="btn primary wide">🎲 Surprise me</button>
+    <button id="surprise" class="btn primary wide">Pick an episode for me</button>
   </aside>
   <div class="drawer-foot">
     <button id="closeDrawer" class="btn primary">Show <span id="drawerCount"></span> episodes</button>
@@ -126,7 +136,7 @@ posthog.init('phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP', {api_host: 'htt
 
 <div id="modal" class="modal" hidden>
   <div class="modal-card" role="dialog" aria-modal="true">
-    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <button class="modal-close" id="modalClose" aria-label="Close">Close</button>
     <div id="modalBody"></div>
   </div>
 </div>
@@ -134,7 +144,7 @@ posthog.init('phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP', {api_host: 'htt
 <footer class="foot">Fan-made rewatch tool. Not affiliated with any network or studio. Episode metadata &amp; images © TVmaze contributors. <a href="/">All shows</a> · <a href="/docs/">Use it from your AI assistant</a></footer>
 </div>
 
-<div id="notfound" hidden class="empty"><h2>No such show</h2><p><a href="/">← All shows</a></p></div>
+<div id="notfound" hidden class="empty"><h2>No such show</h2><p><a href="/">All shows</a></p></div>
 
 <script src="/filter.js"></script>
 <script src="/app.js"></script>

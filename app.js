@@ -11,6 +11,11 @@ const watched = new Set();
 const wkey = () => `ate_watched_${SLUG}`;
 const saveWatched = () => localStorage.setItem(wkey(), JSON.stringify([...watched]));
 const track = (ev,props)=>{ try{ window.posthog && posthog.capture(ev,props); }catch{} };
+const ARCHIVE_TONES=["#6f2c30","#75503c","#536052","#7a6846","#514b45","#805c58","#5f4937","#656151"];
+const archiveTone = value => {
+  let h=0; for(const c of String(value||"")) h=((h<<5)-h+c.charCodeAt(0))|0;
+  return ARCHIVE_TONES[Math.abs(h)%ARCHIVE_TONES.length];
+};
 const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 // ---------- routing / show package ----------
@@ -31,17 +36,7 @@ async function boot(){
   await load();
 }
 function applyTheme(show){
-  const r=document.documentElement.style;
-  if(show.accent){ r.setProperty("--teal",show.accent); r.setProperty("--accent",show.accent); }
-  if(show.accentText) r.setProperty("--accent-text",show.accentText);
-  if(show.heroGradient) r.setProperty("--hero-tint",show.heroGradient);
-  if(show.heroFont){
-    if(show.heroFont.google){ const l=document.createElement("link"); l.rel="stylesheet"; l.href=`https://fonts.googleapis.com/css2?family=${show.heroFont.google}&display=swap`; document.head.appendChild(l); }
-    if(show.heroFont.family) r.setProperty("--hero-font",show.heroFont.family);
-  }
-  // glow derived from accent
-  const m=/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(show.accent||"");
-  if(m){ const [_,a,b,c]=m; r.setProperty("--accent-glow",`rgba(${parseInt(a,16)},${parseInt(b,16)},${parseInt(c,16)},.35)`); r.setProperty("--accent-glow-strong",`rgba(${parseInt(a,16)},${parseInt(b,16)},${parseInt(c,16)},.6)`); }
+  document.documentElement.dataset.show=show.slug;
 }
 function fillShowChrome(show,index){
   document.title=`${show.title.replace(/\b\w+/g,w=>w[0]+w.slice(1).toLowerCase())} — skipto.tv episode guide`;
@@ -51,9 +46,9 @@ function fillShowChrome(show,index){
   $("#heroBlurb").textContent=show.blurb||""; $("#heroCredits").textContent=show.credits||""; $("#heroCredits").hidden=!show.credits;
   if(show.chartHint) $("#chartHint").textContent=show.chartHint;
   $("#regularsNote").textContent=show.regularsNote||""; $("#regularsNote").hidden=!show.regularsNote;
-  $("#navCurrent").textContent=`${show.emoji||""} ${show.title}`.trim();
+  $("#navCurrent").textContent=show.title;
   const sw=$("#showSwitch");
-  index.forEach(x=>{const o=document.createElement("option");o.value=x.slug;o.textContent=`${x.emoji||""} ${x.title}`.trim();if(x.slug===SLUG)o.selected=true;sw.appendChild(o);});
+  index.forEach(x=>{const o=document.createElement("option");o.value=x.slug;o.textContent=x.title;if(x.slug===SLUG)o.selected=true;sw.appendChild(o);});
   sw.onchange=()=>{ if(sw.value&&sw.value!==SLUG){ track("show_selected",{to:sw.value,from:SLUG,source:"switcher"}); location.href=`/${sw.value}/`; } };
   $("#navHome").onclick=()=>track("show_selected",{to:"landing",from:SLUG,source:"nav"});
 }
@@ -62,13 +57,12 @@ function renderLanding(index){
   $("#landing").hidden=false;
   const g=$("#showsGrid");
   if(!index.length){ g.innerHTML='<div class="empty">No shows yet.</div>'; return; }
-  index.forEach(x=>{
+  index.forEach((x,i)=>{
     const a=document.createElement("a"); a.className="show-card"; a.href=`/${x.slug}/`;
-    a.style.setProperty("--card-accent",x.accent||"#888"); a.style.setProperty("--card-accent-text",x.accentText||"#000");
-    a.innerHTML=`<div class="show-emoji">${esc(x.emoji||"📺")}</div>
-      <div class="show-body"><h2>${esc(x.title)}</h2><p class="muted">${esc(x.blurb||"")}</p>
+    a.innerHTML=`<div class="show-image" style="background-image:url('${esc(x.image||"")}')"><span class="show-number">${String(i+1).padStart(2,"0")} / ${String(index.length).padStart(2,"0")}</span></div>
+      <div class="show-body"><h2>${esc(x.title)}</h2><p>${esc(x.blurb||"")}</p>
       <div class="show-meta"><span>${x.episodeCount||"?"} episodes</span><span>·</span><span>${x.seasons||"?"} season${x.seasons===1?"":"s"}</span><span>·</span><span>${x.axis==="episode"?"episode chart":"season chart"}</span></div></div>
-      <div class="show-cta">Explore →</div>`;
+      <div class="show-cta">Open field guide</div>`;
     a.onclick=()=>track("show_selected",{to:x.slug,from:"landing",source:"card"});
     g.appendChild(a);
   });
@@ -121,10 +115,11 @@ function buildChart(){
         let [name,s1,s2,bg,fg]=b;
         if(s1<col) s1=col; if(s2<s1) return;
         for(;col<s1;col++) add("cell","");
-        const d=add("cell bar",esc(name),`grid-column:span ${s2-s1+1};background:${bg};color:${fg||"#000"}`);
-        d.dataset.era=JSON.stringify({name,s1,s2,bg,fg,cat:label});
-        d.title=AXIS()==="episode" ? `${name} — ${UNITS[s1-1].label}${s1===s2?"":" → "+UNITS[s2-1].label}. Click to filter.` : `${name} — Season${s1===s2?"":"s"} ${s1===s2?s1:s1+"–"+s2}. Click to filter.`;
-        d.onclick=ev=>toggleEra({name,s1,s2,bg,fg,cat:label},ev.shiftKey);
+        const displayBg=archiveTone(`${label}:${name}:${bg}`), displayFg="#fffaf2";
+        const d=add("cell bar",esc(name),`grid-column:span ${s2-s1+1};background:${displayBg};color:${displayFg}`);
+        d.dataset.era=JSON.stringify({name,s1,s2,bg:displayBg,fg:displayFg,cat:label});
+        d.title=AXIS()==="episode" ? `${name} — ${UNITS[s1-1].label}${s1===s2?"":" to "+UNITS[s2-1].label}. Click to filter.` : `${name} — Season${s1===s2?"":"s"} ${s1===s2?s1:s1+"–"+s2}. Click to filter.`;
+        d.onclick=ev=>toggleEra({name,s1,s2,bg:displayBg,fg:displayFg,cat:label},ev.shiftKey);
         col=s2+1;
       });
       for(;col<=UNITS.length;col++) add("cell","");
@@ -195,7 +190,7 @@ const filtered = () => ATE.filter(EPS, state, {axis:AXIS(), watched});
 
 // ---------- render ----------
 const unitContext = u => ATE.unitContext(BARS, u); // all bars active in chart column u
-function accentColor(e){const first=ERAS[CATS[0][0]]; const bars=Array.isArray(first[0][0])?first[0]:first; const u=unitOf(e); const b=bars.find(b=>u>=b[1]&&u<=b[2]);return b?b[3]:"#444";}
+function accentColor(e){const first=ERAS[CATS[0][0]]; const bars=Array.isArray(first[0][0])?first[0]:first; const u=unitOf(e); const b=bars.find(b=>u>=b[1]&&u<=b[2]);return b?archiveTone(`${CATS[0][1]}:${b[0]}:${b[3]}`):"#514b45";}
 
 function render(){
   writeHash(); syncChart();
@@ -209,7 +204,7 @@ function render(){
   $("#watchedCount").textContent=`${watched.size} / ${EPS.length} watched`;
   // active filter chips
   const af=$("#activeFilters"); af.innerHTML="";
-  const chip=(txt,fn)=>{const b=document.createElement("button");b.className="chip";b.innerHTML=`${esc(txt)}<b>✕</b>`;b.onclick=fn;af.appendChild(b);};
+  const chip=(txt,fn)=>{const b=document.createElement("button");b.className="chip";b.innerHTML=`${esc(txt)}<b>Remove</b>`;b.onclick=fn;af.appendChild(b);};
   state.eras.forEach(e=>chip(`${e.cat}: ${e.name}`,()=>toggleEra(e,true)));
   if(state.seasons.size) chip(`Seasons ${[...state.seasons].sort((a,b)=>a-b).join(", ")}`,()=>{state.seasons.clear();render();});
   state.tags.forEach(t=>chip(TAG_DEFS[t].label,()=>{state.tags.delete(t);render();}));
@@ -226,7 +221,7 @@ function render(){
     const guests=e.guests.slice().sort((a,b)=>(CHAR_COUNT[b[0]]||0)-(CHAR_COUNT[a[0]]||0)).slice(0,4).map(([c])=>`<span class="tag guest">${esc(c)}</span>`).join("");
     d.innerHTML=`
       <div class="thumb" style="background-image:url('${e.img||""}')">
-        <span class="code">${e.code}</span>${e.rating?`<span class="rating">★ ${e.rating}</span>`:""}
+        <span class="code">${e.code}</span>${e.rating?`<span class="rating">Rated ${e.rating}</span>`:""}
         <span class="era" style="background:${accentColor(e)}"></span>
       </div>
       <div class="body">
@@ -235,7 +230,7 @@ function render(){
         <div class="sum">${esc(e.summary)}</div>
         <div class="tags">${tags}${guests}</div>
         <div class="foot"><span class="muted tiny">click for details</span>
-          <button class="watch ${watched.has(e.id)?"on":""}" data-w="${e.id}">${watched.has(e.id)?"✓ watched":"mark watched"}</button></div>
+          <button class="watch ${watched.has(e.id)?"on":""}" data-w="${e.id}">${watched.has(e.id)?"Watched":"Mark watched"}</button></div>
       </div>`;
     d.onclick=ev=>{ if(ev.target.closest(".watch")){toggleWatched(e.id);return;} openModal(e); };
     frag.appendChild(d);
@@ -250,7 +245,7 @@ function openModal(e){
   const ctx=unitContext(unitOf(e));
   const byCat={}; ctx.forEach(c=>{(byCat[c.cat]=byCat[c.cat]||[]).push(c);});
   const ctxHtml=Object.entries(byCat).map(([cat,items])=>`<div class="section"><h4>${esc(cat)}</h4><div class="ctx">${
-    items.map(c=>`<span class="bar" style="background:${c.bg};color:${c.fg||"#000"}" data-era='${esc(JSON.stringify(c))}'>${esc(c.name)}</span>`).join("")}</div></div>`).join("");
+    items.map(c=>`<span class="bar" style="background:${archiveTone(`${cat}:${c.name}:${c.bg}`)};color:#fffaf2" data-era='${esc(JSON.stringify(c))}'>${esc(c.name)}</span>`).join("")}</div></div>`).join("");
   const tags=[...e.tags].filter(t=>TAG_DEFS[t]).map(t=>`<span class="tag">${esc(TAG_DEFS[t].label)}</span>`).join("");
   const cast=e.guests.length?`<div class="section"><h4>Guest cast</h4><div class="cast">${e.guests.map(([c,p])=>`<div><b>${esc(c)}</b> <span class="muted">— ${esc(p)}</span></div>`).join("")}</div></div>`:"";
   const big=(e.img||"").replace("medium_landscape","original_untouched");
@@ -258,13 +253,13 @@ function openModal(e){
     <div class="hero-img" style="background-image:url('${big}')"></div>
     <div class="mbody">
       <h2>${e.code} · ${esc(e.title)}</h2>
-      <div class="meta">Aired ${e.air||"?"} · Season ${e.s} (${(SEASON_META[e.s]||{}).years||"?"}, ${(SEASON_META[e.s]||{}).showrunner||"—"} era)${e.rating?` · ★ ${e.rating}`:""}</div>
+      <div class="meta">Aired ${e.air||"?"} · Season ${e.s} (${(SEASON_META[e.s]||{}).years||"?"}, ${(SEASON_META[e.s]||{}).showrunner||"—"} era)${e.rating?` · Rating ${e.rating}`:""}</div>
       <p>${esc(e.summary)||"<i>No summary.</i>"}</p>
       <div class="tags">${tags}</div>
       <div class="section" style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn" id="mWatch">${watched.has(e.id)?"✓ Watched — unmark":"Mark as watched"}</button>
-        <button class="btn" id="mNext">Next episode →</button>
-        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=${encodeURIComponent(SHOW.title+" "+e.code+" "+e.title)}">Search the web ↗</a>
+        <button class="btn" id="mWatch">${watched.has(e.id)?"Watched — unmark":"Mark as watched"}</button>
+        <button class="btn" id="mNext">Next episode</button>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=${encodeURIComponent(SHOW.title+" "+e.code+" "+e.title)}">Search the web</a>
       </div>
       <div class="section"><h4>${AXIS()==="episode"?"Where this sits on the chart":"What's going on this season"}</h4><div class="muted tiny" style="margin:0 0 6px">Click any bar to filter to that era.</div>${ctxHtml}</div>
       ${cast}

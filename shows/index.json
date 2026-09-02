@@ -3,180 +3,150 @@
     "slug": "angel",
     "title": "ANGEL",
     "subtitle": "skipto.tv",
-    "emoji": "🌆",
     "blurb": "Pick a season, a Big Bad, a member of the team, a romance, an LA haunt or a vibe — and find the episodes to rewatch. Five years of noir, apocalypse and one vampire trying to earn a soul back.",
     "episodeCount": 110,
     "seasons": 5,
-    "accent": "#8b1e3f",
-    "accentText": "#ffffff",
-    "axis": "season"
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/15/37512.jpg"
   },
   {
     "slug": "battlestar-galactica",
     "title": "BATTLESTAR GALACTICA",
     "subtitle": "skipto.tv",
-    "emoji": "🚀",
     "blurb": "The 2003 Miniseries and all four seasons of the Ronald D. Moore reimagining, laid out episode by episode — the run from the Cylons, the Pegasus, New Caprica, the trial, the Final Five, and the road to Earth.",
     "episodeCount": 74,
     "seasons": 4,
-    "accent": "#d81f26",
-    "accentText": "#ffffff",
-    "axis": "episode"
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/561/1404919.jpg"
   },
   {
     "slug": "buffy",
     "title": "BUFFY THE VAMPIRE SLAYER",
     "subtitle": "skipto.tv",
-    "emoji": "🧛",
     "blurb": "Pick a season, a Big Bad, a Scooby, a romance, a Sunnydale haunt or a vibe — and find the episodes to rewatch. Seven seasons on the Hellmouth, from the library to the crater.",
     "episodeCount": 144,
     "seasons": 7,
-    "accent": "#d7263d",
-    "accentText": "#ffffff",
-    "axis": "season"
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/14/37026.jpg"
   },
   {
     "slug": "criminal-minds",
     "title": "CRIMINAL MINDS",
     "subtitle": "skipto.tv",
-    "emoji": "🧠",
     "blurb": "Pick an era, a BAU roster, a serial-arc UnSub, a recurring character or a vibe — and find the episodes to rewatch. Covers the original run and Evolution.",
     "episodeCount": 364,
     "seasons": 19,
-    "accent": "#e5484d",
-    "accentText": "#ffffff",
-    "axis": "season"
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/14/35682.jpg"
   },
   {
     "slug": "doctor-who",
     "title": "DOCTOR WHO",
     "subtitle": "skipto.tv",
-    "emoji": "🚪",
     "blurb": "Twenty years of the revived series, from Rose to the Rani. Pick a Doctor, a companion, a showrunner, a big bad, an arc or a vibe — and find the episodes to rewatch.",
     "episodeCount": 196,
     "seasons": 16,
-    "accent": "#3aa0ff",
-    "accentText": "#ffffff",
-    "axis": "season"
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/140/350206.jpg"
   },
   {
     "slug": "fraggle-rock",
     "title": "FRAGGLE ROCK",
     "subtitle": "skipto.tv",
-    "emoji": "🪨",
     "blurb": "Deep in a cave live the Fraggles, who sing and dance and never stop wondering what it's all about; down in the walls the industrious Doozers build (and get eaten); up in the garden the towering Gorgs guard their radishes; and in a workshop somewhere, tinkering inventor Doc and his dog Sprocket never quite realize they share the house with all of them. Jim Henson's 1983 ensemble built one small, interconnected world where every creature's problem is everyone else's problem too.",
     "episodeCount": 96,
     "seasons": 5,
-    "accent": "#ff7a3d",
-    "accentText": "#2b0f02",
-    "axis": "season"
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/120/302178.jpg"
   },
   {
     "slug": "lost",
     "title": "LOST",
     "subtitle": "skipto.tv",
-    "emoji": "🏝️",
     "blurb": "All 121 hours of the Island, episode by episode — every flashback, flash-forward, flash-sideways and time skip, whose hour it is, and exactly when the Island took someone.",
     "episodeCount": 121,
     "seasons": 6,
-    "accent": "#f28c28",
-    "accentText": "#1a1206",
-    "axis": "episode"
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/72/180551.jpg"
   },
   {
     "slug": "ncis",
     "title": "NCIS",
     "subtitle": "skipto.tv",
-    "emoji": "⚓",
     "blurb": "Twenty-three seasons of the Major Case Response Team. Pick a showrunner era, a roster, a big bad, an arc or a vibe — and find the episodes worth rewatching.",
     "episodeCount": 507,
     "seasons": 23,
-    "accent": "#c9a227",
-    "accentText": "#000000",
-    "axis": "season"
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/74/186787.jpg"
   },
   {
     "slug": "newsroom",
     "title": "THE NEWSROOM",
     "subtitle": "skipto.tv",
-    "emoji": "📰",
     "blurb": "All 25 episodes of Sorkin's ACN, laid out episode by episode — the real news each hour covered, the arcs, the antagonists, who's around.",
     "episodeCount": 25,
     "seasons": 3,
-    "accent": "#4f7ff0",
-    "accentText": "#ffffff",
-    "axis": "episode"
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/161/403029.jpg"
   },
   {
     "slug": "silicon-valley",
     "title": "SILICON VALLEY",
     "subtitle": "skipto.tv",
-    "emoji": "💻",
     "blurb": "Six seasons of Pied Piper: a compression algorithm that wins TechCrunch Disrupt, survives a Hooli lawsuit, a CEO merry-go-round and a decentralized-internet pivot, and ends up nearly breaking encryption for the entire planet. Every founder, funder, and Hooli exec who came and went, charted season by season.",
     "episodeCount": 53,
     "seasons": 6,
-    "accent": "#3ddc84",
-    "accentText": "#04140c",
-    "axis": "season"
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/565/1413862.jpg"
   },
   {
     "slug": "supernatural",
     "title": "SUPERNATURAL",
     "subtitle": "skipto.tv",
-    "emoji": "🚗",
     "blurb": "Pick an era, an arc, a big bad, a location, a guest character or a vibe — and find the episodes to rewatch.",
     "episodeCount": 327,
     "seasons": 15,
-    "accent": "#5fe0e6",
-    "accentText": "#062327",
-    "axis": "season"
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/5/12728.jpg"
   },
   {
     "slug": "the-wire",
     "title": "THE WIRE",
     "subtitle": "skipto.tv",
-    "emoji": "📟",
     "blurb": "All 60 episodes of Baltimore, episode by episode — the towers, the port, Hamsterdam, the schools and the paper, plus who's running the corners and who's chasing them.",
     "episodeCount": 60,
     "seasons": 5,
-    "accent": "#d98e04",
-    "accentText": "#000000",
-    "axis": "episode"
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/94/236948.jpg"
   },
   {
     "slug": "twin-peaks",
     "title": "TWIN PEAKS",
     "subtitle": "skipto.tv",
-    "emoji": "☕",
     "blurb": "All 48 hours — the ABC run of 1990–91 and Showtime's 2017 Return — laid out episode by episode: the Laura Palmer case, the Lodge, the town, and who's playing the Roadhouse.",
     "episodeCount": 48,
     "seasons": 3,
-    "accent": "#b3001b",
-    "accentText": "#ffffff",
-    "axis": "episode"
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/464/1160196.jpg"
   },
   {
     "slug": "walking-dead",
     "title": "THE WALKING DEAD",
     "subtitle": "skipto.tv",
-    "emoji": "🧟",
     "blurb": "Twelve years and 177 episodes, from the hospital bed in Atlanta to the Commonwealth. Pick a showrunner, a home base, a survivor, a big bad, an arc or a vibe — and find the episodes worth rewatching.",
     "episodeCount": 177,
     "seasons": 11,
-    "accent": "#8fae3f",
-    "accentText": "#131a08",
-    "axis": "season"
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/8/21352.jpg"
   },
   {
     "slug": "west-wing",
     "title": "THE WEST WING",
     "subtitle": "skipto.tv",
-    "emoji": "🏛️",
     "blurb": "Seven seasons in the Bartlet White House, charted season by season: the Sorkin walk-and-talk years and the Wells campaign years, every seat on the senior staff, and the arcs that ran from Rosslyn to the Santos transition.",
     "episodeCount": 155,
     "seasons": 7,
-    "accent": "#1f4e9c",
-    "accentText": "#ffffff",
-    "axis": "season"
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/306/765805.jpg"
   }
 ]
