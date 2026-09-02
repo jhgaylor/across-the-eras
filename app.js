@@ -87,6 +87,7 @@ function writeHash(){
 function readHash(){ // returns the `ep` code to open, if any
   const {state:st, ep, empty}=ATE.hashToState(location.hash,{tagDefs:TAG_DEFS,bars:BARS}); if(empty)return "";
   Object.assign(state, st);
+  if(state.eras.length) setChartExpanded(true,false);
   $("#charSelect").value=state.char; $("#search").value=state.q; $("#searchMobile").value=state.q;
   $("#minRating").value=state.minRating; $("#minRatingOut").textContent=state.minRating?state.minRating.toFixed(1)+"+":"any";
   $("#sort").value=state.sort;
@@ -109,7 +110,7 @@ function buildChart(){
   CATS.forEach(([key,label])=>{
     add("grp","");
     ATE.rowsOf(ERAS[key]).forEach((row,ri)=>{
-      add(ri===0?"rowlbl":"rowlbl sub", ri===0?label:"");
+      add(ri===0?"rowlbl":"rowlbl sub empty", ri===0?label:"");
       let col=1;
       row.slice().sort((a,b)=>a[1]-b[1]).forEach(b=>{
         let [name,s1,s2,bg,fg]=b;
@@ -125,8 +126,19 @@ function buildChart(){
       for(;col<=UNITS.length;col++) add("cell","");
     });
   });
-  $("#toggleChart").onclick=()=>{el.classList.toggle("collapsed");track("chart_toggled",{collapsed:el.classList.contains("collapsed")});$("#toggleChart").textContent=el.classList.contains("collapsed")?"Expand chart":"Collapse chart";};
+  $("#chartSummary").textContent=`${UNITS.length} ${AXIS()==="episode"?"episodes":"seasons"} · ${CATS.length} timelines`;
+  setChartExpanded(localStorage.getItem("ate_chart_expanded")==="1",false);
+  $("#toggleChart").onclick=()=>setChartExpanded($("#chartWrap").classList.contains("preview"));
   $("#clearEra").onclick=()=>{state.eras=[];render();};
+}
+function setChartExpanded(expanded,persist=true){
+  const wrap=$("#chartWrap"), button=$("#toggleChart");
+  wrap.classList.toggle("preview",!expanded);
+  wrap.classList.toggle("expanded",expanded);
+  button.textContent=expanded?"Show map preview":"Explore full story map";
+  button.setAttribute("aria-expanded",String(expanded));
+  if(persist) localStorage.setItem("ate_chart_expanded",expanded?"1":"0");
+  if(persist) track("chart_toggled",{expanded});
 }
 const eraKey=ATE.eraKey;
 function toggleEra(era,additive){
@@ -135,6 +147,7 @@ function toggleEra(era,additive){
   if(i>=0) state.eras.splice(i,1);
   else if(additive) state.eras.push(era);
   else state.eras=[era];
+  if(state.eras.length) setChartExpanded(true,false);
   render();
 }
 function toggleSeason(s,additive){
@@ -178,8 +191,6 @@ function buildFilters(){
   let tm; mob.oninput=e=>{clearTimeout(tm);tm=setTimeout(()=>setQ(e.target.value),120);};
   $("#openDrawer").onclick=()=>{document.body.classList.add("drawer-open");track("filters_drawer_opened");};
   $("#closeDrawer").onclick=()=>{document.body.classList.remove("drawer-open");window.scrollTo({top:$("#filters").offsetTop-60>0?document.querySelector(".layout").offsetTop-8:0,behavior:"smooth"});};
-  const mq=window.matchMedia("(max-width:900px)");
-  if(mq.matches && window.innerWidth<700){ $("#chart").classList.add("collapsed"); $("#toggleChart").textContent="Expand chart"; }
   $("#modalClose").onclick=closeModal; $("#modal").onclick=e=>{if(e.target.id==="modal")closeModal();};
   document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
 }

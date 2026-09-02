@@ -52,19 +52,26 @@ a{color:var(--brand);text-underline-offset:3px}
 
 /* chart */
 .chart-wrap{padding:20px 24px 14px;border-bottom:1px solid var(--line);background:var(--paper-deep)}
-.chart-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;max-width:1600px;margin:0 auto 12px}
+.chart-toolbar{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;max-width:1600px;margin:0 auto 14px}
+.chart-copy{display:flex;flex-direction:column;gap:4px;min-width:0}
+.chart-title{font-family:var(--hero-font);font-size:28px;font-weight:500;line-height:1;color:var(--ink)}
+.chart-title span{margin-left:9px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
 .legend-hint{color:var(--muted);font-family:var(--mono);font-size:11.5px}
 .chart-actions{display:flex;gap:8px}
-.chart-scroll{overflow-x:auto;padding-bottom:6px;margin:auto;max-width:1600px}
+.chart-viewport{position:relative;max-width:1600px;margin:auto;transition:max-height .25s ease}
+.chart-scroll{overflow-x:auto;padding-bottom:6px}
+.chart-wrap.preview .chart-viewport{max-height:220px;overflow:hidden}
+.chart-wrap.preview .chart-viewport:after{content:"";position:absolute;left:0;right:0;bottom:0;height:78px;background:linear-gradient(transparent,var(--paper-deep));pointer-events:none}
+.chart-wrap.expanded .chart-viewport{max-height:none}
 .chart{--cols:var(--ncols,15);--label:150px;display:grid;grid-template-columns:var(--label) repeat(var(--cols),minmax(64px,1fr));gap:2px;min-width:calc(var(--label) + var(--cols) * 66px);font-family:var(--mono);font-size:11.5px;user-select:none}
-.chart.collapsed{display:none}
 .chart .hdr{background:var(--ink);color:var(--paper-light);font-weight:500;text-align:center;padding:6px 2px;cursor:pointer;border-radius:0}
 .chart .hdr:hover{background:var(--brand)}
 .chart .hdr.on{background:var(--brand);color:#fff}
 .chart .hdr.lbl{cursor:default;text-align:left;padding-left:8px}
 .chart .hdr.lbl:hover{background:var(--ink)}
-.chart .rowlbl{background:var(--ink);color:var(--paper-light);font-weight:500;padding:7px 8px;display:flex;align-items:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
-.chart .rowlbl.sub{background:#373735;color:#deddd8;font-weight:400;text-transform:none;font-size:11px}
+.chart .rowlbl{background:var(--paper-light);color:var(--ink);border-left:4px solid var(--brand);font-weight:600;padding:7px 9px;display:flex;align-items:center;font-size:11px;letter-spacing:.055em;text-transform:uppercase}
+.chart .rowlbl.sub{background:var(--paper-deep);color:var(--muted);border-left:0;font-weight:400;text-transform:none;font-size:11px}
+.chart .rowlbl.sub.empty{background:rgba(255,255,255,.32);border:1px solid rgba(27,27,26,.05)}
 .chart .cell{min-height:28px;background:rgba(68,57,44,.1)}
 .chart .bar{display:flex;align-items:center;justify-content:center;text-align:center;padding:4px 6px;line-height:1.15;cursor:pointer;border:1px solid rgba(30,27,22,.14);transition:.12s;font-weight:500;overflow:hidden}
 .chart .bar:hover{filter:contrast(1.15);outline:2px solid var(--paper-light);outline-offset:-3px}
@@ -158,7 +165,7 @@ select{width:100%;padding:9px;border-radius:0;border:1px solid var(--line);backg
 @media(max-width:1000px){.shows-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){
   .hero{padding:38px 16px 30px}.hero .sub{font-size:14px}.topnav{padding:9px 12px}.topnav-switch{margin-left:0;width:100%}.topnav-switch select{flex:1}
-  .chart-wrap{padding:12px}.legend-hint{font-size:11px}.layout{display:block;padding:12px}
+  .chart-wrap{padding:14px 12px 12px}.chart-toolbar{align-items:flex-start}.chart-title{font-size:25px}.chart-title span{display:block;margin:6px 0 0;font-size:10.5px}.legend-hint{font-size:11px}.chart-wrap.preview .chart-viewport{max-height:190px}.layout{display:block;padding:12px}
   .mobile-bar{display:flex;gap:8px;position:sticky;top:0;z-index:20;background:var(--paper);padding:8px 0 10px;margin:-4px 0 8px;border-bottom:1px solid var(--line)}
   .mobile-bar input{flex:1;min-width:0;padding:10px;border-radius:0;border:1px solid var(--line);background:var(--paper-light);outline:none;font-size:16px}
   .mobile-bar .btn{white-space:nowrap;padding:9px 12px}.mobile-bar .btn .n{display:inline-block;min-width:18px;padding:1px 5px;margin-left:6px;background:var(--brand);color:#fff;font-size:10px;text-align:center}

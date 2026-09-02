@@ -55,16 +55,21 @@ posthog.init('phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP', {api_host: 'htt
   </div>
 </header>
 
-<section class="chart-wrap" id="chartWrap">
+<section class="chart-wrap preview" id="chartWrap">
   <div class="chart-toolbar">
-    <div class="legend-hint" id="chartHint">Click any bar to filter episodes by that era. Click a season number to filter by season. Shift-click to combine.</div>
+    <div class="chart-copy">
+      <div class="chart-title">Story map <span id="chartSummary"></span></div>
+      <div class="legend-hint" id="chartHint">Click any bar to filter episodes by that era. Click a season number to filter by season. Shift-click to combine.</div>
+    </div>
     <div class="chart-actions">
       <button id="clearEra" class="btn ghost" hidden>Clear era filter</button>
-      <button id="toggleChart" class="btn ghost">Collapse chart</button>
+      <button id="toggleChart" class="btn primary" aria-expanded="false">Explore full story map</button>
     </div>
   </div>
-  <div class="chart-scroll">
-    <div class="chart" id="chart"></div>
+  <div class="chart-viewport">
+    <div class="chart-scroll">
+      <div class="chart" id="chart"></div>
+    </div>
   </div>
 </section>
 
