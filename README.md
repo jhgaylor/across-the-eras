@@ -14,7 +14,8 @@ Successor to the single-show sites [moose-and-squirrel](https://github.com/jhgay
 ```
 index.html, app.js, styles.css     the shell: landing page at /, explorer at /<slug>/
 filter.js                          the filter engine (matching + share-URL format), shared by app.js AND mcp/
-mcp/server.js, load.js, test.js    MCP server (Streamable HTTP at /mcp) exposing the same filters as tools
+mcp/server.js, load.js, test.js    MCP server (Streamable HTTP at /mcp) exposing filters + show proposals
+mcp/submissions.js                 validates declarative proposals and opens review PRs through a GitHub App
 docs/index.html                    /docs/ — plain-language "use it from your AI assistant" page
 shows/<slug>/show.json             branding + metadata          ┐
 shows/<slug>/episodes.json         TVmaze episodes              │ one self-contained
@@ -34,12 +35,14 @@ Read [CONTRACT.md](CONTRACT.md). In short: create `shows/<slug>/` with the five 
 formats from an existing show), run `python3 scripts/build-index.py`, commit. CI fails if `shows/index.json` is stale.
 
 ## MCP
-`https://skipto.tv/mcp` — MCP Streamable HTTP, stateless, no auth. Tools: `list_shows`, `get_show`,
-`find_episodes`, `get_episode`, `search_characters`, `surprise_me`, `next_episode`, `share_link`; resources
-`skipto://shows[/<slug>/{chart,tags,episodes}]`. It loads the same `shows/` files the site serves and runs the same
+`https://skipto.tv/mcp` — MCP Streamable HTTP, stateless, no user auth. Tools: `list_shows`, `get_show`,
+`find_episodes`, `get_episode`, `search_characters`, `surprise_me`, `next_episode`, `share_link`,
+`get_submission_guide`, `submit_show`; resources `skipto://shows[/<slug>/{chart,tags,episodes}]`. It loads the same
+`shows/` files the site serves and runs the same
 `filter.js`, so tool results and the UI always agree, and every result carries a `#…` share URL the site understands
-(incl. `ep=S05E16` to open an episode card). Human docs at `/docs/`. Tool calls are tracked in the same PostHog
-project as `mcp_*` events with `surface: mcp`.
+(incl. `ep=S05E16` to open an episode card). Human docs at `/docs/`. `submit_show` accepts only declarative JSON,
+generates the repository files on the server, and opens a GitHub PR for review; see [SUBMISSIONS.md](SUBMISSIONS.md).
+Tool calls are tracked in the same PostHog project as `mcp_*` events with `surface: mcp`.
 ```
 cd mcp && npm ci && npm test        # filter.js semantics + end-to-end MCP client run, no network needed
 PORT=8081 node mcp/server.js        # local server; SITE_ORIGIN / SHOWS_DIR / POSTHOG_KEY env override

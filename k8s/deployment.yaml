@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: across-the-eras
   namespace: across-the-eras
+  annotations:
+    # Restart when the Infisical operator materializes or rotates GitHub App credentials.
+    secrets.infisical.com/auto-reload: "true"
   labels:
     app: across-the-eras
 spec:
@@ -20,6 +23,12 @@ spec:
           # Pinned to an immutable sha tag by .github/workflows/build.yml on
           # every push to main; Flux picks up the manifest change and rolls.
           image: ghcr.io/jhgaylor/across-the-eras:sha-9dcd2bef08fe9a590093ac91dac8f63cf4230601
+          envFrom:
+            # Optional keeps the existing read tools available during first reconcile;
+            # the auto-reload annotation restarts the pods when Infisical creates it.
+            - secretRef:
+                name: across-the-eras-github
+                optional: true
           ports:
             - containerPort: 8080
           readinessProbe:

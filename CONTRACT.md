@@ -5,6 +5,9 @@ One repo, many shows. Every show lives in `shows/<slug>/` and is fully self-cont
 hard-coded in the engine. `filter.js` (matching + URL format) is also loaded by the MCP server in `mcp/`, which reads
 the same package files from disk — so anything that works on the site works as a tool, with no extra work per show.
 
+This document describes the trusted, repository-native format. Public MCP clients submit the equivalent declarative
+JSON contract; the server generates `eras.js` and `tags.js` without executing client code. See [SUBMISSIONS.md](SUBMISSIONS.md).
+
 Reference implementations (read these first, they are the format):
 - `/Users/jake/dev/jhgaylor/moose-and-squirrel/` — Supernatural, **season axis**, 15 seasons
 - `/Users/jake/dev/jhgaylor/goat-gideon/` — Criminal Minds, season axis, 19 seasons (roster rows, mid-season handoffs)
