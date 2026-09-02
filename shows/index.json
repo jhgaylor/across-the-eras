@@ -60,6 +60,18 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/120/302178.jpg"
   },
   {
+    "slug": "house",
+    "title": "HOUSE, M.D.",
+    "subtitle": "Across the Eras",
+    "emoji": "💊",
+    "blurb": "Eight seasons at Princeton-Plainsboro. Pick a season, a fellowship roster, an antagonist, an arc or a vibe, and find the episodes worth rewatching. From the first differential to the burning building.",
+    "episodeCount": 176,
+    "seasons": 8,
+    "accent": "#7b2d26",
+    "accentText": "#ffffff",
+    "axis": "season"
+  },
+  {
     "slug": "lost",
     "title": "LOST",
     "subtitle": "skipto.tv",

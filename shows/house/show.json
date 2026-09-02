@@ -1,0 +1,21 @@
+{
+  "slug": "house",
+  "title": "HOUSE, M.D.",
+  "subtitle": "Across the Eras",
+  "blurb": "Eight seasons at Princeton-Plainsboro. Pick a season, a fellowship roster, an antagonist, an arc or a vibe, and find the episodes worth rewatching. From the first differential to the burning building.",
+  "emoji": "💊",
+  "tvmazeId": 118,
+  "axis": "season",
+  "accent": "#7b2d26",
+  "accentText": "#ffffff",
+  "heroGradient": "#2f6f8f",
+  "heroFont": {
+    "google": "Oswald",
+    "family": "Oswald"
+  },
+  "regularsNote": "Series regulars — House, Wilson, Cuddy, Foreman, Chase, Cameron, Thirteen, Taub, Kutner, Masters, Adams and Park — aren't listed here; this dropdown covers the guest and recurring cast, which is where Vogler, Tritter, Stacy, Amber, Dominika and the patients live.",
+  "chartHint": "Season axis. Arcs shorter than a season are dated in the bar label, e.g. the Tritter arc runs 3×05–3×11.",
+  "credits": "Episode metadata and guest cast from TVmaze (CC BY-SA).",
+  "episodeCount": 176,
+  "seasons": 8
+}
