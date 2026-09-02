@@ -11,7 +11,7 @@ const watched = new Set();
 const wkey = () => `ate_watched_${SLUG}`;
 const saveWatched = () => localStorage.setItem(wkey(), JSON.stringify([...watched]));
 const track = (ev,props)=>{ try{ window.posthog && posthog.capture(ev,props); }catch{} };
-const ARCHIVE_TONES=["#6f2c30","#75503c","#536052","#7a6846","#514b45","#805c58","#5f4937","#656151"];
+const ARCHIVE_TONES=["#7a4246","#595754","#6b6965","#817b73","#454442","#71615f","#62605c","#343332"];
 const archiveTone = value => {
   let h=0; for(const c of String(value||"")) h=((h<<5)-h+c.charCodeAt(0))|0;
   return ARCHIVE_TONES[Math.abs(h)%ARCHIVE_TONES.length];
@@ -57,9 +57,9 @@ function renderLanding(index){
   $("#landing").hidden=false;
   const g=$("#showsGrid");
   if(!index.length){ g.innerHTML='<div class="empty">No shows yet.</div>'; return; }
-  index.forEach((x,i)=>{
+  index.forEach(x=>{
     const a=document.createElement("a"); a.className="show-card"; a.href=`/${x.slug}/`;
-    a.innerHTML=`<div class="show-image" style="background-image:url('${esc(x.image||"")}')"><span class="show-number">${String(i+1).padStart(2,"0")} / ${String(index.length).padStart(2,"0")}</span></div>
+    a.innerHTML=`<div class="show-image" style="background-image:url('${esc(x.image||"")}')"></div>
       <div class="show-body"><h2>${esc(x.title)}</h2><p>${esc(x.blurb||"")}</p>
       <div class="show-meta"><span>${x.episodeCount||"?"} episodes</span><span>·</span><span>${x.seasons||"?"} season${x.seasons===1?"":"s"}</span><span>·</span><span>${x.axis==="episode"?"episode chart":"season chart"}</span></div></div>
       <div class="show-cta">Open field guide</div>`;
