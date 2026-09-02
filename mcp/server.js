@@ -1,5 +1,5 @@
-// across-the-eras MCP server — read-only tools over the curated show data, using the SAME filter
-// engine as the website (../filter.js), so an agent's answer and the UI's answer never disagree.
+// skipto.tv MCP server — rewatch tools over curated show data plus a constrained show-proposal path.
+// Reads use the SAME filter engine as the website (../filter.js), so tool answers and the UI agree.
 //
 // Transport: MCP Streamable HTTP, stateless (no sessions, safe behind 2 replicas), at POST /mcp.
 // Runs on :8081 inside the site image; nginx proxies /mcp there. See ../docs/ for the human-facing story.
@@ -9,9 +9,10 @@ const { McpServer, ResourceTemplate } = require("@modelcontextprotocol/sdk/serve
 const { StreamableHTTPServerTransport } = require("@modelcontextprotocol/sdk/server/streamableHttp.js");
 const ATE = require("../filter.js");
 const { loadAll } = require("./load.js");
+const { SUBMISSION_SHAPE, validateSubmission, submissionGuide, submitToGitHub, submissionsEnabled, consumeSubmissionCapacity } = require("./submissions.js");
 
 const PORT = +(process.env.PORT || 8081);
-const SITE = (process.env.SITE_ORIGIN || "https://eras.inevitable.fyi").replace(/\/$/, "");
+const SITE = (process.env.SITE_ORIGIN || "https://skipto.tv").replace(/\/$/, "");
 const POSTHOG_KEY = process.env.POSTHOG_KEY ?? "phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP";
 const POSTHOG_HOST = process.env.POSTHOG_HOST || "https://us.i.posthog.com";
 const VERSION = require("./package.json").version;
@@ -149,7 +150,9 @@ function buildServer() {
 hand-curated bars for showrunners, cast rosters, big bads, arcs, locations, real-world periods — sitting on top of every episode,
 plus curated "vibes" (tags), TVmaze guest cast, ratings and summaries. Every filter here is exactly what a human can click on the site.
 Workflow: list_shows → get_show (learn the exact era/vibe/character vocabulary) → find_episodes / surprise_me / next_episode.
-Every result carries a url that opens the same filters on the site — give it to the user.`,
+Every result carries a url that opens the same filters on the site — give it to the user.
+People can also propose a missing show without a GitHub account: call get_submission_guide, research and build the declarative package,
+get the user's confirmation, then call submit_show. A successful submission opens a public pull request for maintainer review; it never publishes directly.`,
   });
 
   server.registerTool("list_shows", {
@@ -267,6 +270,33 @@ Every result carries a url that opens the same filters on the site — give it t
     return text({ url: ATE.shareUrl(SITE, entry.slug, state, { ep }), warnings });
   });
 
+  server.registerTool("get_submission_guide", {
+    title: "Learn how to propose a show",
+    description: "Instructions and data conventions for proposing a missing show. Call this before researching or submitting. No GitHub account is required.",
+    inputSchema: {},
+    annotations: { readOnlyHint: true, openWorldHint: false },
+  }, async () => text({ site: SITE, ...submissionGuide(submissionsEnabled()) }));
+
+  server.registerTool("submit_show", {
+    title: "Submit a show proposal",
+    description: "Validate a fully researched, declarative show package and open a public GitHub pull request for maintainer review. This does not publish the show. Call get_submission_guide first, disclose uncertainty in notes, cite sources, and get the user's confirmation immediately before calling this tool. Never invent missing research.",
+    inputSchema: SUBMISSION_SHAPE,
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: true },
+  }, async ({ submission, confirmed }) => {
+    if (confirmed !== true) return text({ accepted: false, errors: ["The user must confirm before a public pull request is opened."], warnings: [] });
+    const checked = validateSubmission(submission, [...DATA.shows.keys()]);
+    if (!checked.ok) return text({ accepted: false, errors: checked.errors, warnings: checked.warnings });
+    if (!submissionsEnabled()) return text({ accepted: false, errors: ["Show submissions are temporarily unavailable because the server-side GitHub integration is not configured."], warnings: checked.warnings });
+    try {
+      consumeSubmissionCapacity();
+      const pullRequest = await submitToGitHub(checked.data, checked.warnings);
+      track("mcp_submit_show", { show: checked.data.show.slug, duplicate: pullRequest.duplicate, warnings: checked.warnings.length });
+      return text({ accepted: true, published: false, message: "The proposal passed structural validation and is awaiting maintainer review.", warnings: checked.warnings, pullRequest });
+    } catch (err) {
+      return text({ accepted: false, errors: [`The proposal could not be queued: ${err.message}`], warnings: checked.warnings });
+    }
+  });
+
   // Resources: whole-package reads for clients that want to reason in-context.
   server.registerResource("shows", "eras://shows", { title: "Show index", description: "All shows on Across the Eras", mimeType: "application/json" },
     async uri => ({ contents: [{ uri: uri.href, mimeType: "application/json", text: JSON.stringify(DATA.index) }] }));
@@ -282,7 +312,16 @@ Every result carries a url that opens the same filters on the site — give it t
 
 // ---------- HTTP ----------
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, Accept, Mcp-Session-Id, Mcp-Protocol-Version, Authorization", "Access-Control-Expose-Headers": "Mcp-Session-Id" };
-const readBody = req => new Promise((res, rej) => { let b = ""; req.on("data", c => { b += c; if (b.length > 1e6) req.destroy(); }); req.on("end", () => res(b)); req.on("error", rej); });
+const readBody = (req, limit = +(process.env.MAX_MCP_BODY_BYTES || 4_000_000)) => new Promise((res, rej) => {
+  let b = "", tooLarge = false;
+  req.on("data", c => {
+    if (tooLarge) return;
+    b += c;
+    if (Buffer.byteLength(b) > limit) { tooLarge = true; const err = new Error(`request body exceeds ${limit} bytes`); err.statusCode = 413; rej(err); }
+  });
+  req.on("end", () => { if (!tooLarge) res(b); });
+  req.on("error", rej);
+});
 
 const httpServer = http.createServer(async (req, res) => {
   const url = new URL(req.url, "http://x");
@@ -293,7 +332,7 @@ const httpServer = http.createServer(async (req, res) => {
     // A plain browser GET (no SSE accept) gets a friendly pointer instead of a protocol error.
     if (req.method === "GET" && !(req.headers.accept || "").includes("text/event-stream")) {
       res.writeHead(200, { "Content-Type": "application/json" });
-      return res.end(JSON.stringify({ name: "across-the-eras", version: VERSION, transport: "streamable-http", endpoint: `${SITE}/mcp`, docs: `${SITE}/docs/`, shows: DATA.shows.size }, null, 2));
+      return res.end(JSON.stringify({ name: "across-the-eras", version: VERSION, transport: "streamable-http", endpoint: `${SITE}/mcp`, docs: `${SITE}/docs/`, shows: DATA.shows.size, showSubmissions: submissionsEnabled() }, null, 2));
     }
     try {
       let body;
@@ -306,7 +345,7 @@ const httpServer = http.createServer(async (req, res) => {
       await transport.handleRequest(req, res, body);
     } catch (err) {
       console.error("[mcp] request failed:", err);
-      if (!res.headersSent) { res.writeHead(500, { "Content-Type": "application/json" }); res.end(JSON.stringify({ jsonrpc: "2.0", error: { code: -32603, message: "Internal error" }, id: null })); }
+      if (!res.headersSent) { const status = err.statusCode || 500; res.writeHead(status, { "Content-Type": "application/json" }); res.end(JSON.stringify({ jsonrpc: "2.0", error: { code: status === 413 ? -32001 : -32603, message: status === 413 ? err.message : "Internal error" }, id: null })); }
     }
     return;
   }

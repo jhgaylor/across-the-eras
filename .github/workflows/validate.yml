@@ -1,0 +1,25 @@
+name: validate
+
+on:
+  pull_request:
+    paths:
+      - "shows/**"
+      - "filter.js"
+      - "mcp/**"
+      - "scripts/**"
+      - ".github/workflows/validate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  show-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check shows/index.json is current
+        run: python3 scripts/build-index.py && git diff --exit-code -- shows/index.json
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - name: Validate show packages and MCP tools
+        run: python3 scripts/validate-shows.py && cd mcp && npm ci && npm test

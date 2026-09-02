@@ -5,6 +5,9 @@ One repo, many shows. Every show lives in `shows/<slug>/` and is fully self-cont
 hard-coded in the engine. `filter.js` (matching + URL format) is also loaded by the MCP server in `mcp/`, which reads
 the same package files from disk — so anything that works on the site works as a tool, with no extra work per show.
 
+This document describes the trusted, repository-native format. Public MCP clients submit the equivalent declarative
+JSON contract; the server generates `eras.js` and `tags.js` without executing client code. See [SUBMISSIONS.md](SUBMISSIONS.md).
+
 Reference implementations (read these first, they are the format):
 - `/Users/jake/dev/jhgaylor/moose-and-squirrel/` — Supernatural, **season axis**, 15 seasons
 - `/Users/jake/dev/jhgaylor/goat-gideon/` — Criminal Minds, season axis, 19 seasons (roster rows, mid-season handoffs)
@@ -88,7 +91,7 @@ episodes can just get the show's "classic standalone" tag.
 - PostHog: one project (token `phc_tx8PYa33kcFgtTxUz3DwJG7FqGoRpyUSjzwKJEmf4xjP`, US), `posthog.register({show: slug})`
   after load, same explicit events as the reference repos, autocapture off.
 - Docker (nginx, port 8080, `/healthz`), `.github/workflows/build.yml` (multi-arch, GHCR
-  `ghcr.io/jhgaylor/across-the-eras`, sha-pin into `k8s/deployment.yaml`), `k8s/` for `eras.inevitable.fyi`
+  `ghcr.io/jhgaylor/across-the-eras`, sha-pin into `k8s/deployment.yaml`), `k8s/` for `skipto.tv`
   in namespace `across-the-eras` — copy the shape from greater-fool exactly (the placeholder image sha in the
   first commit must be `sha-0000000000000000000000000000000000000000`).
 - Imports the three existing shows into `shows/supernatural`, `shows/criminal-minds`, `shows/newsroom` (copy their

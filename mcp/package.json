@@ -1,8 +1,8 @@
 {
   "name": "across-the-eras-mcp",
   "private": true,
-  "version": "0.1.0",
-  "description": "MCP server for eras.inevitable.fyi — the rewatch explorer's curated data + filter engine as tools",
+  "version": "0.2.0",
+  "description": "MCP server for skipto.tv — rewatch tools and community show proposals",
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
