@@ -1,4 +1,17 @@
 apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-eras-domain
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  redirectRegex:
+    regex: "^https?://eras\\.inevitable\\.fyi/(.*)"
+    replacement: "https://skipto.tv/${1}"
+    permanent: true
+---
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: across-the-eras
@@ -37,8 +50,8 @@ spec:
         - name: across-the-eras
           port: 80
 ---
-# Keep the old hostname alive during the domain migration. It can become a
-# redirect after clients and search indexes have moved to skipto.tv.
+# Keep the old hostname alive as a permanent, path-preserving redirect so
+# bookmarks, search results and MCP endpoints move to the canonical domain.
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
@@ -52,6 +65,8 @@ spec:
   routes:
     - match: "Host(`eras.inevitable.fyi`)"
       kind: Rule
+      middlewares:
+        - name: redirect-eras-domain
       services:
         - name: across-the-eras
           port: 80
@@ -72,8 +87,7 @@ spec:
     - match: "Host(`eras.inevitable.fyi`)"
       kind: Rule
       middlewares:
-        - name: redirect-https
-          namespace: default
+        - name: redirect-eras-domain
       services:
         - name: across-the-eras
           port: 80

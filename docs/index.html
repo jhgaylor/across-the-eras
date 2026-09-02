@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Use Across the Eras from your AI assistant — Across the Eras</title>
-<meta name="description" content="Plug the Across the Eras rewatch guides into Claude, ChatGPT or any assistant that speaks MCP. No account, no install, one URL.">
+<title>Use skipto.tv from your AI assistant — skipto.tv</title>
+<meta name="description" content="Plug the skipto.tv rewatch guides into Claude, ChatGPT or any assistant that speaks MCP. No account, no install, one URL.">
+<link rel="canonical" href="https://skipto.tv/docs/">
 <link rel="stylesheet" href="/styles.css">
 <style>
   .doc{max-width:820px;margin:0 auto;padding:28px 20px 80px}
@@ -55,7 +56,7 @@
 </nav>
 <header class="hero landing-hero">
   <div class="hero-inner">
-    <h1><span class="t1 landing-title">ACROSS THE ERAS + YOUR AI</span></h1>
+    <h1><span class="t1 landing-title">SKIPTO.TV + YOUR AI</span></h1>
     <p class="tagline">Ask your assistant instead of clicking.</p>
     <p class="sub">Every chart, vibe and guest-cast filter on this site is also available to Claude, ChatGPT and any other assistant that speaks <b>MCP</b>. No account, nothing to install — you paste one web address into your assistant and it can look things up for you.</p>
   </div>
@@ -66,7 +67,7 @@
 <h2>What this is, in one paragraph</h2>
 <p>Under the hood, this website is a big pile of hand-curated facts about a handful of TV shows: who was showrunning when, which Big Bad each season had, which episodes are gut-punches, which guest star showed up where. The <b>MCP endpoint</b> lets an AI assistant read those same facts and run those same filters. So instead of clicking "Season 5 → Glory → Gut-punch", you can just ask <i>"which Buffy episodes from the Glory season are the sad ones?"</i> and get an answer — with a link that opens the site with those exact filters applied.</p>
 
-<div class="url"><span class="muted">The address to give your assistant:</span><code id="ep">https://eras.inevitable.fyi/mcp</code><button class="copy" data-copy="https://eras.inevitable.fyi/mcp" aria-label="Copy MCP address"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button></div>
+<div class="url"><span class="muted">The address to give your assistant:</span><code id="ep">https://skipto.tv/mcp</code><button class="copy" data-copy="https://skipto.tv/mcp" aria-label="Copy MCP address"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button></div>
 
 <p class="tip">MCP stands for <i>Model Context Protocol</i> — an open standard that lets an assistant use tools on a website, a bit like a plug-in. You don't need to know more than that. It's read-only: the assistant can look things up, it can't change anything here.</p>
 
@@ -78,13 +79,13 @@
 <div class="ask">"Pick me a random Doctor Who episode with Donna, rated 8 or higher."</div>
 <div class="ask">"Which Angel episodes does Faith turn up in? Give me a link."</div>
 <div class="ask">"Which shows do you have? Show me the era chart for The Wire."</div>
-<p>The assistant will usually reply with a short list and a link like <code>https://eras.inevitable.fyi/buffy/#s=5&amp;t=heavy</code>. Click it and the site opens with those filters already on, so you can keep exploring by hand.</p>
+<p>The assistant will usually reply with a short list and a link like <code>https://skipto.tv/buffy/#s=5&amp;t=heavy</code>. Click it and the site opens with those filters already on, so you can keep exploring by hand.</p>
 
 <h2>Fastest way: let the assistant set itself up</h2>
 <p>Most assistants can add a connector if you just tell them to. Copy this and paste it into a new chat:</p>
-<div class="prompt"><button class="copy" data-copy-target="setupPrompt" aria-label="Copy setup prompt"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy prompt</button><pre id="setupPrompt">Please connect to the "Across the Eras" MCP server so you can look up TV rewatch guides for me.
+<div class="prompt"><button class="copy" data-copy-target="setupPrompt" aria-label="Copy setup prompt"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy prompt</button><pre id="setupPrompt">Please connect to the "skipto.tv" MCP server so you can look up TV rewatch guides for me.
 
-Server URL: https://eras.inevitable.fyi/mcp
+Server URL: https://skipto.tv/mcp
 Type: remote MCP server, Streamable HTTP transport
 Authentication: none (leave OAuth / client ID / secret blank)
 
@@ -98,7 +99,7 @@ If you can add it yourself, do that. If it has to be done in settings, tell me e
 <ol class="steps">
   <li>Open <b>Settings → Connectors</b> (on claude.ai) or <b>Settings → Connectors</b> in the desktop app.</li>
   <li>Click <b>Add custom connector</b>.</li>
-  <li>Name it anything (e.g. <i>Across the Eras</i>) and paste <code>https://eras.inevitable.fyi/mcp</code> as the URL. Leave the OAuth/authentication fields empty — none is needed.</li>
+  <li>Name it anything (e.g. <i>skipto.tv</i>) and paste <code>https://skipto.tv/mcp</code> as the URL. Leave the OAuth/authentication fields empty — none is needed.</li>
   <li>Save. In a new chat, make sure the connector is switched on (the tools/attachments menu), then just ask.</li>
 </ol>
 </details>
@@ -107,7 +108,7 @@ If you can add it yourself, do that. If it has to be done in settings, tell me e
 <summary>ChatGPT</summary>
 <ol class="steps">
   <li>Go to <b>Settings → Connectors</b> (custom connectors need Developer mode turned on under <b>Settings → Connectors → Advanced</b>, or a workspace admin to enable them).</li>
-  <li>Choose <b>Create</b>, give it a name, paste <code>https://eras.inevitable.fyi/mcp</code>, set authentication to <b>None</b>.</li>
+  <li>Choose <b>Create</b>, give it a name, paste <code>https://skipto.tv/mcp</code>, set authentication to <b>None</b>.</li>
   <li>Start a chat, open the tools menu and enable the connector, then ask away.</li>
 </ol>
 <p class="tip">Availability of custom connectors depends on your ChatGPT plan; if you can't find the option, that's why.</p>
@@ -118,11 +119,11 @@ If you can add it yourself, do that. If it has to be done in settings, tell me e
 <p>Add this to the tool's MCP config (the file is usually called <code>mcp.json</code> or lives under a "MCP servers" setting):</p>
 <pre class="cp"><button class="copy" data-copy-target="cfgJson" aria-label="Copy config"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button><code id="cfgJson">{
   "mcpServers": {
-    "across-the-eras": { "url": "https://eras.inevitable.fyi/mcp" }
+    "skipto-tv": { "url": "https://skipto.tv/mcp" }
   }
 }</code></pre>
 <p>Or, in Claude Code:</p>
-<pre class="cp"><button class="copy" data-copy-target="ccCmd" aria-label="Copy command"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button><code id="ccCmd">claude mcp add --transport http across-the-eras https://eras.inevitable.fyi/mcp</code></pre>
+<pre class="cp"><button class="copy" data-copy-target="ccCmd" aria-label="Copy command"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button><code id="ccCmd">claude mcp add --transport http skipto-tv https://skipto.tv/mcp</code></pre>
 </details>
 
 <details>
@@ -157,7 +158,7 @@ If you can add it yourself, do that. If it has to be done in settings, tell me e
 <h2>For the technically curious</h2>
 <ul>
   <li>Transport: MCP <b>Streamable HTTP</b>, stateless (no sessions), no auth. <code>GET /mcp</code> in a browser returns a small JSON banner.</li>
-  <li>Also exposed as MCP <b>resources</b>: <code>eras://shows</code>, <code>eras://shows/{slug}/chart</code>, <code>eras://shows/{slug}/tags</code>, <code>eras://shows/{slug}/episodes</code> — for clients that prefer to pull a whole show into context.</li>
+  <li>Also exposed as MCP <b>resources</b>: <code>skipto://shows</code>, <code>skipto://shows/{slug}/chart</code>, <code>skipto://shows/{slug}/tags</code>, <code>skipto://shows/{slug}/episodes</code> — for clients that prefer to pull a whole show into context.</li>
   <li>The filter engine is one shared file, <code>filter.js</code>, loaded by both the browser and the server. Source and the per-show data format live in the <a href="https://github.com/jhgaylor/across-the-eras">GitHub repo</a>.</li>
   <li>Want a show added, or a bar/vibe fixed? Open an issue there.</li>
 </ul>

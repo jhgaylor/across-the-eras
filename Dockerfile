@@ -16,6 +16,6 @@ COPY docs/ /usr/share/nginx/html/docs/
 COPY shows/ /usr/share/nginx/html/shows/
 COPY entrypoint.sh /entrypoint.sh
 
-ENV SHOWS_DIR=/usr/share/nginx/html/shows PORT=8081 SITE_ORIGIN=https://eras.inevitable.fyi NODE_ENV=production
+ENV SHOWS_DIR=/usr/share/nginx/html/shows PORT=8081 SITE_ORIGIN=https://skipto.tv NODE_ENV=production
 EXPOSE 8080
 CMD ["/entrypoint.sh"]

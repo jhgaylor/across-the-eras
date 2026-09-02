@@ -1,4 +1,4 @@
-// across-the-eras — shared filter engine.
+// skipto.tv — shared filter engine.
 // Used by the browser (app.js) AND the MCP server (mcp/server.js) so both agree on exactly what
 // "episodes matching these filters" and "the URL for these filters" mean.
 // No DOM, no fetch, no globals beyond the export. Loads as a classic <script> (window.ATE) or via require().

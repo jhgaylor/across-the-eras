@@ -1,4 +1,4 @@
-// The Walking Dead Across the Eras — chart data. AMC main series only (2010–2022), 11 seasons, 177 episodes.
+// The Walking Dead on skipto.tv — chart data. AMC main series only (2010–2022), 11 seasons, 177 episodes.
 // Season axis. Bars are drawn at season granularity; mid-season arrivals and exits are noted in the label
 // with the exact episode (e.g. "Rick Grimes (leaves 9×05)"), the way the reference packages do it.
 // Each entry: [label, startSeason, endSeason, bg, fg?]
