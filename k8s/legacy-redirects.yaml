@@ -2,9 +2,18 @@
 # a permanent redirect into its show folder here, so old bookmarks and search
 # results land somewhere useful instead of on a dead name.
 #
+# Targets are skipto.tv, the canonical domain, not eras.inevitable.fyi. Both
+# hostnames serve this app, but pointing at the canonical one means these
+# redirects do not become a second hop if eras.inevitable.fyi is itself ever
+# turned into a redirect.
+#
 # The redirect is deliberately blanket rather than path-preserving: the retired
 # apps were single-page sites with their own query/hash vocabulary, so there is
 # nothing on the far side that an old deep link would map onto.
+#
+# Retiring the next one is four small edits in this file — a Middleware, a
+# dnsName, and a route on each of the two IngressRoutes — plus deleting the app
+# from home-cloud's chant/src/apps.ts.
 #
 # `priority` outranks the retired app's own IngressRoute, which matches the
 # identical Host() rule and therefore ties on Traefik's default (rule-length)
@@ -21,12 +30,40 @@ metadata:
 spec:
   redirectRegex:
     regex: "^https?://supernatural\\.inevitable\\.fyi/.*"
-    replacement: "https://eras.inevitable.fyi/supernatural/"
+    replacement: "https://skipto.tv/supernatural/"
+    permanent: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-criminal-minds
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  redirectRegex:
+    regex: "^https?://criminal-minds\\.inevitable\\.fyi/.*"
+    replacement: "https://skipto.tv/criminal-minds/"
+    permanent: true
+---
+# newsroom.inevitable.fyi, but the show folder here is /newsroom/ — the
+# hostname and the slug happen to agree; do not assume they always will.
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-newsroom
+  namespace: across-the-eras
+  labels:
+    app: across-the-eras
+spec:
+  redirectRegex:
+    regex: "^https?://newsroom\\.inevitable\\.fyi/.*"
+    replacement: "https://skipto.tv/newsroom/"
     permanent: true
 ---
 # Separate from across-the-eras-tls on purpose. Retiring the next show's
-# hostname adds a dnsName here and reissues this cert, leaving the one that
-# serves the live site untouched.
+# hostname reissues this cert, leaving the one that serves the live site
+# untouched.
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -39,6 +76,8 @@ spec:
     kind: ClusterIssuer
   dnsNames:
     - supernatural.inevitable.fyi
+    - criminal-minds.inevitable.fyi
+    - newsroom.inevitable.fyi
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
@@ -56,8 +95,24 @@ spec:
       priority: 100
       middlewares:
         - name: redirect-supernatural
-      # Never reached — the middleware answers with a 301 — but Traefik
+      # Never reached — the middleware answers with a redirect — but Traefik
       # rejects a route with no service.
+      services:
+        - name: across-the-eras
+          port: 80
+    - match: "Host(`criminal-minds.inevitable.fyi`)"
+      kind: Rule
+      priority: 100
+      middlewares:
+        - name: redirect-criminal-minds
+      services:
+        - name: across-the-eras
+          port: 80
+    - match: "Host(`newsroom.inevitable.fyi`)"
+      kind: Rule
+      priority: 100
+      middlewares:
+        - name: redirect-newsroom
       services:
         - name: across-the-eras
           port: 80
@@ -82,6 +137,22 @@ spec:
       priority: 100
       middlewares:
         - name: redirect-supernatural
+      services:
+        - name: across-the-eras
+          port: 80
+    - match: "Host(`criminal-minds.inevitable.fyi`)"
+      kind: Rule
+      priority: 100
+      middlewares:
+        - name: redirect-criminal-minds
+      services:
+        - name: across-the-eras
+          port: 80
+    - match: "Host(`newsroom.inevitable.fyi`)"
+      kind: Rule
+      priority: 100
+      middlewares:
+        - name: redirect-newsroom
       services:
         - name: across-the-eras
           port: 80
