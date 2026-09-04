@@ -100,6 +100,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/161/403029.jpg"
   },
   {
+    "slug": "severance",
+    "title": "SEVERANCE",
+    "subtitle": "skipto.tv",
+    "blurb": "Nineteen episodes on the severed floor and off it: Mark's team of four, Helly's rebellion, the Overtime Contingency, and the long walk to Cold Harbor. Every department, Lumon manager, outie storyline and set piece, charted episode by episode.",
+    "episodeCount": 19,
+    "seasons": 2,
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/400/1000621.jpg"
+  },
+  {
     "slug": "silicon-valley",
     "title": "SILICON VALLEY",
     "subtitle": "skipto.tv",

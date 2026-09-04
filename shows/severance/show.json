@@ -1,0 +1,18 @@
+{
+  "slug": "severance",
+  "title": "SEVERANCE",
+  "subtitle": "skipto.tv",
+  "blurb": "Nineteen episodes on the severed floor and off it: Mark's team of four, Helly's rebellion, the Overtime Contingency, and the long walk to Cold Harbor. Every department, Lumon manager, outie storyline and set piece, charted episode by episode.",
+  "emoji": "🛗",
+  "tvmazeId": 44933,
+  "axis": "episode",
+  "accent": "#22b8a0",
+  "accentText": "#04211c",
+  "heroGradient": "#0b1a1d",
+  "heroFont": { "google": "Space Grotesk:wght@500;700", "family": "'Space Grotesk', Helvetica, sans-serif" },
+  "regularsNote": "Series regulars — Mark, Helly, Irving, Dylan, Milchick, Cobel/Mrs. Selvig, Devon, Ricken, Burt, Ms. Casey and Miss Huang — aren't listed here; use the roster and management rows on the chart for them. This dropdown is the 75 credited guest characters, from Petey and Reghabi to the replacement MDR team and everyone at Ricken's book party.",
+  "chartHint": "Nineteen episodes across, not seasons — columns 1–9 are season 1, 10–19 are season 2. Click any bar to filter the episode list.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 19,
+  "seasons": 2
+}
