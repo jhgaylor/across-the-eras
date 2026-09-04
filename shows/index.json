@@ -50,6 +50,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/140/350206.jpg"
   },
   {
+    "slug": "dragon-ball-z",
+    "title": "DRAGON BALL Z",
+    "subtitle": "skipto.tv",
+    "blurb": "Nine seasons and 291 episodes from Raditz to Kid Buu, charted season by season: every saga and sub-arc, every transformation and the episode it lands in, the Z Fighters' shifting pecking order, and — because you asked — where the anime-only filler is.",
+    "episodeCount": 293,
+    "seasons": 9,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/569/1422924.jpg"
+  },
+  {
     "slug": "fraggle-rock",
     "title": "FRAGGLE ROCK",
     "subtitle": "skipto.tv",

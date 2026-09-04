@@ -1,0 +1,18 @@
+{
+  "slug": "dragon-ball-z",
+  "title": "DRAGON BALL Z",
+  "subtitle": "skipto.tv",
+  "blurb": "Nine seasons and 291 episodes from Raditz to Kid Buu, charted season by season: every saga and sub-arc, every transformation and the episode it lands in, the Z Fighters' shifting pecking order, and — because you asked — where the anime-only filler is.",
+  "emoji": "🐉",
+  "tvmazeId": 2103,
+  "axis": "season",
+  "accent": "#f08a1e",
+  "accentText": "#1a1000",
+  "heroGradient": "#2a1606",
+  "heroFont": { "google": "Bungee:wght@400", "family": "Bungee, Impact, sans-serif" },
+  "regularsNote": "Series regulars — Goku, Gohan, Vegeta, Piccolo, Krillin, Bulma, Trunks, Goten and the rest of the Z Fighters — aren't listed here; this dropdown covers the guest and recurring cast as TVmaze credits it, which for an anime means the villains, the one-arc allies and the voice cast behind them.",
+  "chartHint": "Nine seasons across, split the way the sagas were. Click any bar to filter the episode list; arcs that start mid-season have the exact episode in the label.",
+  "credits": "Episode data, images and ratings from TVmaze (English broadcast titles). Chart hand-built from the series.",
+  "episodeCount": 293,
+  "seasons": 9
+}
