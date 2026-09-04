@@ -1,0 +1,18 @@
+{
+  "slug": "mash",
+  "title": "M*A*S*H",
+  "subtitle": "skipto.tv",
+  "blurb": "Eleven seasons at the 4077th for a three-year war, charted season by season: Gelbart's farce and Metcalfe's character drama, every change of command, Hawkeye's slow fraying, and the episodes where the laugh track drops out.",
+  "emoji": "🚁",
+  "tvmazeId": 665,
+  "axis": "season",
+  "accent": "#7b8f3f",
+  "accentText": "#0f1305",
+  "heroGradient": "#1c2311",
+  "heroFont": { "google": "Special Elite", "family": "'Special Elite', 'Courier New', monospace" },
+  "regularsNote": "Series regulars — Hawkeye, Trapper, B.J., Henry, Potter, Frank, Winchester, Margaret, Radar, Klinger and Father Mulcahy — aren't listed here; this dropdown covers the guest and recurring cast, which is where the 4077th's patients, brass, nurses and one-episode heartbreaks live.",
+  "chartHint": "Eleven seasons across. Click any bar to filter the episode list; mid-season handoffs are drawn at season granularity with the exact episode in the label.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 251,
+  "seasons": 11
+}

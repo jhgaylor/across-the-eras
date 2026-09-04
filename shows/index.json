@@ -80,6 +80,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/72/180551.jpg"
   },
   {
+    "slug": "mash",
+    "title": "M*A*S*H",
+    "subtitle": "skipto.tv",
+    "blurb": "Eleven seasons at the 4077th for a three-year war, charted season by season: Gelbart's farce and Metcalfe's character drama, every change of command, Hawkeye's slow fraying, and the episodes where the laugh track drops out.",
+    "episodeCount": 251,
+    "seasons": 11,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/85/214721.jpg"
+  },
+  {
     "slug": "ncis",
     "title": "NCIS",
     "subtitle": "skipto.tv",
