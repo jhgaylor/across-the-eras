@@ -1,0 +1,18 @@
+{
+  "slug": "community",
+  "title": "COMMUNITY",
+  "subtitle": "skipto.tv",
+  "blurb": "Six seasons at Greendale Community College, charted season by season: Dan Harmon's firing and the gas-leak year that followed, his return, the study group losing Pierce, Troy and Shirley, the move from NBC to Yahoo!, and more paintball wars, documentaries, Christmas specials and alternate timelines than any show has a right to.",
+  "emoji": "🎓",
+  "tvmazeId": 318,
+  "axis": "season",
+  "accent": "#3f9e4d",
+  "accentText": "#fff",
+  "heroGradient": "#12261a",
+  "heroFont": { "google": "Graduate", "family": "'Graduate', 'Georgia', serif" },
+  "regularsNote": "Series regulars (Jeff, Britta, Abed, Shirley, Annie, Troy, Pierce, Chang and, from season 3, Dean Pelton) aren't listed here. This dropdown covers the guest and recurring cast: Professor Duncan, Leonard, Magnitude, Star-Burns, Vice Dean Laybourne, Hickey, Frankie, Elroy and the rest of Greendale.",
+  "chartHint": "Six seasons across. Click any bar to filter the episode list. Departures and one-off format experiments are drawn at season granularity, with the exact episode in the label.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 110,
+  "seasons": 6
+}
