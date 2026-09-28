@@ -10,6 +10,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/15/37512.jpg"
   },
   {
+    "slug": "babylon-5",
+    "title": "BABYLON 5",
+    "subtitle": "skipto.tv",
+    "blurb": "J. Michael Straczynski's five-year novel for television, laid out episode by episode — Sinclair's first year, Sheridan's command, the Shadow War, the Earth Alliance civil war, and the year after, when the telepaths come and Centauri Prime falls.",
+    "episodeCount": 112,
+    "seasons": 5,
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/193/484551.jpg"
+  },
+  {
     "slug": "battlestar-galactica",
     "title": "BATTLESTAR GALACTICA",
     "subtitle": "skipto.tv",
