@@ -70,6 +70,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/120/302178.jpg"
   },
   {
+    "slug": "fringe",
+    "title": "FRINGE",
+    "subtitle": "skipto.tv",
+    "blurb": "All 100 Fringe cases, episode by episode: which hours are case-of-the-week and which move the mythology, which side of the breach you're on, the timeline where Peter never grew up, and the Observer-occupied world of 2036.",
+    "episodeCount": 100,
+    "seasons": 5,
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/148/371898.jpg"
+  },
+  {
     "slug": "house",
     "title": "HOUSE, M.D.",
     "subtitle": "Across the Eras",
