@@ -200,6 +200,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/565/1413862.jpg"
   },
   {
+    "slug": "stargate-sg1",
+    "title": "STARGATE SG-1",
+    "subtitle": "skipto.tv",
+    "blurb": "Ten seasons and two films through the Stargate, charted season by season: the Goa'uld, the Replicators and the Ori, the year Jonas Quinn took Daniel's place, every change of command at the SGC, and the move from Showtime to Sci Fi.",
+    "episodeCount": 215,
+    "seasons": 10,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/86/215572.jpg"
+  },
+  {
     "slug": "supernatural",
     "title": "SUPERNATURAL",
     "subtitle": "skipto.tv",

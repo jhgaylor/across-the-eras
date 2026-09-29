@@ -1,0 +1,18 @@
+{
+  "slug": "stargate-sg1",
+  "title": "STARGATE SG-1",
+  "subtitle": "skipto.tv",
+  "blurb": "Ten seasons and two films through the Stargate, charted season by season: the Goa'uld, the Replicators and the Ori, the year Jonas Quinn took Daniel's place, every change of command at the SGC, and the move from Showtime to Sci Fi.",
+  "emoji": "🌀",
+  "tvmazeId": 204,
+  "axis": "season",
+  "accent": "#e8862b",
+  "accentText": "#1c0d02",
+  "heroGradient": "#0f1b2b",
+  "heroFont": { "google": "Orbitron:wght@600;800", "family": "Orbitron, sans-serif" },
+  "regularsNote": "Series regulars — O'Neill, Carter, Daniel, Teal'c, Hammond, Jonas Quinn (season 6), Mitchell, Landry and Vala (season 10) — aren't listed here; this dropdown covers the guest and recurring cast: Goa'uld, Tok'ra, Asgard, Priors, Fraiser, Bra'tac and the rest of the galaxy. O'Neill and Hammond do show up here for their guest spots after they leave the main cast.",
+  "chartHint": "Ten seasons across; the two direct-to-DVD films sit at the end of season 10 as 10×21 and 10×22. Click any bar to filter the episode list; mid-season changes are drawn at season granularity with the exact episode in the label.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 215,
+  "seasons": 10
+}
