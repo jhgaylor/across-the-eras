@@ -1,0 +1,18 @@
+{
+  "slug": "babylon-5",
+  "title": "BABYLON 5",
+  "subtitle": "skipto.tv",
+  "blurb": "J. Michael Straczynski's five-year novel for television, laid out episode by episode — Sinclair's first year, Sheridan's command, the Shadow War, the Earth Alliance civil war, and the year after, when the telepaths come and Centauri Prime falls.",
+  "emoji": "🛰️",
+  "tvmazeId": 475,
+  "axis": "episode",
+  "accent": "#e0b54a",
+  "accentText": "#1a1405",
+  "heroGradient": "#0d1a2e",
+  "heroFont": { "google": "Michroma", "family": "Michroma, \"Arial Narrow\", sans-serif" },
+  "regularsNote": "TVmaze files the main cast as series regulars — Sinclair, Sheridan, Lochley, Ivanova, Garibaldi, Franklin, Delenn, Lennier, Londo, Vir, G'Kar, Na'Toth, Talia, Lyta, Zack, Marcus, Keffer and Takashima — so use the chart rows and spotlight tags for them (Lyta, Vir, Lennier, Zack and Lochley also show up here for the episodes where they were billed as guests). Kosh, Morden, Bester, Corwin, Lorien, Byron, Lise, Lord Refa and everyone else who passes through the station are listed here.",
+  "credits": "Episode data, images and ratings via TVmaze. Chart hand-built from the series.",
+  "chartHint": "112 columns: The Gathering, the five years in air order, and In the Beginning just ahead of year 5. Click any bar to filter episodes, a season header to filter by season, an episode number to open it. Shift-click to combine.",
+  "episodeCount": 112,
+  "seasons": 5
+}
