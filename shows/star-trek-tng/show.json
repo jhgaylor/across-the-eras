@@ -1,0 +1,18 @@
+{
+  "slug": "star-trek-tng",
+  "title": "STAR TREK: THE NEXT GENERATION",
+  "subtitle": "skipto.tv",
+  "blurb": "Seven seasons aboard the Enterprise-D, charted season by season: who was running the writers' room, who was running sickbay, and every return of Q, the Borg, the Romulans, the Klingon High Council and the Cardassians.",
+  "emoji": "🖖",
+  "tvmazeId": 491,
+  "axis": "season",
+  "accent": "#ff9c00",
+  "accentText": "#1a0f00",
+  "heroGradient": "#1b1430",
+  "heroFont": { "google": "Antonio:wght@400;700", "family": "Antonio, 'Arial Narrow', sans-serif" },
+  "regularsNote": "Series regulars — Picard, Riker, Data, Worf, Geordi, Troi, Beverly and Wesley Crusher, Tasha Yar and Dr. Pulaski — aren't listed here; this dropdown covers the guest and recurring cast, which is where Q, Guinan, O'Brien, Ro Laren, Barclay, Lwaxana Troi and the Klingon High Council live.",
+  "chartHint": "Seven seasons across. Click any bar to filter the episode list; mid-season changes are drawn at season granularity with the exact episode in the label. For single-episode arcs, the vibe filters (Q, Borg, Romulans…) are more precise than the bars.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 178,
+  "seasons": 7
+}
