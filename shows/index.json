@@ -160,6 +160,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/94/236948.jpg"
   },
   {
+    "slug": "the-x-files",
+    "title": "THE X-FILES",
+    "subtitle": "skipto.tv",
+    "blurb": "Eleven seasons in the FBI basement, charted season by season: the alien-conspiracy mythology split cleanly from the monsters of the week, Mulder's disappearance and the Doggett/Reyes years, the move from Vancouver to Los Angeles, and the 2016 and 2018 revivals.",
+    "episodeCount": 218,
+    "seasons": 11,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/40/100804.jpg"
+  },
+  {
     "slug": "twin-peaks",
     "title": "TWIN PEAKS",
     "subtitle": "skipto.tv",
