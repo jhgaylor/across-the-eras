@@ -1,0 +1,18 @@
+{
+  "slug": "gilmore-girls",
+  "title": "GILMORE GIRLS",
+  "subtitle": "skipto.tv",
+  "blurb": "Seven seasons in Stars Hollow, charted season by season: Rory's boyfriends and Lorelai's, Chilton to Yale to the campaign trail, the Independence Inn to the Dragonfly, Friday night dinners, and the year the Palladinos weren't there.",
+  "emoji": "☕",
+  "tvmazeId": 525,
+  "axis": "season",
+  "accent": "#d9824b",
+  "accentText": "#1f0f05",
+  "heroGradient": "#2a1a12",
+  "heroFont": { "google": "Playfair Display:wght@600;800", "family": "'Playfair Display', Georgia, serif" },
+  "regularsNote": "Series regulars — Lorelai, Rory, Luke, Emily, Richard, Sookie, Lane, Paris, Michel, Kirk, Dean, Jess, Logan and the rest of the main cast — aren't listed here; this dropdown covers the guest and recurring cast, from Trix and Mrs. Kim's church friends to every Stars Hollow troubadour.",
+  "chartHint": "Seven seasons across. Click any bar to filter the episode list; mid-season turns are drawn at season granularity with the exact episode in the label.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series. The 2016 revival, A Year in the Life, is a separate TVmaze show and isn't included.",
+  "episodeCount": 153,
+  "seasons": 7
+}
