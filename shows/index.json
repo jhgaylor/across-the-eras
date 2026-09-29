@@ -90,6 +90,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/148/371898.jpg"
   },
   {
+    "slug": "game-of-thrones",
+    "title": "GAME OF THRONES",
+    "subtitle": "skipto.tv",
+    "blurb": "All 73 episodes of Westeros and Essos, episode by episode: the book era from Winterfell to Mother's Mercy, then the three seasons after the books ran out. Every throne, house, battle and major death, placed on the episode where it happens.",
+    "episodeCount": 73,
+    "seasons": 8,
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/478/1195041.jpg"
+  },
+  {
     "slug": "house",
     "title": "HOUSE, M.D.",
     "subtitle": "Across the Eras",
