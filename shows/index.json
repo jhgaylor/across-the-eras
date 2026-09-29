@@ -10,6 +10,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/15/37512.jpg"
   },
   {
+    "slug": "avatar-the-last-airbender",
+    "title": "AVATAR: THE LAST AIRBENDER",
+    "subtitle": "skipto.tv",
+    "blurb": "Water. Earth. Fire. Air. All 61 chapters of the original Nickelodeon series, from the boy in the iceberg to Sozin's Comet: every book, every antagonist from Zhao to the Phoenix King, and every stop on the road across the four nations, charted episode by episode.",
+    "episodeCount": 61,
+    "seasons": 3,
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/200/501174.jpg"
+  },
+  {
     "slug": "battlestar-galactica",
     "title": "BATTLESTAR GALACTICA",
     "subtitle": "skipto.tv",
