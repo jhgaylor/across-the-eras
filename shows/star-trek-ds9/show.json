@@ -1,0 +1,18 @@
+{
+  "slug": "star-trek-ds9",
+  "title": "STAR TREK: DEEP SPACE NINE",
+  "subtitle": "skipto.tv",
+  "blurb": "Seven seasons on a Cardassian station at the mouth of a wormhole, charted season by season: the Dominion War serial and the standalones around it, the Emissary and the Prophets, the Defiant, the Klingon war, Jadzia and Ezri, and the Mirror Universe and Ferengi episodes on their own rows.",
+  "emoji": "🌀",
+  "tvmazeId": 493,
+  "axis": "season",
+  "accent": "#c8782e",
+  "accentText": "#1a0d03",
+  "heroGradient": "#1d1712",
+  "heroFont": { "google": "Michroma", "family": "Michroma, 'Arial Narrow', sans-serif" },
+  "regularsNote": "Sisko, Kira, Odo, Bashir, O'Brien, Quark, Jadzia Dax, Worf, Jake and Ezri Dax are TVmaze series regulars, so they don't appear in this dropdown. Use the chart rows and spotlight tags for them. The rest of the station is listed here as guest cast: Garak, Dukat, Rom, Nog, Winn, Martok, Weyoun, Damar, Kasidy, Keiko, Leeta and Vic.",
+  "chartHint": "Seven seasons across. Click any bar to filter the episode list. Arcs that start mid-season are drawn at season granularity, with the exact episode in the label. The 'Dominion War arc' and 'Standalone' vibes split every episode between the two.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series, with dates checked against TVmaze and Memory Alpha.",
+  "episodeCount": 176,
+  "seasons": 7
+}

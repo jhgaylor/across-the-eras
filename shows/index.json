@@ -200,6 +200,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/565/1413862.jpg"
   },
   {
+    "slug": "star-trek-ds9",
+    "title": "STAR TREK: DEEP SPACE NINE",
+    "subtitle": "skipto.tv",
+    "blurb": "Seven seasons on a Cardassian station at the mouth of a wormhole, charted season by season: the Dominion War serial and the standalones around it, the Emissary and the Prophets, the Defiant, the Klingon war, Jadzia and Ezri, and the Mirror Universe and Ferengi episodes on their own rows.",
+    "episodeCount": 176,
+    "seasons": 7,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/164/411693.jpg"
+  },
+  {
     "slug": "star-trek-tng",
     "title": "STAR TREK: THE NEXT GENERATION",
     "subtitle": "skipto.tv",
