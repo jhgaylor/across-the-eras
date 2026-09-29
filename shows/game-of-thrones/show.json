@@ -1,0 +1,18 @@
+{
+  "slug": "game-of-thrones",
+  "title": "GAME OF THRONES",
+  "subtitle": "skipto.tv",
+  "blurb": "All 73 episodes of Westeros and Essos, episode by episode: the book era from Winterfell to Mother's Mercy, then the three seasons after the books ran out. Every throne, house, battle and major death, placed on the episode where it happens.",
+  "emoji": "🐺",
+  "tvmazeId": 82,
+  "axis": "episode",
+  "accent": "#9cc4d9",
+  "accentText": "#0b1d26",
+  "heroGradient": "#1a1d22",
+  "heroFont": { "google": "Cinzel:wght@600;800", "family": "Cinzel, serif" },
+  "regularsNote": "TVmaze's series regulars — Tyrion, Jon, Cersei, Daenerys, Sansa, Arya, Jaime, Jorah, Theon, Sam, Varys, Littlefinger, Davos, Bran, the Hound, Bronn, Melisandre, Tywin, Joffrey, Stannis, Robb, Catelyn, Ned, Ramsay and the rest — aren't listed per episode; use the chart rows and spotlight tags for them. This dropdown is the credited guest cast, from Podrick and Pycelle to every Frey at the Twins.",
+  "chartHint": "Seventy-three episodes across, not seasons — columns 1–50 are the book era (S1–S5), 51–73 are the seasons after the books (S6–S8). Click any bar to filter the episode list.",
+  "credits": "Episode data, images, ratings and guest cast from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 73,
+  "seasons": 8
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "avatar-the-last-airbender",
+  "title": "AVATAR: THE LAST AIRBENDER",
+  "subtitle": "skipto.tv",
+  "blurb": "Water. Earth. Fire. Air. All 61 chapters of the original Nickelodeon series, from the boy in the iceberg to Sozin's Comet: every book, every antagonist from Zhao to the Phoenix King, and every stop on the road across the four nations, charted episode by episode.",
+  "emoji": "🌀",
+  "tvmazeId": 555,
+  "axis": "episode",
+  "accent": "#e9b949",
+  "accentText": "#2a1d00",
+  "heroGradient": "#1e1a12",
+  "heroFont": { "google": "Marcellus+SC", "family": "\"Marcellus SC\", Georgia, serif" },
+  "regularsNote": "Series regulars (Aang, Katara, Sokka, Toph, Zuko, Iroh, Azula, Appa, Momo and Gran Gran) aren't listed here. Use the Team Avatar and villain rows on the chart, or the spotlight vibes. This dropdown is the named guest cast, from Bumi and Jet to Suki, Hakoda, Zhao, Ozai and the Ember Island Players. TVmaze's many \"additional voices\" credits are left out.",
+  "chartHint": "61 episodes across, not seasons: columns 1–20 are Book One: Water, 21–40 Book Two: Earth, 41–61 Book Three: Fire. Click any bar to filter the episode list.",
+  "credits": "Episode data, images, ratings and guest cast from TVmaze. Chart hand-built from the series and checked against the Avatar Wiki's appearance lists.",
+  "episodeCount": 61,
+  "seasons": 3
+}
