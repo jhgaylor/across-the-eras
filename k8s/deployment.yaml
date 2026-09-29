@@ -22,7 +22,7 @@ spec:
         - name: web
           # Pinned to an immutable sha tag by .github/workflows/build.yml on
           # every push to main; Flux picks up the manifest change and rolls.
-          image: ghcr.io/jhgaylor/across-the-eras:sha-ca1c8270cc30e0d18bba66995e328272318bf2a7
+          image: ghcr.io/jhgaylor/across-the-eras:sha-5b59a3ef12639409ee445940d172b75867ef609b
           envFrom:
             # Optional keeps the existing read tools available during first reconcile;
             # the auto-reload annotation restarts the pods when Infisical creates it.
