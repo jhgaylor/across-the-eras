@@ -30,6 +30,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/14/37026.jpg"
   },
   {
+    "slug": "community",
+    "title": "COMMUNITY",
+    "subtitle": "skipto.tv",
+    "blurb": "Six seasons at Greendale Community College, charted season by season: Dan Harmon's firing and the gas-leak year that followed, his return, the study group losing Pierce, Troy and Shirley, the move from NBC to Yahoo!, and more paintball wars, documentaries, Christmas specials and alternate timelines than any show has a right to.",
+    "episodeCount": 110,
+    "seasons": 6,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/197/494772.jpg"
+  },
+  {
     "slug": "criminal-minds",
     "title": "CRIMINAL MINDS",
     "subtitle": "skipto.tv",
@@ -68,6 +78,16 @@
     "seasons": 5,
     "axis": "season",
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/120/302178.jpg"
+  },
+  {
+    "slug": "fringe",
+    "title": "FRINGE",
+    "subtitle": "skipto.tv",
+    "blurb": "All 100 Fringe cases, episode by episode: which hours are case-of-the-week and which move the mythology, which side of the breach you're on, the timeline where Peter never grew up, and the Observer-occupied world of 2036.",
+    "episodeCount": 100,
+    "seasons": 5,
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/148/371898.jpg"
   },
   {
     "slug": "game-of-thrones",
