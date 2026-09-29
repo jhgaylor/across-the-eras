@@ -100,6 +100,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/478/1195041.jpg"
   },
   {
+    "slug": "gilmore-girls",
+    "title": "GILMORE GIRLS",
+    "subtitle": "skipto.tv",
+    "blurb": "Seven seasons in Stars Hollow, charted season by season: Rory's boyfriends and Lorelai's, Chilton to Yale to the campaign trail, the Independence Inn to the Dragonfly, Friday night dinners, and the year the Palladinos weren't there.",
+    "episodeCount": 153,
+    "seasons": 7,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/87/217973.jpg"
+  },
+  {
     "slug": "house",
     "title": "HOUSE, M.D.",
     "subtitle": "Across the Eras",
