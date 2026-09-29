@@ -1,0 +1,18 @@
+{
+  "slug": "fringe",
+  "title": "FRINGE",
+  "subtitle": "skipto.tv",
+  "blurb": "All 100 Fringe cases, episode by episode: which hours are case-of-the-week and which move the mythology, which side of the breach you're on, the timeline where Peter never grew up, and the Observer-occupied world of 2036.",
+  "emoji": "🦋",
+  "tvmazeId": 158,
+  "axis": "episode",
+  "accent": "#9b7bd8",
+  "accentText": "#150d24",
+  "heroGradient": "#12101c",
+  "heroFont": { "google": "Oswald:wght@500;700", "family": "'Oswald', 'Arial Narrow', sans-serif" },
+  "regularsNote": "Series regulars (Olivia, Peter, Walter, Broyles, Astrid, Nina, Charlie and later Lincoln) aren't listed per episode by TVmaze, so use the chart rows and spotlight tags for them. The alternate-universe doubles (Fauxlivia, Walternate, Alt-Broyles, Alt-Lincoln and the rest) are credited as guests, so they're in the dropdown, along with September, Jones, Newton, Sam Weiss, Windmark and Etta.",
+  "chartHint": "100 columns — scroll sideways. Blue is our side, red is Over There. Use the Case of the week and Mythology vibes for the big split. Click any bar to filter episodes; shift-click to combine.",
+  "credits": "Episode data, images, ratings and guest cast from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 100,
+  "seasons": 5
+}
