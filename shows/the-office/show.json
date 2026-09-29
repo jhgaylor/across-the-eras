@@ -1,0 +1,18 @@
+{
+  "slug": "the-office",
+  "title": "THE OFFICE",
+  "subtitle": "skipto.tv",
+  "blurb": "Nine seasons at Dunder Mifflin Scranton, charted season by season: the Michael Scott years and everything after him, Jim and Pam from the reception desk to Philadelphia, every manager in the big office, and the corporate layers stacked above them — New York, then Sabre, then David Wallace.",
+  "emoji": "📎",
+  "tvmazeId": 526,
+  "axis": "season",
+  "accent": "#6fa8dc",
+  "accentText": "#0a1a2a",
+  "heroGradient": "#15202b",
+  "heroFont": { "google": "Courier Prime:wght@400;700", "family": "'Courier Prime', 'Courier New', monospace" },
+  "regularsNote": "Series regulars — Michael, Dwight, Jim, Pam, Ryan, Andy, Angela, Kevin, Oscar, Stanley, Phyllis, Meredith, Creed, Kelly, Toby, Darryl, Erin and the later additions — aren't listed here; use the roster row on the chart for them. This dropdown is TVmaze's guest cast: Jan, Holly, David Wallace, Roy, Karen, Jo Bennett, Todd Packer, Mose and the rest of Scranton's orbit.",
+  "chartHint": "Nine seasons across. Click any bar to filter the episode list; mid-season changes are drawn at season granularity with the exact episode (TVmaze numbering) in the label.",
+  "credits": "Episode data, images and ratings from TVmaze. Chart hand-built from the series.",
+  "episodeCount": 202,
+  "seasons": 9
+}

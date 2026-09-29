@@ -10,6 +10,26 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/15/37512.jpg"
   },
   {
+    "slug": "avatar-the-last-airbender",
+    "title": "AVATAR: THE LAST AIRBENDER",
+    "subtitle": "skipto.tv",
+    "blurb": "Water. Earth. Fire. Air. All 61 chapters of the original Nickelodeon series, from the boy in the iceberg to Sozin's Comet: every book, every antagonist from Zhao to the Phoenix King, and every stop on the road across the four nations, charted episode by episode.",
+    "episodeCount": 61,
+    "seasons": 3,
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/200/501174.jpg"
+  },
+  {
+    "slug": "babylon-5",
+    "title": "BABYLON 5",
+    "subtitle": "skipto.tv",
+    "blurb": "J. Michael Straczynski's five-year novel for television, laid out episode by episode — Sinclair's first year, Sheridan's command, the Shadow War, the Earth Alliance civil war, and the year after, when the telepaths come and Centauri Prime falls.",
+    "episodeCount": 112,
+    "seasons": 5,
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/193/484551.jpg"
+  },
+  {
     "slug": "battlestar-galactica",
     "title": "BATTLESTAR GALACTICA",
     "subtitle": "skipto.tv",
@@ -28,6 +48,16 @@
     "seasons": 7,
     "axis": "season",
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/14/37026.jpg"
+  },
+  {
+    "slug": "community",
+    "title": "COMMUNITY",
+    "subtitle": "skipto.tv",
+    "blurb": "Six seasons at Greendale Community College, charted season by season: Dan Harmon's firing and the gas-leak year that followed, his return, the study group losing Pierce, Troy and Shirley, the move from NBC to Yahoo!, and more paintball wars, documentaries, Christmas specials and alternate timelines than any show has a right to.",
+    "episodeCount": 110,
+    "seasons": 6,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/197/494772.jpg"
   },
   {
     "slug": "criminal-minds",
@@ -68,6 +98,36 @@
     "seasons": 5,
     "axis": "season",
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/120/302178.jpg"
+  },
+  {
+    "slug": "fringe",
+    "title": "FRINGE",
+    "subtitle": "skipto.tv",
+    "blurb": "All 100 Fringe cases, episode by episode: which hours are case-of-the-week and which move the mythology, which side of the breach you're on, the timeline where Peter never grew up, and the Observer-occupied world of 2036.",
+    "episodeCount": 100,
+    "seasons": 5,
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/148/371898.jpg"
+  },
+  {
+    "slug": "game-of-thrones",
+    "title": "GAME OF THRONES",
+    "subtitle": "skipto.tv",
+    "blurb": "All 73 episodes of Westeros and Essos, episode by episode: the book era from Winterfell to Mother's Mercy, then the three seasons after the books ran out. Every throne, house, battle and major death, placed on the episode where it happens.",
+    "episodeCount": 73,
+    "seasons": 8,
+    "axis": "episode",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/478/1195041.jpg"
+  },
+  {
+    "slug": "gilmore-girls",
+    "title": "GILMORE GIRLS",
+    "subtitle": "skipto.tv",
+    "blurb": "Seven seasons in Stars Hollow, charted season by season: Rory's boyfriends and Lorelai's, Chilton to Yale to the campaign trail, the Independence Inn to the Dragonfly, Friday night dinners, and the year the Palladinos weren't there.",
+    "episodeCount": 153,
+    "seasons": 7,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/87/217973.jpg"
   },
   {
     "slug": "house",
@@ -158,6 +218,16 @@
     "seasons": 15,
     "axis": "season",
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/5/12728.jpg"
+  },
+  {
+    "slug": "the-office",
+    "title": "THE OFFICE",
+    "subtitle": "skipto.tv",
+    "blurb": "Nine seasons at Dunder Mifflin Scranton, charted season by season: the Michael Scott years and everything after him, Jim and Pam from the reception desk to Philadelphia, every manager in the big office, and the corporate layers stacked above them — New York, then Sabre, then David Wallace.",
+    "episodeCount": 202,
+    "seasons": 9,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/194/486900.jpg"
   },
   {
     "slug": "the-wire",
