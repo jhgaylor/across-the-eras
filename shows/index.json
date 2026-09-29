@@ -200,6 +200,16 @@
     "image": "https://static.tvmaze.com/uploads/images/medium_landscape/565/1413862.jpg"
   },
   {
+    "slug": "star-trek-tng",
+    "title": "STAR TREK: THE NEXT GENERATION",
+    "subtitle": "skipto.tv",
+    "blurb": "Seven seasons aboard the Enterprise-D, charted season by season: who was running the writers' room, who was running sickbay, and every return of Q, the Borg, the Romulans, the Klingon High Council and the Cardassians.",
+    "episodeCount": 178,
+    "seasons": 7,
+    "axis": "season",
+    "image": "https://static.tvmaze.com/uploads/images/medium_landscape/496/1242230.jpg"
+  },
+  {
     "slug": "stargate-sg1",
     "title": "STARGATE SG-1",
     "subtitle": "skipto.tv",
